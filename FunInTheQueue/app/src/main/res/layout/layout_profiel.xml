@@ -13,14 +13,14 @@
         android:fitsSystemWindows="true"
         android:focusable="false"
         android:focusableInTouchMode="false">
-<!--
+
         <ImageView
             android:layout_width="fill_parent"
             android:layout_height="450dp"
             android:id="@+id/backgroundProfile"
             android:layout_gravity="center_horizontal|bottom"
             android:layout_alignParentBottom="true"
-            android:src = "@drawable/profielbackground"/>-->
+            android:src = "@drawable/profielbackground"/>
     </LinearLayout>
 
 </LinearLayout>

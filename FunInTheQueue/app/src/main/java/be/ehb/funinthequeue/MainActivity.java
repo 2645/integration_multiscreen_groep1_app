@@ -33,16 +33,24 @@ public class MainActivity extends FragmentActivity {
         game = new GameFragment();
         wachttijden = new QueueFragment();
 
+        tekst();
+    }
+
+    public void tekst() {
         TextView verwelkoming = (TextView) findViewById(R.id.txtVerwelkoming);
         TextView wachttijd = (TextView) findViewById(R.id.txtWachttijd);
         TextView indebuurt = (TextView) findViewById(R.id.txtInDeBuurt);
         TextView wachttijdattractie = (TextView) findViewById(R.id.txtWachttijdTitel);
-        Typeface face = Typeface.createFromAsset(getAssets(),
+        TextView attractie = (TextView) findViewById(R.id.txtAttractietitel);
+        Typeface book = Typeface.createFromAsset(getAssets(),
                 "fonts/GOTHAM-BOOK.OTF");
-        verwelkoming.setTypeface(face);
-        wachttijd.setTypeface(face);
-        indebuurt.setTypeface(face);
-        wachttijdattractie.setTypeface(face);
+        Typeface medium = Typeface.createFromAsset(getAssets(),
+                "fonts/GOTHAM-MEDIUM.OTF");
+        verwelkoming.setTypeface(book);
+        wachttijd.setTypeface(book);
+        indebuurt.setTypeface(book);
+        wachttijdattractie.setTypeface(medium);
+        attractie.setTypeface(medium);
     }
 
     public void changePage(int position) {
