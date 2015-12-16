@@ -108,19 +108,72 @@
                 <ImageView
                     android:layout_width="70dp"
                     android:layout_height="70dp"
-                    android:id="@+id/imageView2"
+                    android:id="@+id/imgKortsteWachttijd"
                     android:src="@drawable/attractiefoto" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Anubis The Ride"
-                    android:id="@+id/txtWachttijdTitel"
-                    android:textColor="#000000"
-                    android:textSize="13dp"
-                    android:layout_marginLeft="10dp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="15dp" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Anubis The Ride"
+                        android:id="@+id/txtWachttijdTitel"
+                        android:textColor="#000000"
+                        android:textSize="13dp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginLeft="10dp" />
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:id="@+id/imageView5"
+                            android:src="@drawable/queue"
+                            android:paddingLeft="8dp"
+                            android:paddingTop="0dp"
+                            android:paddingRight="5dp"
+                            android:paddingBottom="5dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10 min"
+                            android:id="@+id/txtTijd1"
+                            android:textColor="#000000"
+                            android:paddingTop="5dp"
+                            android:textIsSelectable="false"
+                            android:textSize="12dp" />
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:id="@+id/imageView2"
+                            android:src="@drawable/placemarker"
+                            android:paddingLeft="8dp"
+                            android:paddingTop="0dp"
+                            android:paddingRight="5dp"
+                            android:paddingBottom="5dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="50 m"
+                            android:id="@+id/txtAfstand1"
+                            android:textColor="#000000"
+                            android:paddingTop="5dp"
+                            android:textIsSelectable="false"
+                            android:textSize="12dp" />
+                    </LinearLayout>
+
+                </LinearLayout>
 
             </LinearLayout>
         </LinearLayout>
@@ -131,30 +184,82 @@
             android:layout_height="80dp"
             android:background="@drawable/shape"
             android:id="@+id/linearLayout2"
-            android:layout_below="@+id/txtInDeBuurt"
+            android:layout_below="@+id/imageView3"
             android:layout_centerHorizontal="true">
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent" >
 
                 <ImageView
                     android:layout_width="70dp"
                     android:layout_height="70dp"
-                    android:id="@+id/imageView4"
+                    android:id="@+id/imgInDeBuurt"
                     android:src="@drawable/attractiefoto2" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="De Boomstammetjes"
-                    android:id="@+id/txtAttractietitel"
-                    android:textColor="#000000"
-                    android:textSize="13dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginLeft="10dp"
-                    android:textStyle="bold" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="De Boomstammetjes"
+                        android:id="@+id/txtAttractietitel"
+                        android:textColor="#000000"
+                        android:textSize="13dp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginLeft="10dp" />
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:id="@+id/imageView6"
+                            android:src="@drawable/queue"
+                            android:paddingLeft="8dp"
+                            android:paddingTop="0dp"
+                            android:paddingRight="5dp"
+                            android:paddingBottom="5dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4 min"
+                            android:id="@+id/txtTijd2"
+                            android:textColor="#000000"
+                            android:paddingTop="5dp"
+                            android:textIsSelectable="false"
+                            android:textSize="12dp" />
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:id="@+id/imageView7"
+                            android:src="@drawable/placemarker"
+                            android:paddingLeft="8dp"
+                            android:paddingTop="0dp"
+                            android:paddingRight="5dp"
+                            android:paddingBottom="5dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="100 m"
+                            android:id="@+id/txtAfstand2"
+                            android:textColor="#000000"
+                            android:paddingTop="5dp"
+                            android:textIsSelectable="false"
+                            android:textSize="12dp" />
+                    </LinearLayout>
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
 

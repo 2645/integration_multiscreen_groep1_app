@@ -20,7 +20,8 @@
             android:id="@+id/backgroundProfile"
             android:layout_gravity="center_horizontal|bottom"
             android:layout_alignParentBottom="true"
-            android:src = "@drawable/profielbackground"/>
+            android:src = "@drawable/profielbackground"
+            android:scaleType="centerCrop" />
     </LinearLayout>
 
 </LinearLayout>
