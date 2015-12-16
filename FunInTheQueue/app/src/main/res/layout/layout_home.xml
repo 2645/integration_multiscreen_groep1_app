@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background = "#7278B8">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal">
+
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/backgroundHome"
+            android:scaleType="fitEnd"
+            android:layout_alignParentBottom="false"
+            android:src = "@drawable/homebackground"
+            android:layout_marginBottom="30dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hallo, Dieter!"
+            android:id="@+id/txtVerwelkoming"
+            android:layout_gravity="center_horizontal|right"
+            android:textSize="28dp"
+            android:layout_marginTop="60dp"
+            android:layout_centerHorizontal="true"
+            android:textColor="#ffffff"
+            android:layout_alignParentEnd="false" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kortste wachttijd"
+            android:id="@+id/txtWachttijd"
+            android:layout_gravity="center_horizontal"
+            android:textSize="24dp"
+            android:layout_alignWithParentIfMissing="false"
+            android:textColor="#ffffff"
+            android:paddingBottom="7dp"
+            android:layout_below="@+id/txtVerwelkoming"
+            android:layout_alignLeft="@+id/txtVerwelkoming"
+            android:layout_alignStart="@+id/txtVerwelkoming"
+            android:layout_marginTop="130dp" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/imageView"
+            android:src="@drawable/queuewit"
+            android:padding="8dp"
+            android:layout_alignWithParentIfMissing="false"
+            android:scaleType="centerCrop"
+            android:layout_alignBottom="@+id/txtWachttijd"
+            android:layout_toLeftOf="@+id/txtWachttijd"
+            android:layout_toStartOf="@+id/txtWachttijd"
+            android:layout_alignParentRight="false"
+            android:layout_alignParentBottom="false" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="In de buurt"
+            android:id="@+id/txtInDeBuurt"
+            android:layout_gravity="center_horizontal"
+            android:textSize="24dp"
+            android:layout_alignWithParentIfMissing="false"
+            android:textColor="#ffffff"
+            android:paddingBottom="7dp"
+            android:singleLine="false"
+            android:layout_below="@+id/linearLayout"
+            android:layout_alignRight="@+id/txtVerwelkoming"
+            android:layout_alignEnd="@+id/txtVerwelkoming"
+            android:layout_marginTop="15dp" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/imageView3"
+            android:src="@drawable/afstandpin"
+            android:layout_alignWithParentIfMissing="false"
+            android:scaleType="centerCrop"
+            android:paddingBottom="15dp"
+            android:paddingLeft="8dp"
+            android:paddingTop="8dp"
+            android:paddingRight="8dp"
+            android:layout_alignBottom="@+id/txtInDeBuurt"
+            android:layout_toLeftOf="@+id/txtInDeBuurt"
+            android:layout_toStartOf="@+id/txtInDeBuurt" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="250dp"
+            android:layout_height="80dp"
+            android:background="@drawable/shape"
+            android:id="@+id/linearLayout"
+            android:layout_below="@+id/txtWachttijd"
+            android:layout_centerHorizontal="true">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:id="@+id/imageView2"
+                    android:src="@drawable/attractiefoto" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Anubis The Ride"
+                    android:id="@+id/txtWachttijdTitel"
+                    android:textColor="#000000"
+                    android:textSize="16dp"
+                    android:layout_marginLeft="10dp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="15dp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="250dp"
+            android:layout_height="80dp"
+            android:background="@drawable/shape"
+            android:id="@+id/linearLayout2"
+            android:layout_below="@+id/txtInDeBuurt"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="De Boomstammetjes"
+                android:id="@+id/txtAttractietitel"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#000000"
+                android:textSize="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="25dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>
