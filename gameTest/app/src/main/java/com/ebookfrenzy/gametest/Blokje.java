@@ -2,6 +2,7 @@ package com.ebookfrenzy.gametest;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.util.Log;
 import android.view.SurfaceHolder;
 
 import java.util.Random;
@@ -11,20 +12,23 @@ import java.util.Random;
  */
 public class Blokje extends Item {
     private int score;
-    private int speed;
+    private double speed;
+    private int DeviceWidth;
     private Random rand = new Random();
     private Bitmap image;
 
 
-    public Blokje(Bitmap res, int x, int y, int w, int h, int s, int aantalframes) {
+    public Blokje(Bitmap res, int x, int y, int w, int h, int s, int DWidth) {
 
         super.x = x;
         super.y = y;
         width = w;
         height = h;
         score = s;
+        DeviceWidth = DWidth;
 
-        speed = 10 + (int) rand.nextDouble()* score/30;
+        speed = 10 + score/10;
+
 
         if (speed > 30) {
             speed = 30;
@@ -37,6 +41,7 @@ public class Blokje extends Item {
     public void draw(Canvas canvas) {
         try {
             canvas.drawBitmap(image, x, y, null);
+            Log.d("score", String.valueOf(speed));
         }
         catch(Exception e) {
 

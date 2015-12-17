@@ -1,68 +1,46 @@
 package com.ebookfrenzy.gametest;
-import android.app.Activity;
-import android.content.Context;
+
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Rect;
 import android.util.Log;
-import android.view.Display;
-import android.view.WindowManager;
-import android.view.animation.Animation;
+
+import java.util.Random;
 
 /**
  * Created by Maarten on 16/12/15.
  */
 public class Beker extends Item {
-
-
-
-
-    private Bitmap image;
     private int score;
-    private double dya;
     private boolean press;
+    private double dya;
+    private int DeviceWidth;
+    private Random rand = new Random();
+    private Bitmap image;
     private boolean playing;
-    //private Animation animatie = new Animation();
-
-    private long startTime;
 
 
-    public Beker(Bitmap res, int w, int h, int numFrames) {
-        x = 100;
-        y = (int) (GamePanel.heightBackground/2);
+    public Beker(Bitmap res, int x, int y, int w, int h, int s, int DWidth) {
 
-
-        dx = 0;
-        score = 0;
-
-        height = h;
+        super.x = x;
+        super.y = y;
         width = w;
-
-        image = Bitmap.createBitmap(res, 0, 0, width, height);
-
-
-        //animatie.setFrames(deBeker);
-       // animatie.setDelay(10);
-
-        startTime = System.nanoTime();
+        height = h;
+        score = s;
+        DeviceWidth = DWidth;
 
 
 
 
 
-    }
-    public void setup(boolean b) {
-        press = b;
+        image = res;
     }
     public void update() {
-        //animatie.update();
-
         if (press) {
             dx = (int) (dya+=1);
 
         }
         else {
-            dx = (int) (dya-=1);
+            dx = (int) (dya -= 1);
         }
 
 
@@ -71,19 +49,34 @@ public class Beker extends Item {
 
         // randen
 
-        if (x > 700) {
-            x = getWidth();
+        if (x > DeviceWidth) {
+            x = DeviceWidth;
 
-            Log.d("width", String.valueOf(getWidth()));
+
         }
+
         if (x < 0) {
             x = 0;
+
+        }
+
+    }
+
+
+    public void draw(Canvas canvas) {
+        try {
+            canvas.drawBitmap(image, x, y, null);
+
+        }
+        catch(Exception e) {
+
         }
 
 
     }
-    public void draw(Canvas canvas) {
-        canvas.drawBitmap(image, x, y, null);
+    @Override
+    public int getWidth() {
+        return width - 10;
     }
     public void setPress(boolean b) {
         press = b;
@@ -95,10 +88,4 @@ public class Beker extends Item {
     public void setPlaying(boolean b) {
         playing = b;
     }
-    public void resetDya() {
-        dya = 0;
-    }
-
-
-
 }

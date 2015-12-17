@@ -3,8 +3,11 @@ package com.ebookfrenzy.gametest;
 import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
@@ -21,10 +24,11 @@ import java.util.Random;
  */
 
 public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
+    public int DeviceW;
 
     public static final float widthBackground = 1080;
     public static final float heightBackground = 1920;
-    public int mijnscore = 1;
+    public int mijnscore = 100;
     private Random rand = new Random();
 
     private NewTread Thread;
@@ -38,8 +42,9 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
     private ArrayList<Blokje> blokjesLijst;
 
-    public GamePanel(Context context) {
+    public GamePanel(Context context,int Dwidth) {
         super(context);
+        DeviceW = Dwidth;
         getHolder().addCallback(this);
 
         Thread = new NewTread(getHolder(), this);
@@ -70,9 +75,10 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     }
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-            mijnBackground = new Background(BitmapFactory.decodeResource(getResources(), R.drawable.background01));
-            mijnBeker = new Beker(BitmapFactory.decodeResource(getResources(), R.drawable.beker02), 100, 144, 0);
-
+            mijnBackground = new Background(BitmapFactory.decodeResource(getResources(), R.drawable.background02));
+            //mijnBeker = new Beker(BitmapFactory.decodeResource(getResources(), R.drawable.beker03), 160, 230, DeviceW);
+            mijnBeker = new Beker(BitmapFactory.decodeResource(getResources(),R.drawable.beker04),
+                100, 800,  100, 144, mijnscore, DeviceW);
             blokjesLijst = new ArrayList<Blokje>();
             snelheid = 1;
 
@@ -84,12 +90,14 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     public boolean onTouchEvent(MotionEvent event) {
 
         if (event.getAction() == MotionEvent.ACTION_DOWN) { // press down
+
             if (!mijnBeker.getPlaying()) {
                 mijnBeker.setPlaying(true);
             }
             else {
                 mijnBeker.setPress(true);
             }
+
             return true;
         }
         if (event.getAction() == MotionEvent.ACTION_UP) {
@@ -104,15 +112,16 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
         snelheid += 1;
 
         if (mijnBeker.getPlaying()) {
+
             mijnBackground.update();
             mijnBeker.update();
 
 
+            int moeilijkheid = mijnscore;
 
 
 
-
-            if (snelheid % 50 == 0) {
+            if (snelheid % 50  == 0) {
 
                 blokjesLijst.add(new Blokje(BitmapFactory.decodeResource(getResources(),R.drawable.blokje02),
                         (int)(rand.nextDouble()*(widthBackground)), 0,  48, 52, mijnscore, 0));
@@ -153,31 +162,56 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
         float scale1 = (float) (0.5);
         float scale2 = (float) (0.5);
 
+
+        super.draw(canvas);
+
         if (canvas != null) {
             Log.d("scale", String.valueOf(scaleY));
             final int savedState = canvas.save();
+
             canvas.scale(scaleX, scaleY);
 
             mijnBackground.draw(canvas);
-
             canvas.restoreToCount(savedState);
-            mijnBeker.draw(canvas);
 
+
+            drawText(canvas);
+
+            mijnBeker.draw(canvas);
 
             for (int i = 0; i < blokjesLijst.size(); i++) {
                 blokjesLijst.get(i).draw(canvas);
             }
+
         }
+
     }
 
     public boolean collision(Item blokje, Item player) {
-        if (Rect.intersects(blokje.getRectangle(), player.getRectangle())) {
+        /*if (Rect.intersects(blokje.getRectangle(), player.getRectangle())) {
             return true;
         }
         else {
             return false;
         }
+        */
 
+        if (blokje.y + 100> player.y && blokje.y + 50 < player.y ) {
+            if (blokje.x > player.x - 90 && blokje.x < (player.x + player.width + 90)) {
+                return true;
+            }
+
+        }
+
+        return false;
+
+    }
+    public void drawText(Canvas canvas) {
+        Paint mijnpaint = new Paint();
+        mijnpaint.setColor(Color.WHITE);
+        mijnpaint.setTextSize(30);
+        mijnpaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+        canvas.drawText("Blokjes opgevangen: " + mijnscore, 10, getHeight() - 10, mijnpaint);
     }
 
 
