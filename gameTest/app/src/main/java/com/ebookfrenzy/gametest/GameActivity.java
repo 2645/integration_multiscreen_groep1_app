@@ -1,16 +1,34 @@
 package com.ebookfrenzy.gametest;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
 
-public class GameActivity extends AppCompatActivity {
+public class GameActivity extends Activity {
+    public int DeviceWidth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game);
+
+
+
+        DeviceWidth = getResources().getDisplayMetrics().widthPixels;
+
+        Log.d("mijnwidth", String.valueOf(DeviceWidth));
+
+
+
+        // geen titel
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        // fullscreen
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setContentView(new GamePanel(this));
     }
 
     @Override
