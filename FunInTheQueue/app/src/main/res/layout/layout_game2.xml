@@ -2,8 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background ="#825EA4"
-    android:paddingTop="10dp">
+    android:background ="#825EA4">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -31,12 +30,12 @@
                 android:id="@+id/imageView4"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="30dp"
-                android:src="@drawable/icecube" />
+                android:src="@drawable/quiz" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Catch a cube"
+                android:text="Coca-Cola Quiz"
                 android:id="@+id/txtCatchACube"
                 android:layout_gravity="center_horizontal"
                 android:textSize="35dp"
@@ -48,7 +47,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Highscore: 23"
+                android:text="Highscore: 17/20"
                 android:id="@+id/txtHighscoreCatchACube"
                 android:layout_gravity="center_horizontal"
                 android:textSize="18dp"
@@ -83,7 +82,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Help! Het regent ijsblokjes! Kan jij ervoor zorgen dat de ijsblokjes de grond niet raken? Vang ze op in je Coca-Cola beker!"
+                android:text="Denk jij veel te weten over Coca-Cola of wil je juist meer te weten komen op een ludieke manier? Speel dan de Coca-Cola quiz!"
                 android:id="@+id/txtUitlegCatchACube"
                 android:layout_marginLeft="55dp"
                 android:layout_marginRight="55dp"
@@ -101,7 +100,6 @@
                 android:background="@drawable/buttonbackground"
                 android:textColor="#000000"
                 android:textSize="15dp"
-                android:onClick="startCubeGame"
                 android:layout_marginTop="15dp" />
 
             <Button

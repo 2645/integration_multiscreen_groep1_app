@@ -5,23 +5,90 @@
     android:layout_height="match_parent"
     android:background = "#FFA46D">
 
-    <LinearLayout
-        android:orientation="horizontal"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:fitsSystemWindows="true"
-        android:focusable="false"
-        android:focusableInTouchMode="false">
+        android:layout_height="match_parent">
 
         <ImageView
             android:layout_width="fill_parent"
-            android:layout_height="450dp"
+            android:layout_height="fill_parent"
             android:id="@+id/backgroundProfile"
             android:layout_gravity="center_horizontal|bottom"
             android:layout_alignParentBottom="true"
             android:src = "@drawable/profielbackground"
-            android:scaleType="centerCrop" />
-    </LinearLayout>
+            android:scaleType="fitEnd" />
+
+        <ImageView
+            android:layout_width="110dp"
+            android:layout_height="150dp"
+            android:id="@+id/imageView8"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="35dp"
+            android:src="@drawable/plop" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dieter Holvoet"
+            android:id="@+id/txtNaam"
+            android:layout_below="@+id/imageView8"
+            android:layout_centerHorizontal="true"
+            android:textSize="30dp"
+            android:textColor="#ffffff" />
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:id="@+id/imageView9"
+            android:src="@drawable/cocacoin"
+            android:layout_below="@+id/txtNaam"
+            android:layout_alignLeft="@+id/imageView8"
+            android:layout_alignStart="@+id/imageView8" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="500 cocacoins"
+            android:id="@+id/textView"
+            android:textColor="#ffffff"
+            android:textSize="15dp"
+            android:layout_alignBottom="@+id/imageView9"
+            android:layout_toRightOf="@+id/imageView9"
+            android:layout_toEndOf="@+id/imageView9"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="3dp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/imageView9"
+            android:layout_marginTop="40dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/imageView10"
+                    android:src="@drawable/vrienden" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vrienden"
+                    android:id="@+id/textView2"
+                    android:textColor="#ffffff"
+                    android:textSize="20dp"
+                    android:layout_marginTop="12dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
 
 </LinearLayout>

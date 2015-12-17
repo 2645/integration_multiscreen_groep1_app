@@ -8,7 +8,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal">
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="15dp">
 
 
         <ImageView
@@ -17,8 +18,7 @@
             android:id="@+id/backgroundHome"
             android:scaleType="fitEnd"
             android:layout_alignParentBottom="false"
-            android:src = "@drawable/homebackground"
-            android:layout_marginBottom="30dp" />
+            android:src = "@drawable/homebackground" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -27,11 +27,12 @@
             android:id="@+id/txtVerwelkoming"
             android:layout_gravity="center_horizontal|right"
             android:textSize="28dp"
-            android:layout_marginTop="60dp"
-            android:layout_centerHorizontal="true"
+            android:layout_marginTop="77dp"
             android:textColor="#ffffff"
-            android:layout_alignParentEnd="false"
-            android:layout_marginLeft="10dp" />
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/linearLayout"
+            android:layout_alignEnd="@+id/linearLayout"
+            android:typeface="serif" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -39,13 +40,15 @@
             android:text="Kortste wachttijd"
             android:id="@+id/txtWachttijd"
             android:layout_gravity="center_horizontal"
-            android:textSize="24dp"
+            android:textSize="20dp"
             android:textColor="#ffffff"
             android:paddingBottom="7dp"
+            android:layout_marginTop="119dp"
             android:layout_below="@+id/txtVerwelkoming"
-            android:layout_alignLeft="@+id/txtVerwelkoming"
-            android:layout_alignStart="@+id/txtVerwelkoming"
-            android:layout_marginTop="120dp" />
+            android:layout_alignRight="@+id/linearLayout"
+            android:layout_alignEnd="@+id/linearLayout"
+            android:layout_marginRight="15dp"
+            android:typeface="serif" />
 
         <ImageView
             android:layout_width="40dp"
@@ -67,14 +70,15 @@
             android:text="In de buurt"
             android:id="@+id/txtInDeBuurt"
             android:layout_gravity="center_horizontal"
-            android:textSize="24dp"
+            android:textSize="20dp"
             android:textColor="#ffffff"
             android:paddingBottom="7dp"
             android:singleLine="false"
-            android:layout_below="@+id/linearLayout"
-            android:layout_alignRight="@+id/txtVerwelkoming"
-            android:layout_alignEnd="@+id/txtVerwelkoming"
-            android:layout_marginTop="15dp" />
+            android:layout_alignBottom="@+id/imageView3"
+            android:layout_toRightOf="@+id/imageView3"
+            android:layout_toEndOf="@+id/imageView3"
+            android:layout_marginTop="15dp"
+            android:typeface="serif" />
 
         <ImageView
             android:layout_width="40dp"
@@ -87,9 +91,11 @@
             android:paddingLeft="8dp"
             android:paddingTop="8dp"
             android:paddingRight="8dp"
-            android:layout_alignBottom="@+id/txtInDeBuurt"
-            android:layout_toLeftOf="@+id/txtInDeBuurt"
-            android:layout_toStartOf="@+id/txtInDeBuurt" />
+            android:layout_below="@+id/linearLayout"
+            android:layout_alignLeft="@+id/imageView"
+            android:layout_alignStart="@+id/imageView"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="25dp" />
 
         <LinearLayout
             android:orientation="vertical"
@@ -123,9 +129,11 @@
                         android:id="@+id/txtWachttijdTitel"
                         android:textColor="#000000"
                         android:textSize="13dp"
-                        android:textStyle="bold"
                         android:layout_marginTop="15dp"
-                        android:layout_marginLeft="10dp" />
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="Gotham"
+                        android:typeface="serif"
+                        android:textStyle="bold" />
 
                     <LinearLayout
                         android:orientation="horizontal"
@@ -150,7 +158,9 @@
                             android:textColor="#000000"
                             android:paddingTop="5dp"
                             android:textIsSelectable="false"
-                            android:textSize="12dp" />
+                            android:textSize="12dp"
+                            android:fontFamily="Gotham"
+                            android:typeface="serif" />
 
                         <ImageView
                             android:layout_width="30dp"
@@ -170,7 +180,9 @@
                             android:textColor="#000000"
                             android:paddingTop="5dp"
                             android:textIsSelectable="false"
-                            android:textSize="12dp" />
+                            android:textSize="12dp"
+                            android:fontFamily="Gotham"
+                            android:typeface="serif" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -184,8 +196,10 @@
             android:layout_height="80dp"
             android:background="@drawable/shape"
             android:id="@+id/linearLayout2"
-            android:layout_below="@+id/imageView3"
-            android:layout_centerHorizontal="true">
+            android:layout_below="@+id/linearLayout"
+            android:layout_alignLeft="@+id/linearLayout"
+            android:layout_alignStart="@+id/linearLayout"
+            android:layout_marginTop="55dp">
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -212,7 +226,9 @@
                         android:textSize="13dp"
                         android:textStyle="bold"
                         android:layout_marginTop="15dp"
-                        android:layout_marginLeft="10dp" />
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="Gotham"
+                        android:typeface="serif" />
 
                     <LinearLayout
                         android:orientation="horizontal"
@@ -237,7 +253,9 @@
                             android:textColor="#000000"
                             android:paddingTop="5dp"
                             android:textIsSelectable="false"
-                            android:textSize="12dp" />
+                            android:textSize="12dp"
+                            android:fontFamily="Gotham"
+                            android:typeface="serif" />
 
                         <ImageView
                             android:layout_width="30dp"
@@ -257,11 +275,45 @@
                             android:textColor="#000000"
                             android:paddingTop="5dp"
                             android:textIsSelectable="false"
-                            android:textSize="12dp" />
+                            android:textSize="12dp"
+                            android:fontFamily="Gotham"
+                            android:typeface="serif" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="200 cocacoins"
+            android:id="@+id/txtAantalCoins"
+            android:textSize="15dp"
+            android:textColor="#ffffff"
+            android:layout_alignBottom="@+id/imgCocaCoin"
+            android:layout_toRightOf="@+id/imgCocaCoin"
+            android:layout_toEndOf="@+id/imgCocaCoin"
+            android:layout_marginLeft="10dp"
+            android:typeface="serif" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:id="@+id/imgCocaCoin"
+            android:src="@drawable/cocacoin"
+            android:layout_below="@+id/txtVerwelkoming"
+            android:layout_toRightOf="@+id/imgAvatar"
+            android:layout_toEndOf="@+id/imgAvatar" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="200dp"
+            android:id="@+id/imgAvatar"
+            android:src="@drawable/plop"
+            android:paddingBottom="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/txtVerwelkoming"
+            android:layout_toStartOf="@+id/txtVerwelkoming" />
 
     </RelativeLayout>
 
