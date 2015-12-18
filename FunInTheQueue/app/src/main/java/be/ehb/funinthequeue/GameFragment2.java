@@ -11,13 +11,13 @@ import android.widget.TextView;
 /**
  * Created by ToonLeemans on 16/12/15.
  */
-public class GameFragment extends Fragment{
+public class GameFragment2 extends Fragment{
     View rootview;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 // Inflate the layout for this fragment
-        rootview = inflater.inflate(R.layout.layout_game, container, false);
+        rootview = inflater.inflate(R.layout.layout_game2, container, false);
 
         return rootview;
     }

@@ -1,19 +1,13 @@
 package be.ehb.funinthequeue;
 
-import android.app.FragmentManager;
 import android.content.Intent;
-import android.app.Fragment;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
-import android.provider.ContactsContract;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
+import android.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.app.FragmentManager;
 import android.view.View;
 import android.view.Window;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class MainActivity extends FragmentActivity {
@@ -24,34 +18,33 @@ public class MainActivity extends FragmentActivity {
     Fragment game;
     Fragment wachttijden;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        //tekst();
+        TypefaceUtil.overrideFont(getApplicationContext(), "SERIF", "fonts/GOTHAM-BOOK.OTF");
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
 
         profile = new ProfielFragment();
         home = new HomeFragment();
         game = new GameFragment();
         wachttijden = new QueueFragment();
 
-        tekst();
     }
 
     public void tekst() {
-        TextView verwelkoming = (TextView) findViewById(R.id.txtVerwelkoming);
-        TextView wachttijd = (TextView) findViewById(R.id.txtWachttijd);
-        TextView indebuurt = (TextView) findViewById(R.id.txtInDeBuurt);
         TextView wachttijdattractie = (TextView) findViewById(R.id.txtWachttijdTitel);
         TextView attractie = (TextView) findViewById(R.id.txtAttractietitel);
-        Typeface book = Typeface.createFromAsset(getAssets(),
-                "fonts/GOTHAM-BOOK.OTF");
+        TextView catchacube = (TextView) findViewById(R.id.txtCatchACube);
         Typeface medium = Typeface.createFromAsset(getAssets(),
                 "fonts/GOTHAM-MEDIUM.OTF");
-        verwelkoming.setTypeface(book);
-        wachttijd.setTypeface(book);
-        indebuurt.setTypeface(book);
         wachttijdattractie.setTypeface(medium);
         attractie.setTypeface(medium);
+        catchacube.setTypeface(medium);
     }
 
     public void changePage(int position) {
@@ -79,6 +72,9 @@ public class MainActivity extends FragmentActivity {
     public void goToHome(View view) {
         changePage(0);
     }
+    public void goToQR(View view) {
+        changePage(0);
+    }
     public void goToProfile(View view) {
         changePage(1);
     }
@@ -87,6 +83,10 @@ public class MainActivity extends FragmentActivity {
     }
     public void goToGame(View view) {
         changePage(3);
+    }
+    public void startCubeGame(View view) {
+        Intent myIntent = new Intent(MainActivity.this, GameActivity.class);
+        MainActivity.this.startActivity(myIntent);
     }
 
 }
