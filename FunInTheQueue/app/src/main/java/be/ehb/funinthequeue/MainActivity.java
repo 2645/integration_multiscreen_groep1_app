@@ -17,6 +17,7 @@ public class MainActivity extends FragmentActivity {
     Fragment profile;
     Fragment game;
     Fragment wachttijden;
+    Fragment detail;
 
 
     @Override
@@ -33,7 +34,7 @@ public class MainActivity extends FragmentActivity {
         home = new HomeFragment();
         game = new GameFragment();
         wachttijden = new QueueFragment();
-
+        detail = new AttractieDetailFragment();
     }
 
     public void tekst() {
@@ -64,6 +65,9 @@ public class MainActivity extends FragmentActivity {
             case 3:
                 fragment = game;
                 break;
+            case 4:
+                fragment = detail;
+                break;
         }
         fragmentManager.beginTransaction()
                 .replace(R.id.container, fragment)
@@ -83,6 +87,9 @@ public class MainActivity extends FragmentActivity {
     }
     public void goToGame(View view) {
         changePage(3);
+    }
+    public void goToQueueDetail(View view) {
+        changePage(4);
     }
     public void startCubeGame(View view) {
         Intent myIntent = new Intent(MainActivity.this, GameActivity.class);
