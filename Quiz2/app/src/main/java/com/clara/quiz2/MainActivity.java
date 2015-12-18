@@ -1,6 +1,8 @@
 package com.clara.quiz2;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
     Button button;
     Button button2;
     Button button3;
+    Handler mHandler = new Handler();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,17 +38,20 @@ public class MainActivity extends AppCompatActivity {
         DbHelper db = new DbHelper(this);
         questionList = db.getAllQuestions();
         currentQuestion = questionList.get(questionid);
-        txtQuestion=(TextView)findViewById(R.id.textView1);
-        scoreText = (TextView)findViewById(R.id.textView);
-        questionText = (TextView)findViewById(R.id.textView2);
-        button=(Button)findViewById(R.id.button);
-        button2=(Button)findViewById(R.id.button2);
-        button3=(Button)findViewById(R.id.button3);
+        txtQuestion = (TextView) findViewById(R.id.textView1);
+        scoreText = (TextView) findViewById(R.id.textView);
+        questionText = (TextView) findViewById(R.id.textView2);
+        button = (Button) findViewById(R.id.button);
+        button2 = (Button) findViewById(R.id.button2);
+        button3 = (Button) findViewById(R.id.button3);
         createQuestionValues();
         button.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 checkAnswer(button);
+
+
             }
         });
 
@@ -62,28 +70,38 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void createQuestionValues()
-    {
+    private void createQuestionValues() {
         txtQuestion.setText(currentQuestion.getQuestion());
         button.setText(currentQuestion.getOption1());
+        button.setBackgroundDrawable(getResources().getDrawable(R.drawable.roundedbutton));
         button2.setText(currentQuestion.getOption2());
+        button2.setBackgroundDrawable(getResources().getDrawable(R.drawable.roundedbutton));
         button3.setText(currentQuestion.getOption3());
+        button3.setBackgroundDrawable(getResources().getDrawable(R.drawable.roundedbutton));
         scoreText.setText("Score: " + score);
         questionText.setText("Vraag: " + (questionid + 1));
         questionid++;
     }
 
-    private void checkAnswer(Button btn){
+    private void checkAnswer(Button btn) {
 
-        if(currentQuestion.getAnswer().equals(btn.getText()))
-        {
+        if (currentQuestion.getAnswer().equals(btn.getText())) {
             score++;
+            btn.setBackgroundDrawable(getResources().getDrawable(R.drawable.roundedbutton2));
+        } else if (currentQuestion.getAnswer().equals(button.getText())) {
+            button.setBackgroundDrawable(getResources().getDrawable(R.drawable.roundedbutton2));
+        } else if (currentQuestion.getAnswer().equals(button2.getText())) {
+            button2.setBackgroundDrawable(getResources().getDrawable(R.drawable.roundedbutton2));
+        } else if (currentQuestion.getAnswer().equals(button3.getText())) {
+            button3.setBackgroundDrawable(getResources().getDrawable(R.drawable.roundedbutton2));
         }
-        if(questionid < 5){
-            currentQuestion = questionList.get(questionid);
-            createQuestionValues();
 
-        }else{
+        if (questionid < 5) {
+            currentQuestion = questionList.get(questionid);
+            mHandler.postDelayed(mLaunchTask, 400);
+
+
+        } else {
             Intent intent = new Intent(MainActivity.this, ResultActivity.class);
             Bundle b = new Bundle();
             b.putInt("score", score);
@@ -93,4 +111,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+
+    private Runnable mLaunchTask = new Runnable() {
+        public void run() {
+            createQuestionValues();
+        }
+    };
 }
