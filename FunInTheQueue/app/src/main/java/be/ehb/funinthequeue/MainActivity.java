@@ -103,7 +103,7 @@ public class MainActivity extends FragmentActivity {
         changePage(2);
     }
     public void goToGame(View view) {
-        changePage(3);
+        changePage(4);
        /* Intent myIntent = new Intent(MainActivity.this, PageViewActivity.class);
         startActivity(myIntent);*/
     }
@@ -113,9 +113,13 @@ public class MainActivity extends FragmentActivity {
     public void backButtonAttractie(View view) {
         changePage(2);
     }
-    public void startCubeGame(View view) {
+   /*public void startCubeGame(View view) {
         Intent myIntent = new Intent(MainActivity.this, GameActivity.class);
         MainActivity.this.startActivity(myIntent);
+    }*/
+    public void startQuiz(View view) {
+        Intent newIntent = new Intent(MainActivity.this, QuizActivity.class);
+        MainActivity.this.startActivity(newIntent);
     }
     public void goToSettings(View view){
         changePage(6);

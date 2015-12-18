@@ -26,6 +26,8 @@
         </activity>
         <activity android:name=".GameActivity"/>
         <activity android:name=".PageViewActivity" android:theme="@style/AppTheme" android:multiprocess ="false"/>
+        <activity android:name=".QuizActivity"/>
+        <activity android:name=".QuizResultActivity"/>
     </application>
 
 

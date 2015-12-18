@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background ="#825EA4"
+    android:paddingTop="10dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/backgroundGame"
+            android:scaleType="fitEnd"
+            android:layout_alignParentBottom="true"
+            android:src = "@drawable/gamebackground"
+            android:layout_marginBottom="30dp" />
 
         <LinearLayout
             android:orientation="vertical"
@@ -26,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Coca-Cola Quiz"
-                android:id="@+id/txtCatchACube"
+                android:id="@+id/txtQuziTitel"
                 android:layout_gravity="center_horizontal"
                 android:textSize="35dp"
                 android:layout_marginTop="10dp"
@@ -90,6 +101,7 @@
                 android:background="@drawable/buttonbackground"
                 android:textColor="#473263"
                 android:textSize="15dp"
+                android:onClick="startQuiz"
                 android:layout_marginTop="15dp" />
 
             <Button
@@ -101,9 +113,10 @@
                 android:background="@drawable/buttonbackground"
                 android:textColor="#473263"
                 android:textSize="15dp"
-                android:layout_marginTop="5dp" />
+                android:layout_marginTop="5dp"
+                android:onClick="goToHighscore" />
 
         </LinearLayout>
     </RelativeLayout>
 
-</LinearLayout>
+</FrameLayout>
