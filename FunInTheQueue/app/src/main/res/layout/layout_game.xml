@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background ="#825EA4"
@@ -99,7 +99,7 @@
                 android:id="@+id/button"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/buttonbackground"
-                android:textColor="#825EA4"
+                android:textColor="#473263"
                 android:textSize="15dp"
                 android:onClick="startCubeGame"
                 android:layout_marginTop="15dp" />
@@ -111,11 +111,12 @@
                 android:id="@+id/button2"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/buttonbackground"
-                android:textColor="#825EA4"
+                android:textColor="#473263"
                 android:textSize="15dp"
-                android:layout_marginTop="5dp" />
+                android:layout_marginTop="5dp"
+                android:onClick="goToHighscore" />
 
         </LinearLayout>
     </RelativeLayout>
 
-</LinearLayout>
+</FrameLayout>

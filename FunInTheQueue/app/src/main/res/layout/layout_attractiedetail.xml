@@ -26,7 +26,8 @@
             android:layout_marginTop="42dp"
             android:textColor="#ffffff"
             android:textSize="25dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp" />
 
         <ImageView
             android:layout_width="160dp"
@@ -36,7 +37,8 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
             android:src="@drawable/attractiefoto"
-            android:background="@drawable/attractiedetailfoto" />
+            android:background="@drawable/attractiedetailfoto"
+            android:padding="10dp" />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -90,6 +92,22 @@
             android:textSize="15dp"
             android:layout_marginRight="55dp"
             android:layout_marginLeft="55dp" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/imageView19"
+            android:layout_alignTop="@+id/txtAttractieNaam"
+            android:layout_toLeftOf="@+id/txtAttractieNaam"
+            android:layout_toStartOf="@+id/txtAttractieNaam"
+            android:src="@drawable/arrowback"
+            android:layout_marginRight="10dp"
+            android:paddingBottom="12dp"
+            android:paddingLeft="3dp"
+            android:paddingTop="3dp"
+            android:paddingRight="3dp"
+            android:layout_marginTop="-5dp"
+            android:onClick="backButtonAttractie" />
 
     </RelativeLayout>
 

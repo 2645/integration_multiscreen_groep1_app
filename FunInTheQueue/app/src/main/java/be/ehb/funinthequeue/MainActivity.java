@@ -3,21 +3,24 @@ package be.ehb.funinthequeue;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.app.FragmentManager;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
 
 public class MainActivity extends FragmentActivity {
 
-    Fragment fragment = new HomeFragment();
+    Fragment fragment;
     Fragment home;
     Fragment profile;
-    Fragment game;
+    Fragment game1;
+    Fragment game2;
     Fragment wachttijden;
     Fragment detail;
+    Fragment gegevens;
+    Fragment highscores;
 
 
     @Override
@@ -32,9 +35,12 @@ public class MainActivity extends FragmentActivity {
 
         profile = new ProfielFragment();
         home = new HomeFragment();
-        game = new GameFragment();
+        game1 = new GameFragment();
+        game2 = new GameFragment2();
         wachttijden = new QueueFragment();
         detail = new AttractieDetailFragment();
+        gegevens = new GegevensFragment();
+        highscores = new HighscoresFragment();
     }
 
     public void tekst() {
@@ -50,7 +56,7 @@ public class MainActivity extends FragmentActivity {
 
     public void changePage(int position) {
         // update the main content by replacing fragments
-        FragmentManager fragmentManager = getFragmentManager(); // For AppCompat use getSupportFragmentManager
+        FragmentManager fragmentManager = getSupportFragmentManager(); // For AppCompat use getSupportFragmentManager
         switch(position) {
             default:
             case 0:
@@ -63,16 +69,27 @@ public class MainActivity extends FragmentActivity {
                 fragment = wachttijden;
                 break;
             case 3:
-                fragment = game;
+                fragment = game1;
                 break;
             case 4:
+                fragment = game2;
+                break;
+            case 5:
                 fragment = detail;
+                break;
+            case 6:
+                fragment = gegevens;
+                break;
+            case 7:
+                fragment = highscores;
                 break;
         }
         fragmentManager.beginTransaction()
                 .replace(R.id.container, fragment)
+                .addToBackStack(null)
                 .commit();
     }
+
     public void goToHome(View view) {
         changePage(0);
     }
@@ -87,13 +104,24 @@ public class MainActivity extends FragmentActivity {
     }
     public void goToGame(View view) {
         changePage(3);
+       /* Intent myIntent = new Intent(MainActivity.this, PageViewActivity.class);
+        startActivity(myIntent);*/
     }
     public void goToQueueDetail(View view) {
-        changePage(4);
+        changePage(5);
+    }
+    public void backButtonAttractie(View view) {
+        changePage(2);
     }
     public void startCubeGame(View view) {
         Intent myIntent = new Intent(MainActivity.this, GameActivity.class);
         MainActivity.this.startActivity(myIntent);
+    }
+    public void goToSettings(View view){
+        changePage(6);
+    }
+    public void goToHighscore(View view) {
+        changePage(7);
     }
 
 }
