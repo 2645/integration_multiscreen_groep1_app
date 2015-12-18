@@ -4,11 +4,9 @@
     android:layout_height="match_parent"
     android:background ="#80BCAB">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentBottom="true">
+        android:layout_height="match_parent">
 
         <ImageView
             android:layout_width="fill_parent"
@@ -17,6 +15,93 @@
             android:scaleType="fitEnd"
             android:layout_alignParentBottom="true"
             android:src = "@drawable/queuebackground" />
-    </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wachttijden"
+            android:id="@+id/txtAttractieNaam"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="42dp"
+            android:textColor="#ffffff"
+            android:textSize="25dp" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@+id/txtAttractieNaam"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="90dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="90dp">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:onClick="goToQueueDetail">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/imageView14"
+                        android:src="@drawable/attractiefoto"
+                        android:layout_marginLeft="30dp" />
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Anubis The Ride"
+                            android:id="@+id/textView7"
+                            android:textColor="#ffffff"
+                            android:textSize="18dp"
+                            android:textIsSelectable="false"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="10dp"
+                            android:textStyle="bold" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:id="@+id/imageView15"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginLeft="10dp"
+                                android:src="@drawable/queuewit"
+                                android:layout_marginTop="10dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="10 min"
+                                android:id="@+id/txtWachttijd"
+                                android:textColor="#ffffff"
+                                android:textSize="15dp"
+                                android:layout_alignBottom="@+id/imageView15"
+                                android:layout_toRightOf="@+id/imageView15"
+                                android:layout_toEndOf="@+id/imageView15"
+                                android:layout_marginLeft="10dp" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
 
 </LinearLayout>

@@ -31,8 +31,7 @@
             android:textColor="#ffffff"
             android:layout_alignParentTop="true"
             android:layout_alignRight="@+id/linearLayout"
-            android:layout_alignEnd="@+id/linearLayout"
-            android:typeface="serif" />
+            android:layout_alignEnd="@+id/linearLayout" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -47,8 +46,7 @@
             android:layout_below="@+id/txtVerwelkoming"
             android:layout_alignRight="@+id/linearLayout"
             android:layout_alignEnd="@+id/linearLayout"
-            android:layout_marginRight="15dp"
-            android:typeface="serif" />
+            android:layout_marginRight="15dp" />
 
         <ImageView
             android:layout_width="40dp"
@@ -77,8 +75,7 @@
             android:layout_alignBottom="@+id/imageView3"
             android:layout_toRightOf="@+id/imageView3"
             android:layout_toEndOf="@+id/imageView3"
-            android:layout_marginTop="15dp"
-            android:typeface="serif" />
+            android:layout_marginTop="15dp" />
 
         <ImageView
             android:layout_width="40dp"
@@ -132,7 +129,6 @@
                         android:layout_marginTop="15dp"
                         android:layout_marginLeft="10dp"
                         android:fontFamily="Gotham"
-                        android:typeface="serif"
                         android:textStyle="bold" />
 
                     <LinearLayout
@@ -160,7 +156,7 @@
                             android:textIsSelectable="false"
                             android:textSize="12dp"
                             android:fontFamily="Gotham"
-                            android:typeface="serif" />
+                            android:typeface="normal" />
 
                         <ImageView
                             android:layout_width="30dp"
@@ -182,7 +178,7 @@
                             android:textIsSelectable="false"
                             android:textSize="12dp"
                             android:fontFamily="Gotham"
-                            android:typeface="serif" />
+                            android:typeface="normal" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -227,8 +223,7 @@
                         android:textStyle="bold"
                         android:layout_marginTop="15dp"
                         android:layout_marginLeft="10dp"
-                        android:fontFamily="Gotham"
-                        android:typeface="serif" />
+                        android:fontFamily="Gotham" />
 
                     <LinearLayout
                         android:orientation="horizontal"
@@ -254,8 +249,7 @@
                             android:paddingTop="5dp"
                             android:textIsSelectable="false"
                             android:textSize="12dp"
-                            android:fontFamily="Gotham"
-                            android:typeface="serif" />
+                            android:fontFamily="Gotham" />
 
                         <ImageView
                             android:layout_width="30dp"
@@ -276,8 +270,7 @@
                             android:paddingTop="5dp"
                             android:textIsSelectable="false"
                             android:textSize="12dp"
-                            android:fontFamily="Gotham"
-                            android:typeface="serif" />
+                            android:fontFamily="Gotham" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -293,8 +286,7 @@
             android:layout_alignBottom="@+id/imgCocaCoin"
             android:layout_toRightOf="@+id/imgCocaCoin"
             android:layout_toEndOf="@+id/imgCocaCoin"
-            android:layout_marginLeft="10dp"
-            android:typeface="serif" />
+            android:layout_marginLeft="10dp" />
 
         <ImageView
             android:layout_width="20dp"

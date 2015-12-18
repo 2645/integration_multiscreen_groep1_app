@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background = "#FFA46D">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/backgroundProfile"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_alignParentBottom="true"
+            android:src = "@drawable/profielbackground"
+            android:scaleType="fitEnd" />
+
+        <ImageView
+            android:layout_width="110dp"
+            android:layout_height="150dp"
+            android:id="@+id/imgAvatar"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="35dp"
+            android:src="@drawable/plop" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dieter Holvoet"
+            android:id="@+id/txtNaam"
+            android:layout_below="@+id/imgAvatar"
+            android:layout_centerHorizontal="true"
+            android:textSize="30dp"
+            android:textColor="#ffffff"
+            android:layout_marginTop="-5dp" />
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:id="@+id/imageView9"
+            android:src="@drawable/cocacoin"
+            android:layout_below="@+id/txtNaam"
+            android:layout_alignLeft="@+id/imgAvatar"
+            android:layout_alignStart="@+id/txtNaam"
+            android:layout_marginLeft="30dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="500 cocacoins"
+            android:id="@+id/txtAantalCocaCoins"
+            android:textColor="#ffffff"
+            android:textSize="15dp"
+            android:layout_alignBottom="@+id/imageView9"
+            android:layout_toRightOf="@+id/imageView9"
+            android:layout_toEndOf="@+id/imageView9"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="3dp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@+id/imageView9"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/linearLayout4">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/imageView20"
+                    android:src="@drawable/profilewit"
+                    android:paddingBottom="20dp" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editVoornaam"
+                    android:layout_weight="0.5"
+                    android:textColor="#FFFFFF"
+                    android:textSize="17dp"
+                    android:hint="Voornaam"
+                    android:textColorHint="#ffffff"
+                    android:textColorHighlight="#FFA46D" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editAchternaam"
+                    android:layout_weight="0.5"
+                    android:textColor="#FFFFFF"
+                    android:textSize="17dp"
+                    android:hint="Achternaam"
+                    android:textColorHint="#ffffff"
+                    android:textColorHighlight="#FFA46D" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal" >
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/imageView21"
+                    android:src="@drawable/email"
+                    android:paddingBottom="20dp" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:ems="10"
+                    android:id="@+id/editEmail"
+                    android:layout_weight="1"
+                    android:textColor="#ffffff"
+                    android:textSize="17dp"
+                    android:hint="Email"
+                    android:textColorHint="#ffffff"
+                    android:textColorHighlight="#FFA46D" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal" >
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/imageView22"
+                    android:src="@drawable/wachtwoord"
+                    android:paddingBottom="20dp" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:ems="10"
+                    android:id="@+id/EditWachtwoord"
+                    android:layout_weight="1"
+                    android:hint="Wachtwoord"
+                    android:textSize="17dp"
+                    android:textColorHint="#ffffff"
+                    android:textColorHighlight="#FFA46D" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/btnArrowBack"
+            android:src="@drawable/arrowback"
+            android:paddingLeft="3dp"
+            android:paddingTop="3dp"
+            android:paddingRight="3dp"
+            android:paddingBottom="12dp"
+            android:layout_alignTop="@+id/imgAvatar"
+            android:layout_alignLeft="@+id/linearLayout4"
+            android:layout_alignStart="@+id/linearLayout4"
+            android:layout_marginLeft="-10dp"
+            android:onClick="goToProfile" />
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background ="#825EA4"
+    android:paddingTop="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/backgroundGame"
+            android:scaleType="centerCrop"
+            android:layout_alignParentBottom="true"
+            android:src = "@drawable/highscoresbackground" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Highscores"
+            android:id="@+id/textView9"
+            android:textSize="27dp"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Catch a cube"
+            android:id="@+id/textView10"
+            android:textSize="27dp"
+            android:textColor="#ffffff"
+            android:layout_below="@+id/textView9"
+            android:layout_centerHorizontal="true" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/imageView8"
+            android:paddingLeft="3dp"
+            android:paddingTop="3dp"
+            android:paddingRight="3dp"
+            android:paddingBottom="12dp"
+            android:src="@drawable/arrowback"
+            android:layout_marginRight="29dp"
+            android:layout_marginEnd="29dp"
+            android:layout_alignTop="@+id/textView9"
+            android:layout_toLeftOf="@+id/textView10"
+            android:layout_toStartOf="@+id/textView10"
+            android:onClick="goToGame" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/textView10"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="61dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="50dp">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/shape"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/imgHighscoreFoto"
+                        android:src="@drawable/attractiefoto"
+                        android:layout_marginLeft="-5dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dieter"
+                        android:id="@+id/txtHighscoreNaam"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="65dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="240"
+                        android:id="@+id/txtScore"
+                        android:textColor="#000000"
+                        android:textSize="16dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="65dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>

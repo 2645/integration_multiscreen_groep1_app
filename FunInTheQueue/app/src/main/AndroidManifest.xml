@@ -17,7 +17,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" >
+        <activity android:name=".MainActivity" android:multiprocess ="true" >
             <intent-filter>
                 <action android:name="be.ehb.funinthequeue.MAINACTIVITY" />
 
@@ -25,6 +25,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".GameActivity"/>
+        <activity android:name=".PageViewActivity" android:theme="@style/AppTheme" android:multiprocess ="false"/>
     </application>
+
 
 </manifest>
