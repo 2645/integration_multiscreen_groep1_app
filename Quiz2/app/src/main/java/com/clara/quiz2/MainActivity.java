@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 //Gebaseerd op: https://www.developerfeed.com/simple-quiz-game-andriod/
 
     int score = 0;
-    int questionid = 0;
+    int questionid = 1;
     int numberOfQuestions = 5;
     Question currentQuestion = new Question("", "", "", "", "");
     TextView txtQuestion;
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     Button button2;
     Button button3;
     Handler mHandler = new Handler();
-    String url = "http://10.3.50.220:8080/question/list";
+    String url = "http://10.3.50.220:8080/question/list?question_id=";
 
 
 
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
         button3.setText(currentQuestion.getOption3());
         button3.setBackgroundDrawable(getResources().getDrawable(R.drawable.roundedbutton));
         scoreText.setText("Score: " + score);
-        questionText.setText("Vraag: " + (questionid + 1) + "/" + numberOfQuestions);
+        questionText.setText("Vraag: " + (questionid) + "/" + numberOfQuestions);
         questionid++;
     }
 
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
             button3.setBackgroundDrawable(getResources().getDrawable(R.drawable.roundedbutton2));
         }
 
-        if (questionid < numberOfQuestions) {
+        if (questionid < numberOfQuestions + 1) {
             getData();
             mHandler.postDelayed(mLaunchTask, 400);
 
@@ -121,14 +121,14 @@ public class MainActivity extends AppCompatActivity {
     }
     private void getData() {
         JsonArrayRequest jsonRequest = new JsonArrayRequest
-                (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
+                (Request.Method.GET, url + questionid, null, new Response.Listener<JSONArray>() {
 
                     @Override
                     public void onResponse(JSONArray response) {
                         // the response is already constructed as a JSONObject!
                         try {
 
-                            JSONObject question = response.getJSONObject(questionid);
+                            JSONObject question = response.getJSONObject(0);
                             currentQuestion.setQuestion(question.getString("question"));
                             currentQuestion.setOption1(question.getString("optionA"));
                             currentQuestion.setOption2(question.getString("optionB"));
