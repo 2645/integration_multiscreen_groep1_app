@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -25,6 +26,7 @@ import be.ehb.funinthequeue.fragments.QueueFragment;
 import be.ehb.funinthequeue.fragments.VriendenFragment;
 import be.ehb.funinthequeue.game.catch_a_cube.GameActivity;
 import be.ehb.funinthequeue.game.quiz.QuizActivity;
+import be.ehb.funinthequeue.rest.RestAPI;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -42,6 +44,8 @@ public class MainActivity extends FragmentActivity {
     Fragment achievements;
     Fragment avatars;
     Fragment vrienden;
+
+    private RestAPI API;
 
 
     @Override
@@ -68,6 +72,9 @@ public class MainActivity extends FragmentActivity {
         achievements = new AchievementsFragment();
         avatars = new AvatarFragment();
         vrienden = new VriendenFragment();
+
+        API = new RestAPI();
+        Log.d("API", API.getUserByID(5).toString());
     }
 
     @Override
