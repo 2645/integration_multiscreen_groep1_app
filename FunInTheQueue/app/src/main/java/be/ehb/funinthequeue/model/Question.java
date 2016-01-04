@@ -1,4 +1,4 @@
-package be.ehb.funinthequeue.game.quiz;
+package be.ehb.funinthequeue.model;
 
 /**
  * Created by Clara on 16/12/2015.

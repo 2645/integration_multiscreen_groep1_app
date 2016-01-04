@@ -9,8 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-import be.ehb.funinthequeue.game.quiz.Question;
-import be.ehb.funinthequeue.game.quiz.QuizActivity;
+import be.ehb.funinthequeue.model.Question;
 
 /**
  * Created by Clara on 16/12/2015.

@@ -12,6 +12,7 @@ import java.util.List;
 import be.ehb.funinthequeue.MainActivity;
 import be.ehb.funinthequeue.R;
 import be.ehb.funinthequeue.db.DBHelper;
+import be.ehb.funinthequeue.model.Question;
 
 public class QuizActivity extends MainActivity {
 

@@ -1,4 +1,4 @@
-package be.ehb.funinthequeue.rest;
+package be.ehb.funinthequeue.model;
 
 /**
  * Created by Dieter on 4/01/2016.
