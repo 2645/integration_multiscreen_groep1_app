@@ -1,5 +1,6 @@
 package be.ehb.funinthequeue;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import be.ehb.funinthequeue.fragments.ProfielFragment;
 import be.ehb.funinthequeue.fragments.QueueFragment;
 import be.ehb.funinthequeue.game.quiz.QuizActivity;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class MainActivity extends FragmentActivity {
 
@@ -56,15 +58,9 @@ public class MainActivity extends FragmentActivity {
         highscores = new HighscoresFragment();
     }
 
-    public void tekst() {
-        TextView wachttijdattractie = (TextView) findViewById(R.id.txtWachttijdTitel);
-        TextView attractie = (TextView) findViewById(R.id.txtAttractietitel);
-        TextView catchacube = (TextView) findViewById(R.id.txtCatchACube);
-        Typeface medium = Typeface.createFromAsset(getAssets(),
-                "fonts/GOTHAM-MEDIUM.OTF");
-        wachttijdattractie.setTypeface(medium);
-        attractie.setTypeface(medium);
-        catchacube.setTypeface(medium);
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 
     public void changePage(int position) {

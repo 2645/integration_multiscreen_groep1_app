@@ -31,7 +31,7 @@ public class QuizActivity extends MainActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_quiz);
+        setContentView(R.layout.fragment_quiz);
         DBHelper db = new DBHelper(this);
         questionList = db.getAllQuestions();
         currentQuestion = questionList.get(questionid);

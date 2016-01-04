@@ -12,15 +12,6 @@ import be.ehb.funinthequeue.R;
  * Created by ToonLeemans on 16/12/15.
  */
 public class GameFragment extends Fragment{
-    /*View rootview;
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-// Inflate the layout for this fragment
-        rootview = inflater.inflate(R.layout.layout_game, container, false);
-
-        return rootview;
-    }*/
 
     public static final String EXTRA_MESSAGE = "EXTRA_MESSAGE";
     View v;
@@ -34,7 +25,7 @@ public class GameFragment extends Fragment{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.layout_game, container, false);
+        v = inflater.inflate(R.layout.fragment_game1, container, false);
         return v;
     }
 }

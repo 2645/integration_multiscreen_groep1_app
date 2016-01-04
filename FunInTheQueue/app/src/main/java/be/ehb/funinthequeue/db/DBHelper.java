@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import be.ehb.funinthequeue.game.quiz.Question;
+import be.ehb.funinthequeue.game.quiz.QuizActivity;
 
 /**
  * Created by Clara on 16/12/2015.
@@ -38,9 +39,10 @@ public class DBHelper extends SQLiteOpenHelper {
             "DROP TABLE IF EXISTS " + DBContract.QuizEntry.TABLE_NAME;
 
 
-    public DBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, DATABASE_NAME, factory, DATABASE_VERSION);
+    public DBHelper(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {
