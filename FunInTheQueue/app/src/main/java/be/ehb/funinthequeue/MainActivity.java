@@ -72,9 +72,6 @@ public class MainActivity extends FragmentActivity {
         achievements = new AchievementsFragment();
         avatars = new AvatarFragment();
         vrienden = new VriendenFragment();
-
-        API = new RestAPI();
-        Log.d("API", API.getUserByID(5).toString());
     }
 
     @Override

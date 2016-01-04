@@ -3,20 +3,21 @@ package be.ehb.funinthequeue;
 //http://www.coderefer.com/android-splash-screen-example-tutorial/
 
 import android.content.Intent;
+import android.database.MatrixCursor;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.widget.SimpleCursorAdapter;
+import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.View;
 import android.widget.VideoView;
 
-public class SplashScreen extends MainActivity {
+import be.ehb.funinthequeue.rest.RestAPI;
 
-    private void jump() {
-        if (isFinishing())
-            return;
-        startActivity(new Intent(this, MainActivity.class));
-        finish();
-    }
+public class SplashScreen extends MainActivity {
+    private boolean animationDone = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,15 +30,50 @@ public class SplashScreen extends MainActivity {
             setContentView(videoHolder);
             Uri video = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.splashvideo);
             videoHolder.setVideoURI(video);
-            videoHolder.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-
-                public void onCompletion(MediaPlayer mp) {
-                    jump();
+            videoHolder.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                @Override
+                public void onPrepared(MediaPlayer mp) {
+                    mp.setLooping(true);
                 }
             });
+
+            videoHolder.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                public void onCompletion(MediaPlayer mp) {
+                    animationDone = true;
+                }
+            });
+
             videoHolder.start();
+
         } catch (Exception ex) {
-            jump();
+            // jump();
+        }
+
+        RestAPI API = new RestAPI();
+        new DataLoadThread(API).execute();
+    }
+
+    class DataLoadThread extends AsyncTask<Void, Void, Void> {
+        RestAPI API;
+
+        public DataLoadThread(RestAPI API) {
+            this.API = API;
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            Log.d("API", API.getUserByID(5).toString());
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            while(true) {
+                if(animationDone) {
+                    startActivity(new Intent(SplashScreen.this, MainActivity.class));
+                    finish();
+                }
+            }
         }
     }
 }
