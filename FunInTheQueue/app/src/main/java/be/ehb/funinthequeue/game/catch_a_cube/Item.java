@@ -1,4 +1,4 @@
-package be.ehb.funinthequeue;
+package be.ehb.funinthequeue.game.catch_a_cube;
 
 import android.graphics.Rect;
 

@@ -7,8 +7,18 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.view.View;
-import android.view.Window;
 import android.widget.TextView;
+
+import be.ehb.funinthequeue.fragments.AttractieDetailFragment;
+import be.ehb.funinthequeue.fragments.GameFragment;
+import be.ehb.funinthequeue.fragments.GameFragment2;
+import be.ehb.funinthequeue.fragments.GegevensFragment;
+import be.ehb.funinthequeue.fragments.HighscoresFragment;
+import be.ehb.funinthequeue.fragments.HomeFragment;
+import be.ehb.funinthequeue.fragments.ProfielFragment;
+import be.ehb.funinthequeue.fragments.QueueFragment;
+import be.ehb.funinthequeue.game.quiz.QuizActivity;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 public class MainActivity extends FragmentActivity {
 
@@ -28,9 +38,12 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                        .setDefaultFontPath("fonts/GOTHAM-BOOK.OTF")
+                        .setFontAttrId(R.attr.fontPath)
+                        .build()
+        );
 
-        //tekst();
-        TypefaceUtil.overrideFont(getApplicationContext(), "SERIF", "fonts/GOTHAM-BOOK.OTF");
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
 
         profile = new ProfielFragment();
@@ -55,8 +68,7 @@ public class MainActivity extends FragmentActivity {
     }
 
     public void changePage(int position) {
-        // update the main content by replacing fragments
-        FragmentManager fragmentManager = getSupportFragmentManager(); // For AppCompat use getSupportFragmentManager
+        FragmentManager fragmentManager = getSupportFragmentManager();
         switch(position) {
             default:
             case 0:
@@ -84,6 +96,7 @@ public class MainActivity extends FragmentActivity {
                 fragment = highscores;
                 break;
         }
+
         fragmentManager.beginTransaction()
                 .replace(R.id.container, fragment)
                 .addToBackStack(null)
@@ -104,8 +117,6 @@ public class MainActivity extends FragmentActivity {
     }
     public void goToGame(View view) {
         changePage(4);
-       /* Intent myIntent = new Intent(MainActivity.this, PageViewActivity.class);
-        startActivity(myIntent);*/
     }
     public void goToQueueDetail(View view) {
         changePage(5);

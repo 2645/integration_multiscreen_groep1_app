@@ -1,19 +1,17 @@
-package be.ehb.funinthequeue;
+package be.ehb.funinthequeue.game.quiz;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import java.util.List;
+
+import be.ehb.funinthequeue.MainActivity;
+import be.ehb.funinthequeue.R;
+import be.ehb.funinthequeue.db.DBHelper;
 
 public class QuizActivity extends MainActivity {
 
@@ -34,7 +32,7 @@ public class QuizActivity extends MainActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_quiz);
-        DbHelper db = new DbHelper(this);
+        DBHelper db = new DBHelper(this);
         questionList = db.getAllQuestions();
         currentQuestion = questionList.get(questionid);
         txtQuestion = (TextView) findViewById(R.id.textView1);

@@ -1,10 +1,11 @@
-package be.ehb.funinthequeue;
+package be.ehb.funinthequeue.game.quiz;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import be.ehb.funinthequeue.MainActivity;
 import be.ehb.funinthequeue.R;
 
 public class QuizResultActivity extends MainActivity {

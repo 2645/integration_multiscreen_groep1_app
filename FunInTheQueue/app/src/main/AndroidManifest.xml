@@ -24,10 +24,10 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".GameActivity"/>
+        <activity android:name=".game.catch_a_cube.GameActivity"/>
         <activity android:name=".PageViewActivity" android:theme="@style/AppTheme" android:multiprocess ="false"/>
-        <activity android:name=".QuizActivity"/>
-        <activity android:name=".QuizResultActivity"/>
+        <activity android:name=".game.quiz.QuizActivity"/>
+        <activity android:name=".game.quiz.QuizResultActivity"/>
     </application>
 
 

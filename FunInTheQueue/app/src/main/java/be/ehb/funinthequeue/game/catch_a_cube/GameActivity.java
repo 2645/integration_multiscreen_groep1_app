@@ -1,7 +1,5 @@
-package be.ehb.funinthequeue;
+package be.ehb.funinthequeue.game.catch_a_cube;
 
-import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -10,6 +8,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import be.ehb.funinthequeue.MainActivity;
+import be.ehb.funinthequeue.R;
 
 public class GameActivity extends MainActivity {
     public int DeviceWidth;

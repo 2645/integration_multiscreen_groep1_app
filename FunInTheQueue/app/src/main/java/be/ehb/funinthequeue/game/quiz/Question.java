@@ -1,4 +1,4 @@
-package be.ehb.funinthequeue;
+package be.ehb.funinthequeue.game.quiz;
 
 /**
  * Created by Clara on 16/12/2015.
@@ -12,8 +12,7 @@ public class Question {
     private String option3;
     private String answer;
 
-    public Question()
-    {
+    public Question() {
         ID = 0;
         question = "";
         option1 = "";
@@ -22,7 +21,16 @@ public class Question {
         answer = "";
     }
 
-    public Question( String question, String option1, String option2, String option3, String answer) {
+    public Question(int ID, String question, String option1, String option2, String option3, String answer) {
+        this.answer = answer;
+        this.ID = ID;
+        this.option1 = option1;
+        this.option2 = option2;
+        this.option3 = option3;
+        this.question = question;
+    }
+
+    public Question(String question, String option1, String option2, String option3, String answer) {
         this.ID = 0;
         this.question = question;
         this.option1 = option1;

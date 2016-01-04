@@ -1,9 +1,8 @@
-package be.ehb.funinthequeue;
+package be.ehb.funinthequeue.game.catch_a_cube;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.util.Log;
-import android.view.SurfaceHolder;
 
 import java.util.Random;
 

@@ -19,7 +19,7 @@
        <fragment
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:name="be.ehb.funinthequeue.HomeFragment"
+        android:name="be.ehb.funinthequeue.fragments.HomeFragment"
         android:id="@+id/fragment"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
