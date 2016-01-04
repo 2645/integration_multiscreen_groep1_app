@@ -2,26 +2,22 @@ package be.ehb.funinthequeue;
 
 //http://www.coderefer.com/android-splash-screen-example-tutorial/
 
-import android.app.Activity;
 import android.content.Intent;
+import android.database.MatrixCursor;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.graphics.drawable.AnimationDrawable;
+import android.support.v4.widget.SimpleCursorAdapter;
+import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.VideoView;
 
-import com.koushikdutta.ion.Ion;
+import be.ehb.funinthequeue.rest.RestAPI;
 
 public class SplashScreen extends MainActivity {
-
-    private void jump() {
-        if (isFinishing())
-            return;
-        startActivity(new Intent(this, MainActivity.class));
-        finish();
-    }
+    private boolean animationDone = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -34,46 +30,50 @@ public class SplashScreen extends MainActivity {
             setContentView(videoHolder);
             Uri video = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.splashvideo);
             videoHolder.setVideoURI(video);
-            videoHolder.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-
-                public void onCompletion(MediaPlayer mp) {
-                    jump();
+            videoHolder.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                @Override
+                public void onPrepared(MediaPlayer mp) {
+                    mp.setLooping(true);
                 }
             });
+
+            videoHolder.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                public void onCompletion(MediaPlayer mp) {
+                    animationDone = true;
+                }
+            });
+
             videoHolder.start();
+
         } catch (Exception ex) {
-            jump();
+            // jump();
+        }
+
+        RestAPI API = new RestAPI();
+        new DataLoadThread(API).execute();
+    }
+
+    class DataLoadThread extends AsyncTask<Void, Void, Void> {
+        RestAPI API;
+
+        public DataLoadThread(RestAPI API) {
+            this.API = API;
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            Log.d("API", API.getUserByID(5).toString());
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            while(true) {
+                if(animationDone) {
+                    startActivity(new Intent(SplashScreen.this, MainActivity.class));
+                    finish();
+                }
+            }
         }
     }
 }
-/*
-        ImageView splashView = (ImageView) findViewById(R.id.splash_screen);
-        splashView.setBackgroundResource(R.drawable.splash_animation);
-        AnimationDrawable splashAnimation = (AnimationDrawable) splashView.getBackground();
-
-
-        ImageView splashImageView = (ImageView) findViewById(R.id.splash_screen);
-        Ion.with(splashImageView).load("android.resource://be.ehb.funinthequeue" + R.drawable.splashscreen);
-
-        Thread timerThread = new Thread() {
-            public void run() {
-                try {
-                    sleep(3000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } finally {
-                    Intent intent = new Intent(SplashScreen.this, MainActivity.class);
-                    startActivity(intent);
-                }
-            }
-        };
-        timerThread.start();
-    }
-
-    @Override
-    protected void onPause() {
-        // TODO Auto-generated method stub
-        super.onPause();
-        finish();
-    }
-}*/

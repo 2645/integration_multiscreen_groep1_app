@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background ="#825EA4"
+    android:paddingTop="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/backgroundGame"
+            android:scaleType="fitEnd"
+            android:layout_alignParentBottom="true"
+            android:src = "@drawable/gamebackground"
+            android:layout_marginBottom="30dp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true">
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/imageView4"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/quiz" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Coca-Cola Quiz"
+                android:id="@+id/txtQuziTitel"
+                android:layout_gravity="center_horizontal"
+                android:textSize="35dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#ffffff"
+                android:fontFamily="Gotham-Book"
+                android:typeface="serif" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Highscore: 17/20"
+                android:id="@+id/txtHighscoreCatchACube"
+                android:layout_gravity="center_horizontal"
+                android:textSize="18dp"
+                android:textColor="#ffffff"
+                android:typeface="serif" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="60dp">
+
+                <ImageButton
+                    android:layout_width="15dp"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/imageButton2"
+                    android:layout_gravity="left"
+                    android:padding="5dp"
+                    android:background="@drawable/arrowleft"
+                    android:layout_marginLeft="10dp"
+                    android:onClick="leftArrow" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Denk jij veel te weten over Coca-Cola of wil je juist meer te weten komen op een ludieke manier? Speel dan de Coca-Cola quiz!"
+                android:id="@+id/txtUitlegCatchACube"
+                android:layout_marginLeft="55dp"
+                android:layout_marginRight="55dp"
+                android:textSize="16dp"
+                android:textColor="#ffffff"
+                android:layout_marginTop="10dp"
+                android:typeface="serif"
+                android:textAlignment="center" />
+
+            <Button
+                android:layout_width="140dp"
+                android:layout_height="45dp"
+                android:text="Start Game"
+                android:id="@+id/button"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/buttonbackground"
+                android:textColor="#473263"
+                android:textSize="15dp"
+                android:onClick="startQuiz"
+                android:layout_marginTop="15dp" />
+
+            <Button
+                android:layout_width="140dp"
+                android:layout_height="45dp"
+                android:text="Highscores"
+                android:id="@+id/button2"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/buttonbackground"
+                android:textColor="#473263"
+                android:textSize="15dp"
+                android:layout_marginTop="5dp"
+                android:onClick="goToHighscore" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</FrameLayout>

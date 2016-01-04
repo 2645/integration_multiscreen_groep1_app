@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background = "#FFA46D">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/backgroundProfile"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_alignParentBottom="true"
+            android:src = "@drawable/profielbackgroundalt"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/arrowBack"
+            android:layout_marginTop="42dp"
+            android:src="@drawable/arrowback"
+            android:padding="5dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="20dp"
+            android:onClick="goToProfile" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Avatars"
+            android:id="@+id/textView11"
+            android:textColor="#ffffff"
+            android:textSize="24dp"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_toRightOf="@+id/arrowBack"
+            android:layout_toEndOf="@+id/arrowBack"
+            android:layout_marginLeft="10dp"
+            android:layout_alignTop="@+id/arrowBack"
+            android:layout_alignBottom="@+id/arrowBack"
+            android:paddingBottom="0dp"
+            android:paddingTop="4dp" />
+
+        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="340dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="70dp">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="410dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="120dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center_horizontal">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.33">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:id="@+id/imgAvatar1"
+                            android:src="@drawable/plop"
+                            android:layout_gravity="center" />
+
+                        <TextView
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:text="Kabouter Plop"
+                            android:id="@+id/txtAvatar1"
+                            android:textSize="15dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_gravity="center"
+                            android:textColor="#ffffff"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.33">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:id="@+id/imgAvatar2"
+                            android:layout_gravity="center"
+                            android:src="@drawable/plop" />
+
+                        <TextView
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:text="Kabouter Plop"
+                            android:id="@+id/txtAvatar2"
+                            android:layout_gravity="center"
+                            android:textColor="#ffffff"
+                            android:layout_marginTop="5dp"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.33">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:id="@+id/imgAvatar3"
+                            android:layout_gravity="center"
+                            android:src="@drawable/plop" />
+
+                        <TextView
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:text="Kabouter Plop"
+                            android:id="@+id/txtAvatar3"
+                            android:layout_gravity="center"
+                            android:textColor="#ffffff"
+                            android:layout_marginTop="5dp"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center_horizontal" >
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.33" >
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:id="@+id/imgAvatar4"
+                            android:src="@drawable/plop"
+                            android:layout_gravity="center" />
+
+                        <TextView
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:text="Kabouter Plop"
+                            android:id="@+id/txtAvatar4"
+                            android:textSize="15dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_gravity="center"
+                            android:textColor="#ffffff"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.33" >
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:id="@+id/imgAvatar5"
+                            android:layout_gravity="center"
+                            android:src="@drawable/plop" />
+
+                        <TextView
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:text="Kabouter Plop"
+                            android:id="@+id/txtAvatar5"
+                            android:layout_gravity="center"
+                            android:textColor="#ffffff"
+                            android:layout_marginTop="5dp"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.33" >
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:id="@+id/imgAvatar6"
+                            android:layout_gravity="center"
+                            android:src="@drawable/plop" />
+
+                        <TextView
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:text="Kabouter Plop"
+                            android:id="@+id/txtAvatar6"
+                            android:layout_gravity="center"
+                            android:textColor="#ffffff"
+                            android:layout_marginTop="5dp"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center_horizontal" >
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.33" >
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:id="@+id/imgAvatar7"
+                            android:src="@drawable/plop"
+                            android:layout_gravity="center" />
+
+                        <TextView
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:text="Kabouter Plop"
+                            android:id="@+id/txtAvatar7"
+                            android:textSize="15dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_gravity="center"
+                            android:textColor="#ffffff"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.33" >
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:id="@+id/imgAvatar8"
+                            android:layout_gravity="center"
+                            android:src="@drawable/plop" />
+
+                        <TextView
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:text="Kabouter Plop"
+                            android:id="@+id/txtAvatar8"
+                            android:layout_gravity="center"
+                            android:textColor="#ffffff"
+                            android:layout_marginTop="5dp"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.33" >
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:id="@+id/imgAvatar9"
+                            android:layout_gravity="center"
+                            android:src="@drawable/plop" />
+
+                        <TextView
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:text="Kabouter Plop"
+                            android:id="@+id/txtAvatar9"
+                            android:layout_gravity="center"
+                            android:textColor="#ffffff"
+                            android:layout_marginTop="5dp"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    </RelativeLayout>
+
+</LinearLayout>

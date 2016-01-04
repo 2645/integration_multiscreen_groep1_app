@@ -1,6 +1,5 @@
 package be.ehb.funinthequeue;
 
-import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -10,6 +9,9 @@ import android.support.v4.view.ViewPager;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import be.ehb.funinthequeue.fragments.GameFragment;
+import be.ehb.funinthequeue.fragments.GameFragment2;
 
 /**
  * Created by ToonLeemans on 18/12/15.

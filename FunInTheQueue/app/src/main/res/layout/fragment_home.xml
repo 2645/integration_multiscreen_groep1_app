@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background = "#7278B8">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="15dp">
+
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/backgroundHome"
+            android:scaleType="fitEnd"
+            android:layout_alignParentBottom="false"
+            android:src = "@drawable/homebackground" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hallo, Dieter!"
+            android:id="@+id/txtVerwelkoming"
+            android:layout_gravity="center_horizontal|right"
+            android:textSize="28dp"
+            android:layout_marginTop="77dp"
+            android:textColor="#ffffff"
+            fontPath="fonts/GOTHAM-BOOK.OTF"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/linearLayout"
+            android:layout_alignEnd="@+id/linearLayout" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kortste wachttijd"
+            android:id="@+id/txtWachttijd"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20dp"
+            android:textColor="#ffffff"
+            android:paddingBottom="7dp"
+            android:layout_marginTop="119dp"
+            android:layout_below="@+id/txtVerwelkoming"
+            android:layout_alignRight="@+id/linearLayout"
+            android:layout_alignEnd="@+id/linearLayout"
+            android:layout_marginRight="15dp" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/imageView"
+            android:src="@drawable/queuewit"
+            android:padding="8dp"
+            android:layout_alignWithParentIfMissing="false"
+            android:scaleType="centerCrop"
+            android:layout_alignBottom="@+id/txtWachttijd"
+            android:layout_toLeftOf="@+id/txtWachttijd"
+            android:layout_toStartOf="@+id/txtWachttijd"
+            android:layout_alignParentRight="false"
+            android:layout_alignParentBottom="false" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="In de buurt"
+            android:id="@+id/txtInDeBuurt"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20dp"
+            android:textColor="#ffffff"
+            android:paddingBottom="7dp"
+            android:singleLine="false"
+            android:layout_alignBottom="@+id/imageView3"
+            android:layout_toRightOf="@+id/imageView3"
+            android:layout_toEndOf="@+id/imageView3"
+            android:layout_marginTop="15dp" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/imageView3"
+            android:src="@drawable/afstandpin"
+            android:layout_alignWithParentIfMissing="false"
+            android:scaleType="centerCrop"
+            android:paddingBottom="15dp"
+            android:paddingLeft="8dp"
+            android:paddingTop="8dp"
+            android:paddingRight="8dp"
+            android:layout_below="@+id/linearLayout"
+            android:layout_alignLeft="@+id/imageView"
+            android:layout_alignStart="@+id/imageView"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="25dp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="250dp"
+            android:layout_height="80dp"
+            android:background="@drawable/shape"
+            android:id="@+id/linearLayout"
+            android:layout_below="@+id/txtWachttijd"
+            android:layout_centerHorizontal="true">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:id="@+id/imgKortsteWachttijd"
+                    android:src="@drawable/attractiefoto" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Anubis The Ride"
+                        android:id="@+id/txtWachttijdTitel"
+                        android:textColor="#000000"
+                        android:textSize="13dp"
+                        fontPath="fonts/GOTHAM-MEDIUM.OTF"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="Gotham"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:id="@+id/imageView5"
+                            android:src="@drawable/queue"
+                            android:paddingLeft="8dp"
+                            android:paddingTop="0dp"
+                            android:paddingRight="5dp"
+                            android:paddingBottom="5dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10 min"
+                            android:id="@+id/txtTijd1"
+                            android:textColor="#000000"
+                            android:paddingTop="5dp"
+                            android:textIsSelectable="false"
+                            android:textSize="12dp"
+                            android:fontFamily="Gotham"
+                            android:typeface="normal" />
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:id="@+id/imageView2"
+                            android:src="@drawable/placemarker"
+                            android:paddingLeft="8dp"
+                            android:paddingTop="0dp"
+                            android:paddingRight="5dp"
+                            android:paddingBottom="5dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="50 m"
+                            android:id="@+id/txtAfstand1"
+                            android:textColor="#000000"
+                            android:paddingTop="5dp"
+                            android:textIsSelectable="false"
+                            android:textSize="12dp"
+                            android:fontFamily="Gotham"
+                            android:typeface="normal" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="250dp"
+            android:layout_height="80dp"
+            android:background="@drawable/shape"
+            android:id="@+id/linearLayout2"
+            android:layout_below="@+id/linearLayout"
+            android:layout_alignLeft="@+id/linearLayout"
+            android:layout_alignStart="@+id/linearLayout"
+            android:layout_marginTop="55dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:id="@+id/imgInDeBuurt"
+                    android:src="@drawable/attractiefoto2" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="De Boomstammetjes"
+                        android:id="@+id/txtAttractietitel"
+                        fontPath="fonts/GOTHAM-MEDIUM.OTF"
+                        android:textColor="#000000"
+                        android:textSize="13dp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="Gotham" />
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:id="@+id/imageView6"
+                            android:src="@drawable/queue"
+                            android:paddingLeft="8dp"
+                            android:paddingTop="0dp"
+                            android:paddingRight="5dp"
+                            android:paddingBottom="5dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4 min"
+                            android:id="@+id/txtTijd2"
+                            android:textColor="#000000"
+                            android:paddingTop="5dp"
+                            android:textIsSelectable="false"
+                            android:textSize="12dp"
+                            android:fontFamily="Gotham" />
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:id="@+id/imageView7"
+                            android:src="@drawable/placemarker"
+                            android:paddingLeft="8dp"
+                            android:paddingTop="0dp"
+                            android:paddingRight="5dp"
+                            android:paddingBottom="5dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="100 m"
+                            android:id="@+id/txtAfstand2"
+                            android:textColor="#000000"
+                            android:paddingTop="5dp"
+                            android:textIsSelectable="false"
+                            android:textSize="12dp"
+                            android:fontFamily="Gotham" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="200 cocacoins"
+            android:id="@+id/txtAantalCocaCoins"
+            fontPath="fonts/GOTHAM-MEDIUM.OTF"
+            android:textSize="15dp"
+            android:textColor="#ffffff"
+            android:layout_alignBottom="@+id/imgCocaCoin"
+            android:layout_toRightOf="@+id/imgCocaCoin"
+            android:layout_toEndOf="@+id/imgCocaCoin"
+            android:layout_marginLeft="10dp" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:id="@+id/imgCocaCoin"
+            android:src="@drawable/cocacoin"
+            android:layout_below="@+id/txtVerwelkoming"
+            android:layout_toRightOf="@+id/imgAvatar"
+            android:layout_toEndOf="@+id/imgAvatar" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="200dp"
+            android:id="@+id/imgAvatar"
+            android:src="@drawable/plop"
+            android:paddingBottom="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/txtVerwelkoming"
+            android:layout_toStartOf="@+id/txtVerwelkoming" />
+
+    </RelativeLayout>
+
+</LinearLayout>
