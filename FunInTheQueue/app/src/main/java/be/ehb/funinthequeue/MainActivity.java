@@ -23,6 +23,7 @@ import be.ehb.funinthequeue.fragments.HomeFragment;
 import be.ehb.funinthequeue.fragments.ProfielFragment;
 import be.ehb.funinthequeue.fragments.QueueFragment;
 import be.ehb.funinthequeue.fragments.VriendenFragment;
+import be.ehb.funinthequeue.game.catch_a_cube.GameActivity;
 import be.ehb.funinthequeue.game.quiz.QuizActivity;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -132,7 +133,7 @@ public class MainActivity extends FragmentActivity {
         changePage(2);
     }
     public void goToGame(View view) {
-        changePage(4);
+        changePage(3);
     }
     public void goToQueueDetail(View view) {
         changePage(5);
@@ -140,10 +141,11 @@ public class MainActivity extends FragmentActivity {
     public void backButtonAttractie(View view) {
         changePage(2);
     }
-   /*public void startCubeGame(View view) {
+
+    public void startCubeGame(View view) {
         Intent myIntent = new Intent(MainActivity.this, GameActivity.class);
         MainActivity.this.startActivity(myIntent);
-    }*/
+    }
     public void startQuiz(View view) {
         Intent newIntent = new Intent(MainActivity.this, QuizActivity.class);
         MainActivity.this.startActivity(newIntent);
@@ -157,4 +159,6 @@ public class MainActivity extends FragmentActivity {
     public void goToAchievements (View view){changePage(8);}
     public void goToAvatars(View view){changePage(9);}
     public void goToFriends(View view){changePage(10);}
+    public void rightArrow(View view){changePage(4);}
+    public void leftArrow(View view){changePage(3);}
 }

@@ -69,15 +69,9 @@
                     android:layout_gravity="left"
                     android:padding="5dp"
                     android:background="@drawable/arrowleft"
-                    android:layout_marginLeft="10dp" />
+                    android:layout_marginLeft="10dp"
+                    android:onClick="leftArrow" />
 
-                <ImageButton
-                    android:layout_width="15dp"
-                    android:layout_height="fill_parent"
-                    android:id="@+id/imageButton3"
-                    android:layout_gravity="right"
-                    android:layout_marginLeft="310dp"
-                    android:background="@drawable/arrowright" />
             </LinearLayout>
 
             <TextView
@@ -90,7 +84,8 @@
                 android:textSize="16dp"
                 android:textColor="#ffffff"
                 android:layout_marginTop="10dp"
-                android:typeface="serif" />
+                android:typeface="serif"
+                android:textAlignment="center" />
 
             <Button
                 android:layout_width="140dp"
