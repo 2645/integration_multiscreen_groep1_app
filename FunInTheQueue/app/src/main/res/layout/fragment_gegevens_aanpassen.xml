@@ -64,10 +64,10 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="250dp"
             android:layout_below="@+id/imageView9"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="40dp"
             android:layout_marginRight="40dp"
             android:layout_marginLeft="20dp"
             android:id="@+id/linearLayout4">
@@ -83,7 +83,8 @@
                     android:layout_height="fill_parent"
                     android:id="@+id/imageView20"
                     android:src="@drawable/profilewit"
-                    android:paddingBottom="20dp" />
+                    android:paddingBottom="25dp"
+                    android:paddingTop="5dp" />
 
                 <EditText
                     android:layout_width="wrap_content"
@@ -123,7 +124,8 @@
                     android:layout_height="fill_parent"
                     android:id="@+id/imageView21"
                     android:src="@drawable/email"
-                    android:paddingBottom="20dp" />
+                    android:paddingBottom="25dp"
+                    android:paddingTop="5dp" />
 
                 <EditText
                     android:layout_width="wrap_content"
@@ -151,7 +153,8 @@
                     android:layout_height="fill_parent"
                     android:id="@+id/imageView22"
                     android:src="@drawable/wachtwoord"
-                    android:paddingBottom="20dp" />
+                    android:paddingBottom="25dp"
+                    android:paddingTop="5dp" />
 
                 <EditText
                     android:layout_width="wrap_content"
@@ -166,22 +169,29 @@
                     android:textColorHighlight="#FFA46D" />
 
             </LinearLayout>
+
+            <Button
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:text="Save"
+                android:id="@+id/btnSaveGegevens"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#FF7D55"
+                android:background="@drawable/roundedbutton"
+                android:textSize="17dp" />
         </LinearLayout>
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:id="@+id/btnArrowBack"
             android:src="@drawable/arrowback"
-            android:paddingLeft="3dp"
-            android:paddingTop="3dp"
-            android:paddingRight="3dp"
-            android:paddingBottom="12dp"
             android:layout_alignTop="@+id/imgAvatar"
             android:layout_alignLeft="@+id/linearLayout4"
             android:layout_alignStart="@+id/linearLayout4"
             android:layout_marginLeft="-10dp"
-            android:onClick="goToProfile" />
+            android:onClick="goToProfile"
+            android:padding="5dp" />
 
     </RelativeLayout>
 

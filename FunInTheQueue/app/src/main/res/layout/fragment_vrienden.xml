@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background = "#FFA46D">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/backgroundProfile"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_alignParentBottom="true"
+            android:src = "@drawable/profielbackgroundalt"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/arrowBack"
+            android:layout_marginTop="42dp"
+            android:src="@drawable/arrowback"
+            android:padding="5dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="20dp"
+            android:onClick="goToProfile" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vrienden"
+            android:id="@+id/textView11"
+            android:textColor="#ffffff"
+            android:textSize="24dp"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_toRightOf="@+id/arrowBack"
+            android:layout_toEndOf="@+id/arrowBack"
+            android:layout_marginLeft="10dp"
+            android:layout_alignTop="@+id/arrowBack"
+            android:layout_alignBottom="@+id/arrowBack"
+            android:paddingBottom="0dp"
+            android:paddingTop="4dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:background="@drawable/shape"
+            android:layout_above="@+id/scrollView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="fill_parent"
+                android:id="@+id/imgSearchIcon"
+                android:src="@drawable/search_icon"
+                android:padding="10dp"
+                android:scaleType="centerCrop" />
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/editSearchFriends"
+                android:hint="Zoek vrienden"
+                android:textColorHint="#AAAAAA"
+                android:ems = "10"
+                android:padding = "10dp"
+                android:textSize="15dp"
+                android:focusable="true"
+                android:textColor="#000000" />
+        </LinearLayout>
+
+        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="270dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="70dp"
+            android:id="@+id/scrollView"
+            android:fillViewport="false">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="0.33">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="0.33" >
+
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:id="@+id/imgVriend1"
+                            android:layout_gravity="center"
+                            android:src="@drawable/attractiefoto" />
+
+                        <TextView
+                            android:layout_width="90dp"
+                            android:layout_height="wrap_content"
+                            android:text="Toon Leemans"
+                            android:id="@+id/txtVriendennaam1"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:textColor="#ffffff"
+                            android:textSize="15dp"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="0.33" >
+
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:id="@+id/imgVriend2"
+                            android:layout_gravity="center"
+                            android:src="@drawable/attractiefoto" />
+
+                        <TextView
+                            android:layout_width="90dp"
+                            android:layout_height="wrap_content"
+                            android:text="Dieter Holvoet"
+                            android:id="@+id/txtVriendennaam2"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:textColor="#ffffff"
+                            android:textSize="15dp"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="0.33" >
+
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:id="@+id/imgVriend3"
+                            android:layout_gravity="center"
+                            android:src="@drawable/attractiefoto" />
+
+                        <TextView
+                            android:layout_width="90dp"
+                            android:layout_height="wrap_content"
+                            android:text="Jente Swinnen"
+                            android:id="@+id/txtVriendennaam3"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:textColor="#ffffff"
+                            android:textSize="15dp"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="0.33">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="0.33"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp">
+
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:id="@+id/imgVriend4"
+                            android:layout_gravity="center"
+                            android:src="@drawable/attractiefoto" />
+
+                        <TextView
+                            android:layout_width="90dp"
+                            android:layout_height="wrap_content"
+                            android:text="Toon Leemans"
+                            android:id="@+id/txtVriendennaam4"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:textColor="#ffffff"
+                            android:textSize="15dp"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="0.33"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp">
+
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:id="@+id/imgVriend5"
+                            android:layout_gravity="center"
+                            android:src="@drawable/attractiefoto" />
+
+                        <TextView
+                            android:layout_width="90dp"
+                            android:layout_height="wrap_content"
+                            android:text="Dieter Holvoet"
+                            android:id="@+id/txtVriendennaam5"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:textColor="#ffffff"
+                            android:textSize="15dp"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="0.33"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp">
+
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:id="@+id/imgVriend6"
+                            android:layout_gravity="center"
+                            android:src="@drawable/attractiefoto" />
+
+                        <TextView
+                            android:layout_width="90dp"
+                            android:layout_height="wrap_content"
+                            android:text="Jente Swinnen"
+                            android:id="@+id/txtVriendennaam6"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:textColor="#ffffff"
+                            android:textSize="15dp"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="0.33">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="0.33">
+
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:id="@+id/imgVriend7"
+                            android:layout_gravity="center"
+                            android:src="@drawable/attractiefoto" />
+
+                        <TextView
+                            android:layout_width="90dp"
+                            android:layout_height="wrap_content"
+                            android:text="Toon Leemans"
+                            android:id="@+id/txtVriendennaam7"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:textColor="#ffffff"
+                            android:textSize="15dp"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="0.33">
+
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:id="@+id/imgVriend8"
+                            android:layout_gravity="center"
+                            android:src="@drawable/attractiefoto" />
+
+                        <TextView
+                            android:layout_width="90dp"
+                            android:layout_height="wrap_content"
+                            android:text="Dieter Holvoet"
+                            android:id="@+id/txtVriendennaam8"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:textColor="#ffffff"
+                            android:textSize="15dp"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="0.33">
+
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:id="@+id/imgVriend9"
+                            android:layout_gravity="center"
+                            android:src="@drawable/attractiefoto" />
+
+                        <TextView
+                            android:layout_width="90dp"
+                            android:layout_height="wrap_content"
+                            android:text="Jente Swinnen"
+                            android:id="@+id/txtVriendennaam9"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:textColor="#ffffff"
+                            android:textSize="15dp"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+    </RelativeLayout>
+
+</LinearLayout>

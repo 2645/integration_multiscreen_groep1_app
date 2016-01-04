@@ -8,9 +8,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import be.ehb.funinthequeue.fragments.AchievementsFragment;
 import be.ehb.funinthequeue.fragments.AttractieDetailFragment;
+import be.ehb.funinthequeue.fragments.AvatarFragment;
 import be.ehb.funinthequeue.fragments.GameFragment;
 import be.ehb.funinthequeue.fragments.GameFragment2;
 import be.ehb.funinthequeue.fragments.GegevensFragment;
@@ -18,6 +22,7 @@ import be.ehb.funinthequeue.fragments.HighscoresFragment;
 import be.ehb.funinthequeue.fragments.HomeFragment;
 import be.ehb.funinthequeue.fragments.ProfielFragment;
 import be.ehb.funinthequeue.fragments.QueueFragment;
+import be.ehb.funinthequeue.fragments.VriendenFragment;
 import be.ehb.funinthequeue.game.quiz.QuizActivity;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -33,6 +38,9 @@ public class MainActivity extends FragmentActivity {
     Fragment detail;
     Fragment gegevens;
     Fragment highscores;
+    Fragment achievements;
+    Fragment avatars;
+    Fragment vrienden;
 
 
     @Override
@@ -56,6 +64,9 @@ public class MainActivity extends FragmentActivity {
         detail = new AttractieDetailFragment();
         gegevens = new GegevensFragment();
         highscores = new HighscoresFragment();
+        achievements = new AchievementsFragment();
+        avatars = new AvatarFragment();
+        vrienden = new VriendenFragment();
     }
 
     @Override
@@ -90,6 +101,15 @@ public class MainActivity extends FragmentActivity {
                 break;
             case 7:
                 fragment = highscores;
+                break;
+            case 8:
+                fragment = achievements;
+                break;
+            case 9:
+                fragment = avatars;
+                break;
+            case 10:
+                fragment = vrienden;
                 break;
         }
 
@@ -134,5 +154,7 @@ public class MainActivity extends FragmentActivity {
     public void goToHighscore(View view) {
         changePage(7);
     }
-
+    public void goToAchievements (View view){changePage(8);}
+    public void goToAvatars(View view){changePage(9);}
+    public void goToFriends(View view){changePage(10);}
 }

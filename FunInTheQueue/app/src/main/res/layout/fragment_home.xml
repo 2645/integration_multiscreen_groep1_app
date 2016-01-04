@@ -283,7 +283,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="200 cocacoins"
-            android:id="@+id/txtAantalCoins"
+            android:id="@+id/txtAantalCocaCoins"
             fontPath="fonts/GOTHAM-MEDIUM.OTF"
             android:textSize="15dp"
             android:textColor="#ffffff"
