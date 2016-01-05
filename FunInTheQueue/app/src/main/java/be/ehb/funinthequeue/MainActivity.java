@@ -39,12 +39,33 @@ import be.ehb.funinthequeue.rest.RestAPI;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
+import be.ehb.funinthequeue.fragments.AchievementsFragment;
+import be.ehb.funinthequeue.fragments.AttractieDetailFragment;
+import be.ehb.funinthequeue.fragments.AvatarFragment;
+import be.ehb.funinthequeue.fragments.GameFragment;
+import be.ehb.funinthequeue.fragments.GameFragment2;
+import be.ehb.funinthequeue.fragments.GegevensFragment;
+import be.ehb.funinthequeue.fragments.HighscoresFragment;
+import be.ehb.funinthequeue.fragments.HomeFragment;
+import be.ehb.funinthequeue.fragments.ProfielFragment;
+import be.ehb.funinthequeue.fragments.QueueFragment;
+import be.ehb.funinthequeue.fragments.VriendenFragment;
+import be.ehb.funinthequeue.game.catch_a_cube.GameActivity;
+import be.ehb.funinthequeue.game.quiz.QuizActivity;
+import be.ehb.funinthequeue.rest.RestAPI;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 public class MainActivity extends FragmentActivity {
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     static final String ACTION_SCAN = "com.google.zxing.client.android.SCAN";
 
     Fragment fragment;
+=======
+    Fragment fragment = new HomeFragment();
+>>>>>>> origin/master
 =======
     Fragment fragment = new HomeFragment();
 >>>>>>> origin/master
@@ -166,11 +187,17 @@ public class MainActivity extends FragmentActivity {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> origin/master
     public void goToQR(View view) {
         changePage(0);
     }
 
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
     public void goToProfile(View view) {
         changePage(1);
@@ -216,6 +243,7 @@ public class MainActivity extends FragmentActivity {
         changePage(7);
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     // qr butten click
     public void goToQR(View view) {
@@ -268,6 +296,8 @@ public class MainActivity extends FragmentActivity {
 
 
 =======
+=======
+>>>>>>> origin/master
     public void goToAchievements(View view) {
         changePage(8);
     }
@@ -279,5 +309,8 @@ public class MainActivity extends FragmentActivity {
     public void goToFriends(View view) {
         changePage(10);
     }
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 }
