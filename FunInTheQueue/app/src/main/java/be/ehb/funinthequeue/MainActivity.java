@@ -1,6 +1,7 @@
 package be.ehb.funinthequeue;
 
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -59,11 +60,11 @@ public class MainActivity extends FragmentActivity {
     Fragment swipe;
     Fragment backgroundGames;
 
-    private RestAPI API;
+    ViewPager viewpager;
+
+    RestAPI API;
     TextView verwelkoming;
     TextView cocacoins;
-
-    ViewPager viewpager;
 
     static final String ACTION_SCAN = "com.google.zxing.client.android.SCAN";
 
@@ -96,16 +97,20 @@ public class MainActivity extends FragmentActivity {
         avatars = new AvatarFragment();
         vrienden = new VriendenFragment();
 
-        verwelkoming = (TextView) findViewById(R.id.txtVerwelkoming);
-        cocacoins = (TextView) findViewById((R.id.txtAantalCocaCoins));
-        API = new RestAPI();
 
-        new setTextFromAPI(API, verwelkoming, cocacoins).execute();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .add(R.id.container, home)
+                .addToBackStack(null)
+                .commit();
+
+        API = new RestAPI();
     }
 
+
     @Override
-    protected void onResume() {
-        super.onResume();
+    protected void onStart() {
+        super.onStart();
     }
 
     //product qr code mode
@@ -159,7 +164,6 @@ public class MainActivity extends FragmentActivity {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(new GameFragment());
         adapter.addFrag(new GameFragment2());
-       // Log.d("adapter", adapter.getCurrentItem());
         viewpager.setAdapter(adapter);
     }
 
