@@ -1,32 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="be.ehb.funinthequeue" >
+    package="be.ehb.funinthequeue">
 
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="Fun In The Queue"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
-        <activity
+        android:theme="@style/AppTheme">
+        <!--<activity
             android:name=".SplashScreen"
-            android:theme = "@style/SplashTheme">
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>-->
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation"
+            android:multiprocess="true"
+            android:screenOrientation="portrait">
+            <!--<intent-filter>
+                <action android:name="be.ehb.funinthequeue.MAINACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" android:multiprocess ="true" >
-            <intent-filter>
-                <action android:name="be.ehb.funinthequeue.MAINACTIVITY" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".GameActivity"/>
-        <activity android:name=".PageViewActivity" android:theme="@style/AppTheme" android:multiprocess ="false"/>
+        <activity android:name=".game.catch_a_cube.GameActivity" />
+        <activity android:name=".game.quiz.QuizActivity" />
+        <activity android:name=".game.quiz.QuizResultActivity" />
+        <!--<activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login"></activity>-->
     </application>
-
 
 </manifest>

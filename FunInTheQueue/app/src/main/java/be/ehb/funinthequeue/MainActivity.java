@@ -1,18 +1,53 @@
 package be.ehb.funinthequeue;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
-import android.view.Window;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.TextView;
+import android.content.ActivityNotFoundException;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.app.Activity;
+import android.net.Uri;
+import android.widget.Toast;
+
+import be.ehb.funinthequeue.fragments.AchievementsFragment;
+import be.ehb.funinthequeue.fragments.AttractieDetailFragment;
+import be.ehb.funinthequeue.fragments.AvatarFragment;
+import be.ehb.funinthequeue.fragments.GameFragment;
+import be.ehb.funinthequeue.fragments.GameFragment2;
+import be.ehb.funinthequeue.fragments.GegevensFragment;
+import be.ehb.funinthequeue.fragments.HighscoresFragment;
+import be.ehb.funinthequeue.fragments.HomeFragment;
+import be.ehb.funinthequeue.fragments.ProfielFragment;
+import be.ehb.funinthequeue.fragments.QueueFragment;
+import be.ehb.funinthequeue.fragments.VriendenFragment;
+import be.ehb.funinthequeue.game.catch_a_cube.GameActivity;
+import be.ehb.funinthequeue.game.quiz.QuizActivity;
+import be.ehb.funinthequeue.rest.RestAPI;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class MainActivity extends FragmentActivity {
 
+<<<<<<< HEAD
+    static final String ACTION_SCAN = "com.google.zxing.client.android.SCAN";
+
     Fragment fragment;
+=======
+    Fragment fragment = new HomeFragment();
+>>>>>>> origin/master
     Fragment home;
     Fragment profile;
     Fragment game1;
@@ -21,6 +56,15 @@ public class MainActivity extends FragmentActivity {
     Fragment detail;
     Fragment gegevens;
     Fragment highscores;
+    Fragment achievements;
+    Fragment avatars;
+    Fragment vrienden;
+/*
+    private RestAPI API;
+    TextView verwelkoming;
+    TextView cocacoins;
+*/
+    ViewPager viewpager;
 
 
     @Override
@@ -28,9 +72,13 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                        .setDefaultFontPath("fonts/GOTHAM-BOOK.OTF")
+                        .setFontAttrId(R.attr.fontPath)
+                        .build()
+        );
 
-        //tekst();
-        TypefaceUtil.overrideFont(getApplicationContext(), "SERIF", "fonts/GOTHAM-BOOK.OTF");
+
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
 
         profile = new ProfielFragment();
@@ -41,23 +89,36 @@ public class MainActivity extends FragmentActivity {
         detail = new AttractieDetailFragment();
         gegevens = new GegevensFragment();
         highscores = new HighscoresFragment();
+        achievements = new AchievementsFragment();
+        avatars = new AvatarFragment();
+        vrienden = new VriendenFragment();
+
     }
 
-    public void tekst() {
-        TextView wachttijdattractie = (TextView) findViewById(R.id.txtWachttijdTitel);
-        TextView attractie = (TextView) findViewById(R.id.txtAttractietitel);
-        TextView catchacube = (TextView) findViewById(R.id.txtCatchACube);
-        Typeface medium = Typeface.createFromAsset(getAssets(),
-                "fonts/GOTHAM-MEDIUM.OTF");
-        wachttijdattractie.setTypeface(medium);
-        attractie.setTypeface(medium);
-        catchacube.setTypeface(medium);
+    @Override
+    protected void onResume() {
+        super.onResume();
+        /*verwelkoming = (TextView) findViewById(R.id.txtVerwelkoming);
+        cocacoins = (TextView) findViewById((R.id.txtAantalCocaCoins));
+        API = new RestAPI();
+
+        new setTextFromAPI(API, verwelkoming, cocacoins).execute();*/
+    }
+
+    private void setupViewPagerGames(ViewPager viewpager) {
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFrag(new GameFragment());
+        adapter.addFrag(new GameFragment2());
+        viewpager.setAdapter(adapter);
+    }
+
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 
     public void changePage(int position) {
-        // update the main content by replacing fragments
-        FragmentManager fragmentManager = getSupportFragmentManager(); // For AppCompat use getSupportFragmentManager
-        switch(position) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        switch (position) {
             default:
             case 0:
                 fragment = home;
@@ -83,7 +144,17 @@ public class MainActivity extends FragmentActivity {
             case 7:
                 fragment = highscores;
                 break;
+            case 8:
+                fragment = achievements;
+                break;
+            case 9:
+                fragment = avatars;
+                break;
+            case 10:
+                fragment = vrienden;
+                break;
         }
+
         fragmentManager.beginTransaction()
                 .replace(R.id.container, fragment)
                 .addToBackStack(null)
@@ -93,35 +164,120 @@ public class MainActivity extends FragmentActivity {
     public void goToHome(View view) {
         changePage(0);
     }
+
+<<<<<<< HEAD
+=======
     public void goToQR(View view) {
         changePage(0);
     }
+
+>>>>>>> origin/master
     public void goToProfile(View view) {
         changePage(1);
     }
+
     public void goToQueue(View view) {
         changePage(2);
     }
+
     public void goToGame(View view) {
-        changePage(3);
-       /* Intent myIntent = new Intent(MainActivity.this, PageViewActivity.class);
-        startActivity(myIntent);*/
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .remove(fragment)
+                .commit();
+
+        viewpager = (ViewPager) findViewById(R.id.main_viewpager);
+        setupViewPagerGames(viewpager);
     }
+
     public void goToQueueDetail(View view) {
         changePage(5);
     }
+
     public void backButtonAttractie(View view) {
         changePage(2);
     }
+
     public void startCubeGame(View view) {
         Intent myIntent = new Intent(MainActivity.this, GameActivity.class);
         MainActivity.this.startActivity(myIntent);
     }
-    public void goToSettings(View view){
+
+    public void startQuiz(View view) {
+        Intent newIntent = new Intent(MainActivity.this, QuizActivity.class);
+        MainActivity.this.startActivity(newIntent);
+    }
+
+    public void goToSettings(View view) {
         changePage(6);
     }
+
     public void goToHighscore(View view) {
         changePage(7);
     }
 
+<<<<<<< HEAD
+    // qr butten click
+    public void goToQR(View view) {
+        changePage(0);
+            try {
+
+                Intent intent = new Intent(ACTION_SCAN);
+                intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
+                startActivityForResult(intent, 0);
+            } catch (ActivityNotFoundException anfe) {
+                showDialog(MainActivity.this, "geen correcte scanner gevonden", "wilt u een scanner downloaden", "ja", "nee").show();
+            }
+
+
+    }
+    // qr scanner
+    private static AlertDialog showDialog(final Activity act, CharSequence title, CharSequence message, CharSequence buttonYes, CharSequence buttonNo) {
+        AlertDialog.Builder downloadDialog = new AlertDialog.Builder(act);
+        downloadDialog.setTitle(title);
+        downloadDialog.setMessage(message);
+        downloadDialog.setPositiveButton(buttonYes, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Uri uri = Uri.parse("market://search?q=pname:" + "com.google.zxing.client.android");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                try {
+                    act.startActivity(intent);
+                } catch (ActivityNotFoundException anfe) {
+
+                }
+            }
+        });
+        downloadDialog.setNegativeButton(buttonNo, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogInterface, int i) {
+            }
+        });
+        return downloadDialog.show();
+    }
+    //qr scanner, data ontvangen
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        if (requestCode == 0) {
+            if (resultCode == RESULT_OK) {
+
+                String contents = intent.getStringExtra("SCAN_RESULT");
+
+                Toast toast = Toast.makeText(this, "U hebt " + contents + " coins ontvangen!", Toast.LENGTH_LONG);
+                toast.show();
+            }
+        }
+    }
+
+
+=======
+    public void goToAchievements(View view) {
+        changePage(8);
+    }
+
+    public void goToAvatars(View view) {
+        changePage(9);
+    }
+
+    public void goToFriends(View view) {
+        changePage(10);
+    }
+>>>>>>> origin/master
 }

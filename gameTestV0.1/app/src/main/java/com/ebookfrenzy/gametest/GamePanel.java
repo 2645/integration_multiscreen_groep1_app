@@ -29,7 +29,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
     public static final float widthBackground = 1080;
     public static final float heightBackground = 1920;
-    public int mijnscore = 100;
+    public int mijnscore = 1;
     private Random rand = new Random();
 
     private NewTread Thread;
@@ -216,7 +216,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
         mijnpaint.setColor(Color.WHITE);
         mijnpaint.setTextSize(30);
         mijnpaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
-        canvas.drawText("Blokjes opgevangen: " + mijnscore, 10, getHeight() - 10, mijnpaint);
+        canvas.drawText("Blokjes opgevangen: " + (mijnscore - 1), 10, getHeight() - 10, mijnpaint);
     }
 
 
