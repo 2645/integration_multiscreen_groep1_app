@@ -4,17 +4,18 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.TextView;
 
+import be.ehb.funinthequeue.model.User;
 import be.ehb.funinthequeue.rest.RestAPI;
 
 /**
  * Created by ToonLeemans on 04/01/16.
- *//*
+ */
 public class setTextFromAPI extends AsyncTask<Void, Void, Void> {
 
     RestAPI API;
     TextView verwelkoming;
     TextView cocacoins;
-    RestAPI user = new RestAPI();
+    User user;
 
     public setTextFromAPI(RestAPI API, TextView verwelkoming, TextView cocacoins) {
         this.API = API;
@@ -23,7 +24,7 @@ public class setTextFromAPI extends AsyncTask<Void, Void, Void> {
     }
     @Override
     protected Void doInBackground(Void... params) {
-        user = RestAPI.users.lookup(5);
+        user = API.users_lookup(5);
         return null;
     }
 
@@ -32,4 +33,4 @@ public class setTextFromAPI extends AsyncTask<Void, Void, Void> {
         verwelkoming.setText("Welkom, " + user.getFname() + "!");
         cocacoins.setText(user.getBalance() + " cocacoins");
     }
-}*/
+}

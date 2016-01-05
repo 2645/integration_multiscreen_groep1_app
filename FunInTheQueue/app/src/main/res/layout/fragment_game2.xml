@@ -2,21 +2,11 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background ="#825EA4"
     android:paddingTop="10dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <ImageView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/backgroundGame"
-            android:scaleType="fitEnd"
-            android:layout_alignParentBottom="true"
-            android:src = "@drawable/gamebackground"
-            android:layout_marginBottom="30dp" />
 
         <LinearLayout
             android:orientation="vertical"
@@ -61,16 +51,6 @@
                 android:layout_height="25dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="60dp">
-
-                <ImageButton
-                    android:layout_width="15dp"
-                    android:layout_height="fill_parent"
-                    android:id="@+id/imageButton2"
-                    android:layout_gravity="left"
-                    android:padding="5dp"
-                    android:background="@drawable/arrowleft"
-                    android:layout_marginLeft="10dp"
-                    android:onClick="leftArrow" />
 
             </LinearLayout>
 

@@ -13,6 +13,7 @@ import java.util.List;
 public class ViewPagerAdapter extends FragmentPagerAdapter {
     private final List<Fragment> fragmentList = new ArrayList<>();
     private final List<String> fragmentTitleList = new ArrayList<>();
+    private int position = 0;
 
     public ViewPagerAdapter(FragmentManager fm) {
         super(fm);
