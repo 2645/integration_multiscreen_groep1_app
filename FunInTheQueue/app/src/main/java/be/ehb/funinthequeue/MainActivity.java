@@ -3,14 +3,17 @@ package be.ehb.funinthequeue;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import be.ehb.funinthequeue.fragments.AchievementsFragment;
@@ -32,7 +35,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class MainActivity extends FragmentActivity {
 
-    Fragment fragment;
+    Fragment fragment = new HomeFragment();
     Fragment home;
     Fragment profile;
     Fragment game1;
@@ -44,8 +47,12 @@ public class MainActivity extends FragmentActivity {
     Fragment achievements;
     Fragment avatars;
     Fragment vrienden;
-
+/*
     private RestAPI API;
+    TextView verwelkoming;
+    TextView cocacoins;
+*/
+    ViewPager viewpager;
 
 
     @Override
@@ -58,6 +65,7 @@ public class MainActivity extends FragmentActivity {
                         .setFontAttrId(R.attr.fontPath)
                         .build()
         );
+
 
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
 
@@ -72,16 +80,33 @@ public class MainActivity extends FragmentActivity {
         achievements = new AchievementsFragment();
         avatars = new AvatarFragment();
         vrienden = new VriendenFragment();
+
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        /*verwelkoming = (TextView) findViewById(R.id.txtVerwelkoming);
+        cocacoins = (TextView) findViewById((R.id.txtAantalCocaCoins));
+        API = new RestAPI();
+
+        new setTextFromAPI(API, verwelkoming, cocacoins).execute();*/
+    }
+
+    private void setupViewPagerGames(ViewPager viewpager) {
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFrag(new GameFragment());
+        adapter.addFrag(new GameFragment2());
+        viewpager.setAdapter(adapter);
+    }
+
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 
     public void changePage(int position) {
         FragmentManager fragmentManager = getSupportFragmentManager();
-        switch(position) {
+        switch (position) {
             default:
             case 0:
                 fragment = home;
@@ -127,21 +152,33 @@ public class MainActivity extends FragmentActivity {
     public void goToHome(View view) {
         changePage(0);
     }
+
     public void goToQR(View view) {
         changePage(0);
     }
+
     public void goToProfile(View view) {
         changePage(1);
     }
+
     public void goToQueue(View view) {
         changePage(2);
     }
+
     public void goToGame(View view) {
-        changePage(3);
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .remove(fragment)
+                .commit();
+
+        viewpager = (ViewPager) findViewById(R.id.main_viewpager);
+        setupViewPagerGames(viewpager);
     }
+
     public void goToQueueDetail(View view) {
         changePage(5);
     }
+
     public void backButtonAttractie(View view) {
         changePage(2);
     }
@@ -150,19 +187,29 @@ public class MainActivity extends FragmentActivity {
         Intent myIntent = new Intent(MainActivity.this, GameActivity.class);
         MainActivity.this.startActivity(myIntent);
     }
+
     public void startQuiz(View view) {
         Intent newIntent = new Intent(MainActivity.this, QuizActivity.class);
         MainActivity.this.startActivity(newIntent);
     }
-    public void goToSettings(View view){
+
+    public void goToSettings(View view) {
         changePage(6);
     }
+
     public void goToHighscore(View view) {
         changePage(7);
     }
-    public void goToAchievements (View view){changePage(8);}
-    public void goToAvatars(View view){changePage(9);}
-    public void goToFriends(View view){changePage(10);}
-    public void rightArrow(View view){changePage(4);}
-    public void leftArrow(View view){changePage(3);}
+
+    public void goToAchievements(View view) {
+        changePage(8);
+    }
+
+    public void goToAvatars(View view) {
+        changePage(9);
+    }
+
+    public void goToFriends(View view) {
+        changePage(10);
+    }
 }

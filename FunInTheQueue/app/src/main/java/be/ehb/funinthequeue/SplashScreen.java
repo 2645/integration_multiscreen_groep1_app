@@ -17,7 +17,8 @@ import android.widget.VideoView;
 import be.ehb.funinthequeue.rest.RestAPI;
 
 public class SplashScreen extends MainActivity {
-    private boolean animationDone = false;
+    private volatile boolean animationDone = false;
+    private Object syncObject = new Object();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,7 +40,10 @@ public class SplashScreen extends MainActivity {
 
             videoHolder.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 public void onCompletion(MediaPlayer mp) {
-                    animationDone = true;
+                    synchronized (syncObject) {
+                        animationDone = true;
+                        syncObject.notify();
+                    }
                 }
             });
 
@@ -48,7 +52,7 @@ public class SplashScreen extends MainActivity {
         } catch (Exception ex) {
             // jump();
         }
-
+/*
         RestAPI API = new RestAPI();
         new DataLoadThread(API).execute();
     }
@@ -68,12 +72,22 @@ public class SplashScreen extends MainActivity {
 
         @Override
         protected void onPostExecute(Void aVoid) {
-            while(true) {
-                if(animationDone) {
-                    startActivity(new Intent(SplashScreen.this, MainActivity.class));
-                    finish();
+            startActivity(new Intent(SplashScreen.this, MainActivity.class));
+            finish();
+        }
+           /* try {
+                synchronized (syncObject) {
+                    while (!animationDone) {
+                        syncObject.wait();
+                        }
+                    Log.d("API", "OK");
+                     startActivity(new Intent(SplashScreen.this, MainActivity.class));
+                     finish();
+                    }
+
+                } catch(InterruptedException e){
+                    e.printStackTrace();
                 }
-            }
+            }*/
         }
     }
-}
