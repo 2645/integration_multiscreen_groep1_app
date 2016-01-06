@@ -9,19 +9,20 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import be.ehb.funinthequeue.HelperFunctions;
 import be.ehb.funinthequeue.R;
+import be.ehb.funinthequeue.model.User;
 import be.ehb.funinthequeue.profielAPI;
 import be.ehb.funinthequeue.rest.RestAPI;
 import be.ehb.funinthequeue.setTextFromAPI;
+import be.ehb.funinthequeue.tasks.ProfileTask;
 
 /**
  * Created by ToonLeemans on 15/12/15.
  */
 public class ProfielFragment extends Fragment{
     RestAPI API;
-    TextView naam;
-    ImageView avatar;
-    TextView cocacoins;
+    ViewGroup c;
     View v;
 
     @Override
@@ -29,8 +30,11 @@ public class ProfielFragment extends Fragment{
                              Bundle savedInstanceState) {
 // Inflate the layout for this fragment
         API = new RestAPI();
+        User u = HelperFunctions.loadUserFromPreferences(this.getActivity());
         v = inflater.inflate(R.layout.fragment_profiel, container, false);
-        setTextProfiel();
+        ((TextView) v.findViewById(R.id.txtNaam)).setText(u.toString());
+        ((TextView) v.findViewById(R.id.txtAantalCocaCoins)).setText(u.getBalance()+ " cocacoins");
+
         return v;
 
     }
@@ -41,10 +45,5 @@ public class ProfielFragment extends Fragment{
     }
 
     public void setTextProfiel(){
-        naam = (TextView) v.findViewById(R.id.txtNaam);
-        avatar = (ImageView) v.findViewById(R.id.imgAvatar);
-        cocacoins = (TextView) v.findViewById(R.id.txtAantalCocaCoins);
-
-        new profielAPI(API, naam, avatar, cocacoins).execute();
-    }
+        new ProfileTask(API, this.getActivity(), v).execute();    }
 }

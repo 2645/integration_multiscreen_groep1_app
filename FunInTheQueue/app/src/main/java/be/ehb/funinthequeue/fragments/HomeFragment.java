@@ -48,7 +48,6 @@ public class HomeFragment extends Fragment {
     }
 
     public void setTextHome(){
-        SharedPreferences sharedPref = c.getContext().getSharedPreferences("currentUser", Context.MODE_PRIVATE);
         new HomeTask(API, this.getActivity(), v).execute();
     }
 
