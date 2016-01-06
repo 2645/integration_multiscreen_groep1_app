@@ -178,7 +178,7 @@
                 android:layout_gravity="center_horizontal"
                 android:textColor="#FF7D55"
                 android:background="@drawable/roundedbutton"
-                android:textSize="17dp" />
+                android:textSize="17dp"/>
         </LinearLayout>
 
         <ImageView

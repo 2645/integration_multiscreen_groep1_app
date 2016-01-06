@@ -45,4 +45,11 @@ public class HelperFunctions {
                 sharedPref.getString("email", "")
         );
     }
+
+    public final static void removeUserPreferences(Activity context) {
+        SharedPreferences sharedPref = context.getSharedPreferences("currentUser", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.clear();
+        editor.commit();
+    }
 }

@@ -14,6 +14,7 @@ import be.ehb.funinthequeue.HelperFunctions;
 import be.ehb.funinthequeue.R;
 import be.ehb.funinthequeue.model.User;
 import be.ehb.funinthequeue.rest.RestAPI;
+import be.ehb.funinthequeue.tasks.ProfileEditTask;
 import be.ehb.funinthequeue.tasks.RegisterTask;
 
 /**
@@ -33,29 +34,35 @@ public class ProfielAanpassenFragment extends Fragment {
         User u = HelperFunctions.loadUserFromPreferences(getActivity());
         API = new RestAPI();
 
-        final TextView editProfileVoornaam = (TextView) getView().findViewById(R.id.editProfileVoornaam);
-        final TextView editProfileAchternaam = (TextView) getView().findViewById(R.id.editProfileAchternaam);
-        final TextView editProfileEmail = (TextView) getView().findViewById(R.id.editProfileEmail);
-        final TextView editProfileWachtwoord = (TextView) getView().findViewById(R.id.editProfileWachtwoord);
+        TextView editProfileVoornaam = (TextView) getView().findViewById(R.id.editProfileVoornaam);
+        TextView editProfileAchternaam = (TextView) getView().findViewById(R.id.editProfileAchternaam);
+        TextView editProfileEmail = (TextView) getView().findViewById(R.id.editProfileEmail);
+        TextView editProfileWachtwoord = (TextView) getView().findViewById(R.id.editProfileWachtwoord);
 
         editProfileVoornaam.setText(u.getFname());
         editProfileAchternaam.setText(u.getLname());
         editProfileEmail.setText(u.getMail());
 
-        Button registerButton = (Button) getView().findViewById(R.id.btnRegistreren);
-        registerButton.setOnClickListener(new View.OnClickListener() {
-
+        Button editProfileSubmit = (Button) getView().findViewById(R.id.editProfileSubmit);
+        editProfileSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String vnaam = editProfileVoornaam.getText().toString();
-                String anaam = editProfileAchternaam.getText().toString();
-                String email = editProfileEmail.getText().toString();
-                String pw = editProfileWachtwoord.getText().toString();
+                TextView editProfileVoornaam = (TextView) getView().findViewById(R.id.editProfileVoornaam);
+                TextView editProfileAchternaam = (TextView) getView().findViewById(R.id.editProfileAchternaam);
+                TextView editProfileEmail = (TextView) getView().findViewById(R.id.editProfileEmail);
+                TextView editProfileWachtwoord = (TextView) getView().findViewById(R.id.editProfileWachtwoord);
 
-                if (HelperFunctions.isValidEmail(email)) {
-                    if (HelperFunctions.isNotEmpty(vnaam) && HelperFunctions.isNotEmpty(anaam)) {
-                        if(HelperFunctions.isNotEmpty(pw)) {
-                            new RegisterTask(getActivity(), API, vnaam, anaam, email, pw).execute();
+                User user = new User(
+                        editProfileVoornaam.getText().toString(),
+                        editProfileAchternaam.getText().toString(),
+                        editProfileEmail.getText().toString(),
+                        editProfileWachtwoord.getText().toString()
+                );
+
+                if (HelperFunctions.isValidEmail(user.getMail())) {
+                    if (HelperFunctions.isNotEmpty(user.getFname()) && HelperFunctions.isNotEmpty(user.getLname())) {
+                        if (HelperFunctions.isNotEmpty(user.getPw())) {
+                            new ProfileEditTask(getActivity(), API, user).execute();
 
                         } else {
                             Toast.makeText(getActivity(), "Gelieve een wachtwoord in te voeren", Toast.LENGTH_LONG).show();
@@ -70,5 +77,9 @@ public class ProfielAanpassenFragment extends Fragment {
         });
 
         super.onViewCreated(view, savedInstanceState);
+    }
+
+    public void btnProfielAanpassenOnClick() {
+
     }
 }
