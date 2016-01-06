@@ -7,35 +7,35 @@ public class Question {
 
     private int ID;
     private String question;
-    private String option1;
-    private String option2;
-    private String option3;
+    private String optionA;
+    private String optionB;
+    private String optionC;
     private String answer;
 
     public Question() {
         ID = 0;
         question = "";
-        option1 = "";
-        option2 = "";
-        option3 = "";
+        optionA = "";
+        optionB = "";
+        optionC = "";
         answer = "";
     }
 
-    public Question(int ID, String question, String option1, String option2, String option3, String answer) {
+    public Question(int ID, String question, String optionA, String optionB, String optionC, String answer) {
         this.answer = answer;
         this.ID = ID;
-        this.option1 = option1;
-        this.option2 = option2;
-        this.option3 = option3;
+        this.optionA = optionA;
+        this.optionB = optionB;
+        this.optionC = optionC;
         this.question = question;
     }
 
-    public Question(String question, String option1, String option2, String option3, String answer) {
+    public Question(String question, String optionA, String optionB, String optionC, String answer) {
         this.ID = 0;
         this.question = question;
-        this.option1 = option1;
-        this.option2 = option2;
-        this.option3 = option3;
+        this.optionA = optionA;
+        this.optionB = optionB;
+        this.optionC = optionC;
         this.answer = answer;
     }
 
@@ -55,28 +55,28 @@ public class Question {
         this.question = question;
     }
 
-    public String getOption1() {
-        return option1;
+    public String getOptionA() {
+        return optionA;
     }
 
-    public void setOption1(String option1) {
-        this.option1 = option1;
+    public void setOptionA(String optionA) {
+        this.optionA = optionA;
     }
 
-    public String getOption2() {
-        return option2;
+    public String getOptionB() {
+        return optionB;
     }
 
-    public void setOption2(String option2) {
-        this.option2 = option2;
+    public void setOptionB(String optionB) {
+        this.optionB = optionB;
     }
 
-    public String getOption3() {
-        return option3;
+    public String getOptionC() {
+        return optionC;
     }
 
-    public void setOption3(String option3) {
-        this.option3 = option3;
+    public void setOptionC(String optionC) {
+        this.optionC = optionC;
     }
 
     public String getAnswer() {
