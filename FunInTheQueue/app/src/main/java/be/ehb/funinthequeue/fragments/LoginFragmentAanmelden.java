@@ -14,12 +14,22 @@ import android.widget.Toast;
 import be.ehb.funinthequeue.R;
 import be.ehb.funinthequeue.rest.RestAPI;
 import be.ehb.funinthequeue.tasks.LoginTask;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import be.ehb.funinthequeue.R;
+import be.ehb.funinthequeue.loginAPI;
+import be.ehb.funinthequeue.rest.RestAPI;
+import be.ehb.funinthequeue.setTextFromAPI;
 /**
  * Created by ToonLeemans on 05/01/16.
  */
 public class LoginFragmentAanmelden extends Fragment {
     RestAPI API;
+
+    private EditText email;
+    private EditText wachtwoord;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -69,7 +79,16 @@ public class LoginFragmentAanmelden extends Fragment {
     }
 
     public final static boolean isValidPassword(CharSequence target) {
-        return !TextUtils.isEmpty(target);
+        return !TextUtils.isEmpty(target);}
+    public void onActivityCreated(Bundle created) {
+        super.onActivityCreated(created);
+        getTextLogin();
+    }
+    public void getTextLogin(){
+        email = (EditText) getView().findViewById(R.id.editEmail);
+        wachtwoord = (EditText) getView().findViewById(R.id.editWachtwoord);
+
+        new loginAPI(API, email, wachtwoord).execute();
     }
 }
 

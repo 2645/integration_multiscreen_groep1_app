@@ -7,6 +7,7 @@ public class User {
     private int id;
     private String fname;
     private String lname;
+    private String pw;
 
     private String mail;
     private int balance;
@@ -58,6 +59,14 @@ public class User {
 
     public void setAvatarId(int avatarId) {
         this.avatarId = avatarId;
+    }
+
+    public String getPw() {
+        return pw;
+    }
+
+    public void setPw(String pw) {
+        this.pw = pw;
     }
 
     public User() {

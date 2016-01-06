@@ -35,7 +35,16 @@
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:id="@+id/loginContainer"
-            android:layout_alignParentBottom="true"></FrameLayout>
+            android:layout_alignParentBottom="true">
+
+            <fragment
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:name="be.ehb.funinthequeue.fragments.LoginFragmentFirst"
+                android:id="@+id/fragment"
+                android:layout_gravity="center_horizontal|top"
+                tools:layout="@layout/fragment_login_first" />
+        </FrameLayout>
 
     </RelativeLayout>
 </RelativeLayout>
