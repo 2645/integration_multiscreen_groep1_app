@@ -52,6 +52,8 @@ public class SplashScreen extends MainActivity {
         } catch (Exception ex) {
             // jump();
         }
+    }
+}
 /*
         RestAPI API = new RestAPI();
         new DataLoadThread(API).execute();
@@ -75,7 +77,7 @@ public class SplashScreen extends MainActivity {
             startActivity(new Intent(SplashScreen.this, MainActivity.class));
             finish();
         }
-           /* try {
+            try {
                 synchronized (syncObject) {
                     while (!animationDone) {
                         syncObject.wait();
@@ -88,6 +90,7 @@ public class SplashScreen extends MainActivity {
                 } catch(InterruptedException e){
                     e.printStackTrace();
                 }
-            }*/
+            }
         }
     }
+*/

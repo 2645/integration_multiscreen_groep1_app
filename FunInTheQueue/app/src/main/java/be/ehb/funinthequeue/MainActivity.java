@@ -107,12 +107,6 @@ public class MainActivity extends FragmentActivity {
         API = new RestAPI();
     }
 
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
-
     //product qr code mode
     public void goToQR(View v) {
         try {

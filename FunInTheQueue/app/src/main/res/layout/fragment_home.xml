@@ -110,11 +110,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
+                <be.ehb.funinthequeue.ImageClip
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:id="@+id/imgKortsteWachttijd"
-                    android:src="@drawable/attractiefoto" />
+                    android:src="@drawable/attractiefoto"
+                    android:scaleType="centerCrop"
+                    android:layout_gravity="center" />
 
                 <LinearLayout
                     android:orientation="vertical"
@@ -205,11 +207,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 
-                <ImageView
+                <be.ehb.funinthequeue.ImageClip
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:id="@+id/imgInDeBuurt"
-                    android:src="@drawable/attractiefoto2" />
+                    android:src="@drawable/attractiefoto2"
+                    android:scaleType="centerCrop" />
 
                 <LinearLayout
                     android:orientation="vertical"

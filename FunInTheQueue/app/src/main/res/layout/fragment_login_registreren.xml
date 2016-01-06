@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NIEUW PROFIEL"
+            android:id="@+id/textView14"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#FFFFFF"
+            android:textSize="25dp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="290dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp" >
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center_horizontal" >
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/imageView30"
+                    android:src="@drawable/profilewit"
+                    android:paddingBottom="25dp" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:ems="10"
+                        android:id="@+id/editVoornaam"
+                        android:layout_weight="1"
+                        android:textColor="#ffffff"
+                        android:textSize="15dp"
+                        android:hint="Voornaam"
+                        android:textColorHint="#ffffff" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:ems="10"
+                        android:id="@+id/editAchternaam"
+                        android:layout_weight="1"
+                        android:textColor="#ffffff"
+                        android:textSize="15dp"
+                        android:hint="Achternaam"
+                        android:textColorHint="#ffffff" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="290dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center_horizontal" >
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/imageView32"
+                    android:src="@drawable/email"
+                    android:paddingBottom="25dp" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent" >
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"
+                        android:ems="10"
+                        android:id="@+id/editEmail"
+                        android:layout_weight="1"
+                        android:hint="Email"
+                        android:textSize="15dp"
+                        android:textColorHint="#ffffff" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="290dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal" >
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center_horizontal" >
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/imageView31"
+                    android:src="@drawable/wachtwoord"
+                    android:paddingBottom="25dp" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:ems="10"
+                    android:id="@+id/editWachtwoord"
+                    android:layout_weight="1"
+                    android:hint="Wachtwoord"
+                    android:textColorHint="#FFFFFF"
+                    android:textSize="15dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:layout_width="260dp"
+            android:layout_height="40dp"
+            android:text="Registreren"
+            android:id="@+id/btnRegistreren"
+            android:background="@drawable/buttonbackground"
+            android:textColor="#E5403C"
+            android:onClick="aanmeldenClick"
+            android:layout_gravity="center" />
+
+    </LinearLayout>
+</RelativeLayout>

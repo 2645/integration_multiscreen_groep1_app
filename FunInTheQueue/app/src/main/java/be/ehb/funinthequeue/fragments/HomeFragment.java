@@ -1,13 +1,17 @@
 package be.ehb.funinthequeue.fragments;
 
+import android.location.Location;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import be.ehb.funinthequeue.GPSTracker;
+import be.ehb.funinthequeue.MainActivity;
 import be.ehb.funinthequeue.R;
 import be.ehb.funinthequeue.rest.RestAPI;
 import be.ehb.funinthequeue.setTextFromAPI;
@@ -23,7 +27,11 @@ public class HomeFragment extends Fragment {
     TextView wachttijd1;
     TextView afstand1;
     ImageView attractieimage;
+    ImageView attractieimage2;
     ImageView avatar;
+    TextView afstandattractie;
+    TextView wachttijd2;
+    TextView afstand2;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,7 +44,13 @@ public class HomeFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle created) {
         super.onActivityCreated(created);
-        setTextHome();
+        /*setTextHome();
+        GPSTracker gps = new GPSTracker(getActivity());
+        Double latitude = gps.getLatitude();
+        Double longitude = gps.getLongitude();
+        Log.d("Latitude", Double.toString(latitude));
+        Log.d("Longitude", Double.toString(longitude));
+        getLocation();*/
     }
 
     public void setTextHome(){
@@ -47,8 +61,24 @@ public class HomeFragment extends Fragment {
         afstand1 = (TextView) getView().findViewById(R.id.txtAfstand1);
         attractieimage = (ImageView) getView().findViewById(R.id.imgKortsteWachttijd);
         avatar = (ImageView) getView().findViewById(R.id.imgAvatar);
+        afstandattractie = (TextView) getView().findViewById(R.id.txtAttractietitel);
+        wachttijd2 = (TextView) getView().findViewById(R.id.txtTijd2);
+        afstand2 = (TextView) getView().findViewById(R.id.txtAfstand2);
+        attractieimage2 = (ImageView) getView().findViewById(R.id.imgInDeBuurt);
 
-        new setTextFromAPI(API, verwelkoming, cocacoins, wachttijdAttractie, wachttijd1, afstand1, attractieimage, avatar).execute();
+        new setTextFromAPI(API, verwelkoming, cocacoins, wachttijdAttractie, wachttijd1, afstand1, attractieimage, avatar, afstandattractie, wachttijd2, afstand2, attractieimage2).execute();
+    }
+
+
+    public Location getLocation() {
+        GPSTracker tracker = new GPSTracker(getActivity());
+        if (tracker.canGetLocation()) {
+            Location location = tracker.getLocation();
+            if (location != null) {
+                return location;
+            }
+        }
+        throw new RuntimeException("Could not retrieve location.");
     }
 
 }
