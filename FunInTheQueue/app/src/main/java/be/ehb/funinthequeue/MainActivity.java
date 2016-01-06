@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -61,6 +62,16 @@ public class MainActivity extends FragmentActivity {
     TextView verwelkoming;
     TextView cocacoins;
 
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
+
+    private int[] tabIcons = {
+            R.drawable.home,
+            R.drawable.game,
+            R.drawable.profile,
+            R.drawable.queue
+    };
+
     static final String ACTION_SCAN = "com.google.zxing.client.android.SCAN";
 
     @Override
@@ -93,11 +104,20 @@ public class MainActivity extends FragmentActivity {
         vrienden = new VriendenFragment();
 
 
+        /*
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
                 .add(R.id.container, home)
                 .addToBackStack(null)
                 .commit();
+*/
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        setupViewPager(viewPager);
+
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(viewPager);
+
+        setupTabIcons();
 
         API = new RestAPI();
     }
@@ -153,10 +173,19 @@ public class MainActivity extends FragmentActivity {
             }
         }
     }
-    private void setupViewPagerGames(ViewPager viewpager) {
+    private void setupTabIcons() {
+        tabLayout.getTabAt(0).setIcon(tabIcons[0]);
+        tabLayout.getTabAt(1).setIcon(tabIcons[1]);
+        tabLayout.getTabAt(2).setIcon(tabIcons[2]);
+        tabLayout.getTabAt(3).setIcon(tabIcons[3]);
+    }
+
+    private void setupViewPager(ViewPager viewpager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFrag(new HomeFragment());
         adapter.addFrag(new GameFragment());
-        adapter.addFrag(new GameFragment2());
+        adapter.addFrag(new ProfielFragment());
+        adapter.addFrag(new QueueFragment());
         viewpager.setAdapter(adapter);
     }
 
@@ -169,43 +198,26 @@ public class MainActivity extends FragmentActivity {
         switch (position) {
             default:
             case 0:
-                fragment = home;
-                break;
-            case 1:
-                fragment = profile;
-                break;
-            case 2:
-                fragment = wachttijden;
-                break;
-            case 3:
-                fragment = game1;
-                break;
-            case 4:
                 fragment = game2;
                 break;
-            case 5:
+            case 1:
                 fragment = detail;
                 break;
-            case 6:
+            case 2:
                 fragment = gegevens;
                 break;
-            case 7:
+            case 3:
                 fragment = highscores;
                 break;
-            case 8:
+            case 4:
                 fragment = achievements;
                 break;
-            case 9:
+            case 5:
                 fragment = avatars;
                 break;
-            case 10:
+            case 6:
                 fragment = vrienden;
                 break;
-            case 11:
-                fragment = swipe;
-                break;
-            case 12:
-                fragment = backgroundGames;
         }
 
         fragmentManager.beginTransaction()
@@ -213,53 +225,15 @@ public class MainActivity extends FragmentActivity {
                 .addToBackStack(null)
                 .commit();
     }
-    public void changeBackground(int position) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        switch (position) {
-            default:
-            case 0:
-                fragment = backgroundGames;
-                break;
-        }
 
-        fragmentManager.beginTransaction()
-                .replace(R.id.backgroundFragment, fragment)
-                .addToBackStack(null)
-                .commit();
-    }
-
-    public void goToHome(View view) {
-        changePage(0);
-    }
-
-    public void goToProfile(View view) {
+    public void goToQueueDetail(View view) {
         changePage(1);
     }
 
-    public void goToQueue(View view) {
-        changePage(2);
-    }
-
-    public void goToGame(View view) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .remove(fragment)
-                .commit();
-
-        changeBackground(0);
-        changePage(11);
-
-        viewpager = (ViewPager) findViewById(R.id.main_viewpager);
-        setupViewPagerGames(viewpager);
-    }
-
-    public void goToQueueDetail(View view) {
-        changePage(5);
-    }
-
+    /*
     public void backButtonAttractie(View view) {
-        changePage(2);
-    }
+        changePage();
+    }*/
 
     public void startCubeGame(View view) {
         Intent myIntent = new Intent(MainActivity.this, GameActivity.class);
@@ -272,23 +246,33 @@ public class MainActivity extends FragmentActivity {
     }
 
     public void goToSettings(View view) {
-        changePage(6);
+        changePage(2);
+    }
+    public void goToProfile(View v){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .remove(fragment)
+                .commit();
+
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        setupViewPager(viewPager);
+
     }
 
     public void goToHighscore(View view) {
-        changePage(7);
+        changePage(3);
     }
 
     public void goToAchievements(View view) {
-        changePage(8);
+        changePage(4);
     }
 
     public void goToAvatars(View view) {
-        changePage(9);
+        changePage(5);
     }
 
     public void goToFriends(View view) {
-        changePage(10);
+        changePage(6);
     }
 
     public void logOutClick(View v){

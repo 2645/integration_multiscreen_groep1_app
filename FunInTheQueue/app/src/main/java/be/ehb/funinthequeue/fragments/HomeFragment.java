@@ -3,22 +3,15 @@ package be.ehb.funinthequeue.fragments;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.location.Location;
-import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import be.ehb.funinthequeue.GPSTracker;
-import be.ehb.funinthequeue.MainActivity;
 import be.ehb.funinthequeue.R;
-import be.ehb.funinthequeue.model.Attraction;
 import be.ehb.funinthequeue.rest.RestAPI;
-import be.ehb.funinthequeue.setTextFromAPI;
 import be.ehb.funinthequeue.tasks.HomeTask;
 
 /**
