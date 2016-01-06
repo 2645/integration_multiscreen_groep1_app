@@ -32,7 +32,7 @@ import be.ehb.funinthequeue.fragments.QueueFragment;
 import be.ehb.funinthequeue.fragments.SwipeButtonsFragment;
 import be.ehb.funinthequeue.fragments.VriendenFragment;
 import be.ehb.funinthequeue.game.catch_a_cube.GameActivity;
-import be.ehb.funinthequeue.game.quiz.QuizActivity;
+/*import be.ehb.funinthequeue.game.quiz.QuizActivity;*/
 import be.ehb.funinthequeue.rest.RestAPI;
 import be.ehb.funinthequeue.tasks.QrTriggerTask;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
@@ -267,8 +267,8 @@ public class MainActivity extends FragmentActivity {
     }
 
     public void startQuiz(View view) {
-        Intent newIntent = new Intent(MainActivity.this, QuizActivity.class);
-        MainActivity.this.startActivity(newIntent);
+        /*Intent newIntent = new Intent(MainActivity.this, QuizActivity.class);
+        MainActivity.this.startActivity(newIntent);*/
     }
 
     public void goToSettings(View view) {
@@ -291,4 +291,10 @@ public class MainActivity extends FragmentActivity {
         changePage(10);
     }
 
+    public void logOutClick(View v){
+        HelperFunctions.removeUserPreferences(MainActivity.this);
+
+        Intent newIntent = new Intent(MainActivity.this, LoginActivity.class);
+        MainActivity.this.startActivity(newIntent);
+    }
 }
