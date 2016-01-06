@@ -2,6 +2,9 @@ package be.ehb.funinthequeue.rest;
 
 import android.util.Log;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,9 +35,10 @@ public class RestAPI {
     private final String LOG_TAG = "API";
 
     public RestAPI() {
+        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
         restAdapter = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
         restService = restAdapter.create(RestInterface.class);
@@ -171,7 +175,7 @@ public class RestAPI {
         HashMap queryMap = new HashMap();
         queryMap.put("id", id);
 
-        Call<Integer> call = restService.barcodes_create(queryMap);
+        Call<Integer> call = restService.barcodes_trigger(queryMap);
         Boolean result = (Boolean) executeAndTestResponse(call);
         return result;
     }
@@ -180,7 +184,7 @@ public class RestAPI {
         HashMap queryMap = new HashMap();
         queryMap.put("id", id);
 
-        Call<Integer> call = restService.barcodes_create(queryMap);
+        Call<Integer> call = restService.barcodes_destroy(queryMap);
         executeAndTestResponse(call);
     }
 
