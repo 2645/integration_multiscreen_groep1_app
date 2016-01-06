@@ -143,16 +143,16 @@ public class RestAPI {
         return friendshipID;
     }
 
-    public Barcode barcodes_lookup(int barcodeID) {
+    public Barcode barcodes_lookup(String id) {
         HashMap queryMap = new HashMap();
-        queryMap.put("id", barcodeID);
+        queryMap.put("id", id);
 
         Call<Barcode> call = restService.barcodes_lookup(queryMap);
         Barcode barcode = (Barcode) executeAndTestResponse(call);
         return barcode;
     }
 
-    public ArrayList<Barcode> barcodes_list(int barcodeID) {
+    public ArrayList<Barcode> barcodes_list() {
         Call<ArrayList<Barcode>> call = restService.barcodes_list();
         ArrayList<Barcode> barcodes = (ArrayList<Barcode>) executeAndTestResponse(call);
         return barcodes;

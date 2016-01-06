@@ -16,7 +16,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <!--
         <activity
             android:name=".SplashScreen"
             android:configChanges="orientation"
@@ -28,15 +27,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        -->
+
         <activity android:name=".LoginActivity"
             android:configChanges="orientation"
             android:multiprocess="true"
             android:screenOrientation="portrait">
             <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            <action android:name="be.ehb.funinthequeue.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
+            <category android:name="android.intent.category.DEFAULT" />
         </intent-filter>
         </activity>
         <activity
@@ -45,7 +44,7 @@
             android:multiprocess="true"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="be.ehb.funinthequeue.MAINACTIVITY" />
+                <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

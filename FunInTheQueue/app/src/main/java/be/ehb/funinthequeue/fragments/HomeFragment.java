@@ -1,6 +1,7 @@
 package be.ehb.funinthequeue.fragments;
 
 import android.location.Location;
+import android.location.LocationManager;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import be.ehb.funinthequeue.GPSTracker;
 import be.ehb.funinthequeue.MainActivity;
 import be.ehb.funinthequeue.R;
+import be.ehb.funinthequeue.model.Attraction;
 import be.ehb.funinthequeue.rest.RestAPI;
 import be.ehb.funinthequeue.setTextFromAPI;
 
@@ -44,13 +46,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle created) {
         super.onActivityCreated(created);
-        /*setTextHome();
-        GPSTracker gps = new GPSTracker(getActivity());
-        Double latitude = gps.getLatitude();
-        Double longitude = gps.getLongitude();
-        Log.d("Latitude", Double.toString(latitude));
-        Log.d("Longitude", Double.toString(longitude));
-        getLocation();*/
+        setTextHome();
     }
 
     public void setTextHome(){
@@ -80,5 +76,4 @@ public class HomeFragment extends Fragment {
         }
         throw new RuntimeException("Could not retrieve location.");
     }
-
 }

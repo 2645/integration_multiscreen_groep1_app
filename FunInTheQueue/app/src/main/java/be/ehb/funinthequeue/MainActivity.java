@@ -292,35 +292,4 @@ public class MainActivity extends FragmentActivity {
         changePage(10);
     }
 
-    /*
-    ImageButton circle1 = (ImageButton) findViewById(R.id.imgSwipeCircle1);
-    ImageButton circle2 = (ImageButton) findViewById(R.id.imgSwipeCircle2);
-    ViewPagerAdapter viewpage = new ViewPagerAdapter(getSupportFragmentManager());
-
-    PageListener pageListener = new PageListener(circle1, circle2, viewpage);
-    ViewPager.addOnPageChangeListener(pageListener);
-
-    private static class PageListener extends ViewPager.SimpleOnPageChangeListener {
-        ImageButton circle1;
-        ImageButton circle2;
-        ViewPagerAdapter viewpage;
-
-        private PageListener(ImageButton circle1, ImageButton circle2, ViewPagerAdapter viewpage){
-            this.circle1 = circle1;
-            this.circle2 = circle2;
-            this.viewpage = viewpage;
-        }
-        public void onPageSelected(int position) {
-            switch(position){
-                case 0:
-                    circle1.setBackgroundResource(R.drawable.viewpagecirclefull);
-                    circle2.setBackgroundResource(R.drawable.viewpagecircleempty);
-                    break;
-                case 1:
-                    circle1.setBackgroundResource(R.drawable.viewpagecircleempty);
-                    circle2.setBackgroundResource(R.drawable.viewpagecirclefull);
-                    break;
-            }
-        }
-    }*/
 }

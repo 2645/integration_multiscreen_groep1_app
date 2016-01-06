@@ -10,6 +10,7 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import be.ehb.funinthequeue.fragments.HomeFragment;
 import be.ehb.funinthequeue.model.Attraction;
 import be.ehb.funinthequeue.model.Avatar;
 import be.ehb.funinthequeue.model.User;
@@ -65,7 +66,7 @@ public class setTextFromAPI extends AsyncTask<Void, Void, Void> {
         cocacoins.setText(user.getBalance() + " cocacoins");
         wachttijdAttractie.setText(attractie.getName());
         wachttijd1.setText(attractie.getQueuetime() + " min");
-        //afstand1.setText(attractie.getLat());
+        afstand1.setText("100 m");
         afstandAttractie.setText(attractie.getName());
         wachttijd2.setText(attractie.getQueuetime() + " min");
         afstand2.setText("10 m");
