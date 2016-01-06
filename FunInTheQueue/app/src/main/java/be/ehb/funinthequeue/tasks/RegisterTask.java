@@ -28,7 +28,7 @@ public class RegisterTask extends AsyncTask<Void, Void, Void> {
         this.context = (Activity) context;
         this.API = API;
         this.user = new User(vnaam, anaam, email, pw);
-        this.sharedPref = this.context.getPreferences(Context.MODE_PRIVATE);
+        this.sharedPref = this.context.getSharedPreferences("currentUser", Context.MODE_PRIVATE);
         this.editor = this.sharedPref.edit();
     }
 

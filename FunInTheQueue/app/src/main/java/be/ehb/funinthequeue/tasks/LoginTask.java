@@ -45,7 +45,6 @@ public class LoginTask extends AsyncTask<Void, Void, Void> {
             if(user.getId() != 0) {
                 editor.putInt("userID", this.user.getId());
                 editor.commit();
-                Log.e("LOG", String.valueOf(this.user.getId()));
 
                 Intent myIntent = new Intent(context, MainActivity.class);
                 context.startActivity(myIntent);
