@@ -14,7 +14,9 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,7 +42,7 @@ import be.ehb.funinthequeue.tasks.QrTriggerTask;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends AppCompatActivity {
 
     Fragment fragment;
     Fragment home;
@@ -60,18 +62,8 @@ public class MainActivity extends FragmentActivity {
     ViewPager viewpager;
 
     RestAPI API;
-    TextView verwelkoming;
-    TextView cocacoins;
 
-    private TabLayout tabLayout;
     private ViewPager viewPager;
-
-    private int[] tabIcons = {
-            R.drawable.home,
-            R.drawable.game,
-            R.drawable.profile,
-            R.drawable.queue
-    };
 
     static final String ACTION_SCAN = "com.google.zxing.client.android.SCAN";
 
@@ -104,21 +96,16 @@ public class MainActivity extends FragmentActivity {
         avatars = new AvatarFragment();
         vrienden = new VriendenFragment();
 
-
-        /*
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .add(R.id.container, home)
-                .addToBackStack(null)
-                .commit();
-*/
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
 
-        tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
+        try {
+            Reservoir.init(this, 20000000); //in bytes
+        } catch (Exception e) {
+            //failure
+        }
 
-        setupTabIcons();
+        new DataLoadTask(API, HelperFunctions.loadUserFromPreferences(MainActivity.this)).execute();
 
         API = new RestAPI();
     }
@@ -171,12 +158,6 @@ public class MainActivity extends FragmentActivity {
                 toast.show();
             }
         }
-    }
-    private void setupTabIcons() {
-        tabLayout.getTabAt(0).setIcon(tabIcons[0]);
-        tabLayout.getTabAt(1).setIcon(tabIcons[1]);
-        tabLayout.getTabAt(2).setIcon(tabIcons[2]);
-        tabLayout.getTabAt(3).setIcon(tabIcons[3]);
     }
 
     private void setupViewPager(ViewPager viewpager) {
@@ -232,15 +213,25 @@ public class MainActivity extends FragmentActivity {
         changePage(1);
     }
 
+    public void goToHome(View view){
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager.setCurrentItem(0);
+    }
+
     public void backButtonAttractie(View view) {
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         viewPager.setCurrentItem(3);
+
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
                 .remove(fragment)
                 .commit();
     }
 
+    public void goToQueue(View view){
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager.setCurrentItem(3);
+    }
     public void startCubeGame(View view) {
         Intent myIntent = new Intent(MainActivity.this, GameActivity.class);
         MainActivity.this.startActivity(myIntent);
