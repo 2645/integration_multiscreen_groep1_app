@@ -14,4 +14,9 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="fastest">Anubis The Ride</string>
+    <string name="closest">De Boomstammetjes</string>
+    <string name="cocacoins">200 cocacoins</string>
+    <string name="Hallo">Hallo, Dieter!</string>
+    <string name="tijd1">10 min</string>
 </resources>

@@ -34,6 +34,7 @@ import be.ehb.funinthequeue.fragments.SwipeButtonsFragment;
 import be.ehb.funinthequeue.fragments.VriendenFragment;
 import be.ehb.funinthequeue.game.catch_a_cube.GameActivity;
 /*import be.ehb.funinthequeue.game.quiz.QuizActivity;*/
+import be.ehb.funinthequeue.model.User;
 import be.ehb.funinthequeue.rest.RestAPI;
 import be.ehb.funinthequeue.tasks.QrTriggerTask;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
@@ -163,10 +164,8 @@ public class MainActivity extends FragmentActivity {
             if (resultCode == RESULT_OK) {
                 //get the extras that are returned from the intent
                 String content = intent.getStringExtra("SCAN_RESULT");
-                String format = intent.getStringExtra("SCAN_RESULT_FORMAT");
-                SharedPreferences sharedPref = this.getSharedPreferences("currentUser", Context.MODE_PRIVATE);
-                int uId = sharedPref.getInt("userID", 0);
-                new QrTriggerTask(this, API, content, uId).execute();
+                User u = HelperFunctions.loadUserFromPreferences(MainActivity.this);
+                new QrTriggerTask(this, API, content, u.getId()).execute();
 
                 Toast toast = Toast.makeText(this, "Code succesvol gescanned!", Toast.LENGTH_LONG);
                 toast.show();
