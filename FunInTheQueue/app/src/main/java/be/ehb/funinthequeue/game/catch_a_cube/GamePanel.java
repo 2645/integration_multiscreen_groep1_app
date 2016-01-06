@@ -5,16 +5,23 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Point;
+import android.graphics.Rect;
 import android.graphics.Typeface;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.WindowManager;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 import be.ehb.funinthequeue.R;
+
+import static android.graphics.Color.argb;
 
 /**
  * Created by Maarten on 15/12/15.
@@ -22,6 +29,7 @@ import be.ehb.funinthequeue.R;
 
 public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     public int DeviceW;
+    public int DeviceH;
 
     public static final float widthBackground = 1080;
     public static final float heightBackground = 1920;
@@ -39,9 +47,10 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
     private ArrayList<Blokje> blokjesLijst;
 
-    public GamePanel(Context context,int Dwidth) {
+    public GamePanel(Context context,int Dwidth, int DHight) {
         super(context);
         DeviceW = Dwidth;
+        DeviceH = DHight;
         getHolder().addCallback(this);
 
         Thread = new NewTread(getHolder(), this);
@@ -72,10 +81,10 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     }
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-            mijnBackground = new Background(BitmapFactory.decodeResource(getResources(), R.drawable.background02));
+            mijnBackground = new Background(BitmapFactory.decodeResource(getResources(), R.drawable.background4));
             //mijnBeker = new Beker(BitmapFactory.decodeResource(getResources(), R.drawable.beker03), 160, 230, DeviceW);
-            mijnBeker = new Beker(BitmapFactory.decodeResource(getResources(),R.drawable.beker04),
-                100, 800,  100, 144, mijnscore, DeviceW);
+            mijnBeker = new Beker(BitmapFactory.decodeResource(getResources(), R.drawable.beker04),
+                100, (DeviceH*3/4 - 50),  100, 144, mijnscore, DeviceW);
             blokjesLijst = new ArrayList<Blokje>();
             snelheid = 1;
 
@@ -204,12 +213,14 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
     }
     public void drawText(Canvas canvas) {
-        Paint mijnpaint = new Paint();
-        mijnpaint.setColor(Color.WHITE);
-        mijnpaint.setTextSize(30);
-        mijnpaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
-        canvas.drawText("Blokjes opgevangen: " + mijnscore, 10, getHeight() - 10, mijnpaint);
-    }
 
+
+
+        Paint mijnpaint = new Paint();
+        mijnpaint.setColor(argb(255, 130, 94, 150));
+        mijnpaint.setTextSize(200);
+        mijnpaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+        canvas.drawText(""+(mijnscore - 1), getWidth()/2-45, 300, mijnpaint);
+    }
 
 }

@@ -28,7 +28,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
     public static final float widthBackground = 1080;
     public static final float heightBackground = 1920;
-    public int mijnscore = 100;
+    public int mijnscore = 1;
     private Random rand = new Random();
 
     private NewTread Thread;

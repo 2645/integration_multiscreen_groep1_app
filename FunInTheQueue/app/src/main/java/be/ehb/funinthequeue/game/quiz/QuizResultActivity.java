@@ -1,17 +1,18 @@
 package be.ehb.funinthequeue.game.quiz;
-
+/*
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
-import be.ehb.funinthequeue.MainActivity;
 import be.ehb.funinthequeue.R;
 
-public class QuizResultActivity extends MainActivity {
+public class QuizResultActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_quiz_result);
-
+        setContentView(R.layout.activity_result);
+        getSupportActionBar().hide();
         TextView t=(TextView)findViewById(R.id.textResult);
         Bundle b = getIntent().getExtras();
         int score= b.getInt("score");
@@ -19,3 +20,4 @@ public class QuizResultActivity extends MainActivity {
     }
 
 }
+*/

@@ -51,12 +51,13 @@ public class Beker extends Item {
 
         if (x > DeviceWidth) {
             x = DeviceWidth;
-
+            dx = 0;
 
         }
 
         if (x < 0) {
             x = 0;
+            dx = 0;
 
         }
 

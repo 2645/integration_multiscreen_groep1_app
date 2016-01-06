@@ -4,8 +4,6 @@ import android.graphics.Canvas;
 import android.util.Log;
 import android.view.SurfaceHolder;
 
-import be.ehb.funinthequeue.game.catch_a_cube.GamePanel;
-
 /**
  * Created by Maarten on 15/12/15.
  */
