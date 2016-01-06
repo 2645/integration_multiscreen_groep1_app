@@ -42,11 +42,11 @@ public class LoginActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        /*
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .add(R.id.loginContainer, fragment)
-                .commit();*/
+        int userid = HelperFunctions.loadUserFromPreferences(LoginActivity.this).getId();
+        if(userid != 0){
+            Intent myIntent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(myIntent);
+        }
 
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
                         .setDefaultFontPath("fonts/GOTHAM-BOOK.OTF")
@@ -117,6 +117,10 @@ public class LoginActivity extends FragmentActivity {
     }
 
     public void goToRegistreren(View v){
+        FrameLayout r = (FrameLayout)findViewById(R.id.loginContainer);
+        r.removeAllViewsInLayout();
+
+        changePage(0);
         changePage(2);
     }
 

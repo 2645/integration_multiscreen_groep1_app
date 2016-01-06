@@ -38,9 +38,9 @@ public class HomeFragment extends Fragment {
     }
 
     @Override
-    public void onActivityCreated(Bundle created) {
-        super.onActivityCreated(created);
+    public void onViewCreated(View view, Bundle savedInstanceState) {
         setTextHome();
+        super.onViewCreated(view, savedInstanceState);
     }
 
     public void setTextHome(){
