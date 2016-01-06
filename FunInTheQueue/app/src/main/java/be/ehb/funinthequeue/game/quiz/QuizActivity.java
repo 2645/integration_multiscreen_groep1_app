@@ -1,5 +1,6 @@
 package be.ehb.funinthequeue.game.quiz;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -13,6 +14,8 @@ import java.util.ArrayList;
 import be.ehb.funinthequeue.R;
 import be.ehb.funinthequeue.model.Question;
 import be.ehb.funinthequeue.rest.RestAPI;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class QuizActivity extends AppCompatActivity {
     //Gebaseerd op: https://www.developerfeed.com/simple-quiz-game-andriod/
@@ -34,6 +37,12 @@ public class QuizActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                        .setDefaultFontPath("fonts/GOTHAM-BOOK.OTF")
+                        .setFontAttrId(R.attr.fontPath)
+                        .build()
+        );
+
         txtQuestion = (TextView) findViewById(R.id.textView1);
         scoreText = (TextView) findViewById(R.id.textView);
         questionText = (TextView) findViewById(R.id.textView2);
@@ -76,6 +85,9 @@ public class QuizActivity extends AppCompatActivity {
                 checkAnswer(button3);
             }
         });
+    }
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 
     private void createQuestionValues() {

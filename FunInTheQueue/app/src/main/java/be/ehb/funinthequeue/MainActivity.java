@@ -37,7 +37,7 @@ import be.ehb.funinthequeue.fragments.QueueFragment;
 import be.ehb.funinthequeue.fragments.SwipeButtonsFragment;
 import be.ehb.funinthequeue.fragments.VriendenFragment;
 import be.ehb.funinthequeue.game.catch_a_cube.GameActivity;
-/*import be.ehb.funinthequeue.game.quiz.QuizActivity;*/
+import be.ehb.funinthequeue.game.quiz.QuizActivity;
 import be.ehb.funinthequeue.model.User;
 import be.ehb.funinthequeue.rest.RestAPI;
 import be.ehb.funinthequeue.tasks.DataLoadTask;
@@ -240,8 +240,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startQuiz(View view) {
-        /*Intent newIntent = new Intent(MainActivity.this, QuizActivity.class);
-        MainActivity.this.startActivity(newIntent);*/
+        Intent newIntent = new Intent(MainActivity.this, QuizActivity.class);
+        MainActivity.this.startActivity(newIntent);
     }
 
     public void goToSettings(View view) {

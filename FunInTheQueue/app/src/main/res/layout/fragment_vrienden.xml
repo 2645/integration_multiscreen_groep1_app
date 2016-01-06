@@ -110,7 +110,7 @@
                             android:layout_height="70dp"
                             android:id="@+id/imgVriend1"
                             android:layout_gravity="center"
-                            android:src="@drawable/attractiefoto" />
+                            android:src="@drawable/vriend1" />
 
                         <TextView
                             android:layout_width="90dp"
@@ -135,7 +135,7 @@
                             android:layout_height="70dp"
                             android:id="@+id/imgVriend2"
                             android:layout_gravity="center"
-                            android:src="@drawable/attractiefoto" />
+                            android:src="@drawable/vriend1" />
 
                         <TextView
                             android:layout_width="90dp"
@@ -160,7 +160,7 @@
                             android:layout_height="70dp"
                             android:id="@+id/imgVriend3"
                             android:layout_gravity="center"
-                            android:src="@drawable/attractiefoto" />
+                            android:src="@drawable/vriend1" />
 
                         <TextView
                             android:layout_width="90dp"
@@ -197,7 +197,7 @@
                             android:layout_height="70dp"
                             android:id="@+id/imgVriend4"
                             android:layout_gravity="center"
-                            android:src="@drawable/attractiefoto" />
+                            android:src="@drawable/vriend1" />
 
                         <TextView
                             android:layout_width="90dp"
@@ -224,7 +224,7 @@
                             android:layout_height="70dp"
                             android:id="@+id/imgVriend5"
                             android:layout_gravity="center"
-                            android:src="@drawable/attractiefoto" />
+                            android:src="@drawable/vriend1" />
 
                         <TextView
                             android:layout_width="90dp"
@@ -251,7 +251,7 @@
                             android:layout_height="70dp"
                             android:id="@+id/imgVriend6"
                             android:layout_gravity="center"
-                            android:src="@drawable/attractiefoto" />
+                            android:src="@drawable/vriend1" />
 
                         <TextView
                             android:layout_width="90dp"
@@ -286,7 +286,7 @@
                             android:layout_height="70dp"
                             android:id="@+id/imgVriend7"
                             android:layout_gravity="center"
-                            android:src="@drawable/attractiefoto" />
+                            android:src="@drawable/vriend1" />
 
                         <TextView
                             android:layout_width="90dp"
@@ -311,7 +311,7 @@
                             android:layout_height="70dp"
                             android:id="@+id/imgVriend8"
                             android:layout_gravity="center"
-                            android:src="@drawable/attractiefoto" />
+                            android:src="@drawable/vriend1" />
 
                         <TextView
                             android:layout_width="90dp"
@@ -336,7 +336,7 @@
                             android:layout_height="70dp"
                             android:id="@+id/imgVriend9"
                             android:layout_gravity="center"
-                            android:src="@drawable/attractiefoto" />
+                            android:src="@drawable/vriend1" />
 
                         <TextView
                             android:layout_width="90dp"
