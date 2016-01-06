@@ -2,6 +2,7 @@ package be.ehb.funinthequeue.game.catch_a_cube;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.util.Log;
 
 import java.util.Random;
 
@@ -48,15 +49,17 @@ public class Beker extends Item {
 
         // randen
 
-        if (x > DeviceWidth) {
-            x = DeviceWidth;
+        if (x > DeviceWidth- 10) {
+            x = DeviceWidth-10;
+            dya = 0;
+
 
 
         }
 
-        if (x < 0) {
-            x = 0;
-
+        if (x < (-width *2 + 20)) {
+            x = (-width *2 + 20);
+            dya = 0;
         }
 
     }

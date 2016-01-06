@@ -23,7 +23,7 @@
         <TextView
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="Hallo, Dieter!"
+            android:text="@string/Hallo"
             android:id="@+id/txtVerwelkoming"
             android:layout_gravity="center_horizontal|right"
             android:textSize="28dp"
@@ -31,9 +31,32 @@
             android:textColor="#ffffff"
             fontPath="fonts/GOTHAM-BOOK.OTF"
             android:layout_alignParentTop="true"
-            android:layout_alignRight="@+id/linearLayout"
-            android:layout_alignEnd="@+id/linearLayout"
+            android:layout_alignRight="@+id/layoutKortste"
+            android:layout_alignEnd="@+id/layoutKortste"
             android:layout_marginLeft="10dp" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:id="@+id/imgCocaCoin"
+            android:src="@drawable/cocacoin"
+            android:layout_below="@+id/txtVerwelkoming"
+            android:layout_toRightOf="@+id/imgAvatar"
+            android:layout_toEndOf="@+id/imgAvatar"
+            android:layout_marginLeft="10dp" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:id="@+id/imgAvatar"
+            android:src="@drawable/plop"
+            android:paddingBottom="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/txtVerwelkoming"
+            android:layout_toStartOf="@+id/txtVerwelkoming"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="10dp"
+            android:padding="5dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -46,8 +69,8 @@
             android:paddingBottom="7dp"
             android:layout_marginTop="85dp"
             android:layout_below="@+id/txtVerwelkoming"
-            android:layout_alignRight="@+id/linearLayout"
-            android:layout_alignEnd="@+id/linearLayout"
+            android:layout_alignRight="@+id/layoutKortste"
+            android:layout_alignEnd="@+id/layoutKortste"
             android:layout_marginRight="15dp" />
 
         <ImageView
@@ -90,7 +113,7 @@
             android:paddingLeft="8dp"
             android:paddingTop="8dp"
             android:paddingRight="8dp"
-            android:layout_below="@+id/linearLayout"
+            android:layout_below="@+id/layoutKortste"
             android:layout_alignLeft="@+id/imageView"
             android:layout_alignStart="@+id/imageView"
             android:layout_marginTop="10dp"
@@ -101,7 +124,7 @@
             android:layout_width="250dp"
             android:layout_height="80dp"
             android:background="@drawable/shape"
-            android:id="@+id/linearLayout"
+            android:id="@+id/layoutKortste"
             android:layout_below="@+id/txtWachttijd"
             android:layout_centerHorizontal="true">
 
@@ -126,7 +149,7 @@
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:text="Anubis The Ride"
+                        android:text="@string/fastest"
                         android:id="@+id/txtWachttijdTitel"
                         android:textColor="#000000"
                         android:textSize="13dp"
@@ -154,7 +177,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="10 min"
+                            android:text="@string/tijd1"
                             android:id="@+id/txtTijd1"
                             android:textColor="#000000"
                             android:paddingTop="5dp"
@@ -196,10 +219,10 @@
             android:layout_width="250dp"
             android:layout_height="80dp"
             android:background="@drawable/shape"
-            android:id="@+id/linearLayout2"
-            android:layout_below="@+id/linearLayout"
-            android:layout_alignLeft="@+id/linearLayout"
-            android:layout_alignStart="@+id/linearLayout"
+            android:id="@+id/layoutDichtste"
+            android:layout_below="@+id/layoutKortste"
+            android:layout_alignLeft="@+id/layoutKortste"
+            android:layout_alignStart="@+id/layoutKortste"
             android:layout_marginTop="55dp">
 
             <LinearLayout
@@ -222,7 +245,7 @@
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:text="De Boomstammetjes"
+                        android:text="@string/closest"
                         android:id="@+id/txtAttractietitel"
                         fontPath="fonts/GOTHAM-MEDIUM.OTF"
                         android:textColor="#000000"
@@ -286,7 +309,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="200 cocacoins"
+            android:text="@string/cocacoins"
             android:id="@+id/txtAantalCocaCoins"
             fontPath="fonts/GOTHAM-MEDIUM.OTF"
             android:textSize="15dp"
@@ -296,28 +319,7 @@
             android:layout_toEndOf="@+id/imgCocaCoin"
             android:layout_marginLeft="10dp" />
 
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:id="@+id/imgCocaCoin"
-            android:src="@drawable/cocacoin"
-            android:layout_below="@+id/txtVerwelkoming"
-            android:layout_toRightOf="@+id/imgAvatar"
-            android:layout_toEndOf="@+id/imgAvatar"
-            android:layout_marginLeft="10dp" />
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="150dp"
-            android:id="@+id/imgAvatar"
-            android:src="@drawable/plop"
-            android:paddingBottom="10dp"
-            android:layout_alignParentTop="true"
-            android:layout_toLeftOf="@+id/txtVerwelkoming"
-            android:layout_toStartOf="@+id/txtVerwelkoming"
-            android:layout_marginTop="40dp"
-            android:layout_marginRight="10dp"
-            android:padding="5dp" />
 
     </RelativeLayout>
 

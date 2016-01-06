@@ -8,12 +8,15 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,12 +36,13 @@ import be.ehb.funinthequeue.fragments.SwipeButtonsFragment;
 import be.ehb.funinthequeue.fragments.VriendenFragment;
 import be.ehb.funinthequeue.game.catch_a_cube.GameActivity;
 /*import be.ehb.funinthequeue.game.quiz.QuizActivity;*/
+import be.ehb.funinthequeue.model.User;
 import be.ehb.funinthequeue.rest.RestAPI;
 import be.ehb.funinthequeue.tasks.QrTriggerTask;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends AppCompatActivity {
 
     Fragment fragment;
     Fragment home;
@@ -58,8 +62,8 @@ public class MainActivity extends FragmentActivity {
     ViewPager viewpager;
 
     RestAPI API;
-    TextView verwelkoming;
-    TextView cocacoins;
+
+    private ViewPager viewPager;
 
     static final String ACTION_SCAN = "com.google.zxing.client.android.SCAN";
 
@@ -92,12 +96,16 @@ public class MainActivity extends FragmentActivity {
         avatars = new AvatarFragment();
         vrienden = new VriendenFragment();
 
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        setupViewPager(viewPager);
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .add(R.id.container, home)
-                .addToBackStack(null)
-                .commit();
+        try {
+            Reservoir.init(this, 20000000); //in bytes
+        } catch (Exception e) {
+            //failure
+        }
+
+        new DataLoadTask(API, HelperFunctions.loadUserFromPreferences(MainActivity.this)).execute();
 
         API = new RestAPI();
     }
@@ -143,20 +151,21 @@ public class MainActivity extends FragmentActivity {
             if (resultCode == RESULT_OK) {
                 //get the extras that are returned from the intent
                 String content = intent.getStringExtra("SCAN_RESULT");
-                String format = intent.getStringExtra("SCAN_RESULT_FORMAT");
-                SharedPreferences sharedPref = this.getSharedPreferences("currentUser", Context.MODE_PRIVATE);
-                int uId = sharedPref.getInt("userID", 0);
-                new QrTriggerTask(this, API, content, uId).execute();
+                User u = HelperFunctions.loadUserFromPreferences(MainActivity.this);
+                new QrTriggerTask(this, API, content, u.getId()).execute();
 
                 Toast toast = Toast.makeText(this, "Code succesvol gescanned!", Toast.LENGTH_LONG);
                 toast.show();
             }
         }
     }
-    private void setupViewPagerGames(ViewPager viewpager) {
+
+    private void setupViewPager(ViewPager viewpager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFrag(new HomeFragment());
         adapter.addFrag(new GameFragment());
-        adapter.addFrag(new GameFragment2());
+        adapter.addFrag(new ProfielFragment());
+        adapter.addFrag(new QueueFragment());
         viewpager.setAdapter(adapter);
     }
 
@@ -169,43 +178,29 @@ public class MainActivity extends FragmentActivity {
         switch (position) {
             default:
             case 0:
-                fragment = home;
-                break;
-            case 1:
-                fragment = profile;
-                break;
-            case 2:
-                fragment = wachttijden;
-                break;
-            case 3:
-                fragment = game1;
-                break;
-            case 4:
                 fragment = game2;
                 break;
-            case 5:
+            case 1:
                 fragment = detail;
                 break;
-            case 6:
+            case 2:
                 fragment = gegevens;
                 break;
-            case 7:
+            case 3:
                 fragment = highscores;
                 break;
-            case 8:
+            case 4:
                 fragment = achievements;
                 break;
-            case 9:
+            case 5:
                 fragment = avatars;
                 break;
-            case 10:
+            case 6:
                 fragment = vrienden;
                 break;
-            case 11:
-                fragment = swipe;
+            case 7:
+                fragment = profile;
                 break;
-            case 12:
-                fragment = backgroundGames;
         }
 
         fragmentManager.beginTransaction()
@@ -213,54 +208,30 @@ public class MainActivity extends FragmentActivity {
                 .addToBackStack(null)
                 .commit();
     }
-    public void changeBackground(int position) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        switch (position) {
-            default:
-            case 0:
-                fragment = backgroundGames;
-                break;
-        }
 
-        fragmentManager.beginTransaction()
-                .replace(R.id.backgroundFragment, fragment)
-                .addToBackStack(null)
-                .commit();
-    }
-
-    public void goToHome(View view) {
-        changePage(0);
-    }
-
-    public void goToProfile(View view) {
+    public void goToQueueDetail(View view) {
         changePage(1);
     }
 
-    public void goToQueue(View view) {
-        changePage(2);
+    public void goToHome(View view){
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager.setCurrentItem(0);
     }
 
-    public void goToGame(View view) {
+    public void backButtonAttractie(View view) {
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager.setCurrentItem(3);
+
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
                 .remove(fragment)
                 .commit();
-
-        changeBackground(0);
-        changePage(11);
-
-        viewpager = (ViewPager) findViewById(R.id.main_viewpager);
-        setupViewPagerGames(viewpager);
     }
 
-    public void goToQueueDetail(View view) {
-        changePage(5);
+    public void goToQueue(View view){
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager.setCurrentItem(3);
     }
-
-    public void backButtonAttractie(View view) {
-        changePage(2);
-    }
-
     public void startCubeGame(View view) {
         Intent myIntent = new Intent(MainActivity.this, GameActivity.class);
         MainActivity.this.startActivity(myIntent);
@@ -272,23 +243,46 @@ public class MainActivity extends FragmentActivity {
     }
 
     public void goToSettings(View view) {
-        changePage(6);
+        changePage(2);
+    }
+    public void goToProfile(View v){
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager.setCurrentItem(2);
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .remove(fragment)
+                .commit();
     }
 
+    public void goToQuiz(View v){
+        changePage(0);
+    }
+    public void goToGame(View v){
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager.setCurrentItem(1);
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .remove(fragment)
+                .commit();
+    }
+
+
     public void goToHighscore(View view) {
-        changePage(7);
+        changePage(3);
     }
 
     public void goToAchievements(View view) {
-        changePage(8);
+        changePage(4);
     }
 
     public void goToAvatars(View view) {
-        changePage(9);
+        changePage(5);
     }
 
     public void goToFriends(View view) {
-        changePage(10);
+        changePage(6);
     }
 
     public void logOutClick(View v){

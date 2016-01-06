@@ -1,5 +1,7 @@
 package be.ehb.funinthequeue.game.catch_a_cube;
 
+import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -7,27 +9,30 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 
-import be.ehb.funinthequeue.MainActivity;
 import be.ehb.funinthequeue.R;
 
-public class GameActivity extends MainActivity {
+public class GameActivity extends Activity {
     public int DeviceWidth;
+    public int DeviceHeight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // geen titel
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
 
 
 
         DeviceWidth = getResources().getDisplayMetrics().widthPixels;
+        DeviceHeight = getResources().getDisplayMetrics().heightPixels;
 
         Log.d("mijnwidth", String.valueOf(DeviceWidth));
 
+
+
+        // geen titel
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         // fullscreen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(new GamePanel(this, DeviceWidth));
+        setContentView(new GamePanel(this, DeviceWidth, DeviceHeight));
     }
 
     @Override
