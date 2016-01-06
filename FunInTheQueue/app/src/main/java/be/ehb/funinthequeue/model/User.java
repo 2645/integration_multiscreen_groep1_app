@@ -7,6 +7,15 @@ public class User {
     private int id, balance, avatarId;
     private String fname, lname, mail, pw;
 
+    public User(int id, int avatarId, int balance, String fname, String lname, String mail) {
+        this.avatarId = avatarId;
+        this.balance = balance;
+        this.fname = fname;
+        this.id = id;
+        this.lname = lname;
+        this.mail = mail;
+    }
+
     public User(String fname, String lname, String mail, String pw) {
         this.fname = fname;
         this.lname = lname;

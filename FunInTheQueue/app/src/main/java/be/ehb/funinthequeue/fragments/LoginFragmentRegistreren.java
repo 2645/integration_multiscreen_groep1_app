@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import be.ehb.funinthequeue.HelperFunctions;
 import be.ehb.funinthequeue.R;
 import be.ehb.funinthequeue.rest.RestAPI;
 import be.ehb.funinthequeue.tasks.LoginTask;
@@ -48,8 +49,8 @@ public class LoginFragmentRegistreren extends Fragment {
                 String email = registerEmail.getText().toString();
                 String pw = registerWachtwoord.getText().toString();
 
-                if (isValidEmail(email)) {
-                    if (isNotEmpty(vnaam) && isNotEmpty(anaam) && isNotEmpty(pw)) {
+                if (HelperFunctions.isValidEmail(email)) {
+                    if (HelperFunctions.isNotEmpty(vnaam) && HelperFunctions.isNotEmpty(anaam) && HelperFunctions.isNotEmpty(pw)) {
                         new RegisterTask(getActivity(), API, vnaam, anaam, email, pw).execute();
 
                     } else {
@@ -63,13 +64,6 @@ public class LoginFragmentRegistreren extends Fragment {
         });
     }
 
-    // Source: http://stackoverflow.com/a/7882950/2637528
-    public final static boolean isValidEmail(CharSequence target) {
-        return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
-    }
 
-    public final static boolean isNotEmpty(CharSequence target) {
-        return !TextUtils.isEmpty(target);
-    }
 }
 

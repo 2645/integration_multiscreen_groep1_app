@@ -1,26 +1,18 @@
 package be.ehb.funinthequeue;
 
 import android.app.Activity;
-import android.app.FragmentTransaction;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
-import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,7 +22,7 @@ import be.ehb.funinthequeue.fragments.AvatarFragment;
 import be.ehb.funinthequeue.fragments.BackgroundFragment;
 import be.ehb.funinthequeue.fragments.GameFragment;
 import be.ehb.funinthequeue.fragments.GameFragment2;
-import be.ehb.funinthequeue.fragments.GegevensFragment;
+import be.ehb.funinthequeue.fragments.ProfielAanpassenFragment;
 import be.ehb.funinthequeue.fragments.HighscoresFragment;
 import be.ehb.funinthequeue.fragments.HomeFragment;
 import be.ehb.funinthequeue.fragments.ProfielFragment;
@@ -91,7 +83,7 @@ public class MainActivity extends FragmentActivity {
         game2 = new GameFragment2();
         wachttijden = new QueueFragment();
         detail = new AttractieDetailFragment();
-        gegevens = new GegevensFragment();
+        gegevens = new ProfielAanpassenFragment();
         highscores = new HighscoresFragment();
         achievements = new AchievementsFragment();
         avatars = new AvatarFragment();
