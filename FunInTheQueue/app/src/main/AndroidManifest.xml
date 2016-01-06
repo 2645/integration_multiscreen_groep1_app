@@ -31,7 +31,8 @@
         <activity android:name=".LoginActivity"
             android:configChanges="orientation"
             android:multiprocess="true"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:noHistory="true">
             <intent-filter>
             <action android:name="be.ehb.funinthequeue.MAIN" />
 

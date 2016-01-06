@@ -112,8 +112,9 @@ public class LoginActivity extends FragmentActivity {
     }
 
     public void aanmeldenClick(View v){
-        Intent myIntent = new Intent(LoginActivity.this, MainActivity.class);
+        Intent myIntent = new Intent(this, MainActivity.class);
         startActivity(myIntent);
+        finish();
     }
 
     public void goToRegistreren(View v){
