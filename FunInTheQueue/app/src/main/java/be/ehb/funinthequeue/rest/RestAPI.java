@@ -77,6 +77,15 @@ public class RestAPI {
         return user;
     }
 
+    public Boolean users_login(String email, String pw) {
+        HashMap queryMap = new HashMap();
+        queryMap.put("email", email);
+        queryMap.put("pw", pw);
+
+        Call<Boolean> call = restService.users_login(queryMap);
+        return (Boolean) executeAndTestResponse(call);
+    }
+
     public ArrayList<Question> questions_list(int question_id) {
         HashMap queryMap = new HashMap();
         queryMap.put("question_id", question_id);
@@ -136,17 +145,43 @@ public class RestAPI {
 
     public Barcode barcodes_lookup(int barcodeID) {
         HashMap queryMap = new HashMap();
-        queryMap.put("barcode_id", barcodeID);
+        queryMap.put("id", barcodeID);
 
         Call<Barcode> call = restService.barcodes_lookup(queryMap);
         Barcode barcode = (Barcode) executeAndTestResponse(call);
         return barcode;
     }
 
-    public int barcodes_create(Barcode barcode) {
-        Call<Integer> call = restService.barcodes_create(barcode);
-        int barcodeID = (int) executeAndTestResponse(call);
+    public ArrayList<Barcode> barcodes_list(int barcodeID) {
+        Call<ArrayList<Barcode>> call = restService.barcodes_list();
+        ArrayList<Barcode> barcodes = (ArrayList<Barcode>) executeAndTestResponse(call);
+        return barcodes;
+    }
+
+    public String barcodes_create(int reward) {
+        HashMap queryMap = new HashMap();
+        queryMap.put("reward", reward);
+
+        Call<Integer> call = restService.barcodes_create(queryMap);
+        String barcodeID = (String) executeAndTestResponse(call);
         return barcodeID;
+    }
+
+    public Boolean barcodes_trigger(String id) {
+        HashMap queryMap = new HashMap();
+        queryMap.put("id", id);
+
+        Call<Integer> call = restService.barcodes_create(queryMap);
+        Boolean result = (Boolean) executeAndTestResponse(call);
+        return result;
+    }
+
+    public void barcodes_destroy(String id) {
+        HashMap queryMap = new HashMap();
+        queryMap.put("id", id);
+
+        Call<Integer> call = restService.barcodes_create(queryMap);
+        executeAndTestResponse(call);
     }
 
     public int barcodes_update(Barcode barcode) {

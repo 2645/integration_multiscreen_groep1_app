@@ -39,6 +39,9 @@ public interface RestInterface {
     @POST("users/update/")
     Call<User> users_update(@Body User user);
 
+    @GET("users/login/")
+    Call<Boolean> users_login(@QueryMap Map<String, String> options);
+
 
     // QUESTIONS
     @GET("question/list")
@@ -74,11 +77,20 @@ public interface RestInterface {
     @GET("barcodes/lookup/")
     Call<Barcode> barcodes_lookup(@QueryMap Map<String, String> options);
 
-    @POST("barcodes/create/")
-    Call<Integer> barcodes_create(@Body Barcode barcode);
+    @GET("barcodes/create/")
+    Call<String> barcodes_create(@QueryMap Map<String, String> options);
+
+    @GET("barcodes/trigger/")
+    Call<Boolean> barcodes_trigger(@QueryMap Map<String, String> options);
+
+    @GET("barcodes/destroy/")
+    Call barcodes_destroy(@QueryMap Map<String, String> options);
 
     @POST("barcodes/update/")
     Call<Integer> barcodes_update(@Body Barcode barcode);
+
+    @GET("barcodes/list/")
+    Call<ArrayList<Barcode>> barcodes_list();
 
 
     // AVATARS

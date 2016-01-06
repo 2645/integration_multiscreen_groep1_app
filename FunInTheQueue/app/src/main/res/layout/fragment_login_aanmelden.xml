@@ -95,8 +95,7 @@
             android:id="@+id/btnAanmelden"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/buttonbackground"
-            android:textColor="#E5403C"
-            android:onClick="aanmeldenClick" />
+            android:textColor="#E5403C" />
 
     </LinearLayout>
 </RelativeLayout>

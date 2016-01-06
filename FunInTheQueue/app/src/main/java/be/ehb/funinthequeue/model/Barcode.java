@@ -6,35 +6,12 @@ import java.sql.Date;
  * Created by Dieter on 4/01/2016.
  */
 public class Barcode {
-    private int barcodeId, userId;
-    private String rawdata;
-    public java.sql.Date date;
+    private int reward;
+    private String id;
+    private Boolean scanned;
+    private java.sql.Date date;
 
     public Barcode(){
-    }
-
-    public int getBarcodeId() {
-        return barcodeId;
-    }
-
-    public void setBarcodeId(int barcodeId) {
-        this.barcodeId = barcodeId;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public String getRawdata() {
-        return rawdata;
-    }
-
-    public void setRawdata(String rawdata) {
-        this.rawdata = rawdata;
     }
 
     public Date getDate() {
@@ -43,5 +20,29 @@ public class Barcode {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public int getReward() {
+        return reward;
+    }
+
+    public void setReward(int reward) {
+        this.reward = reward;
+    }
+
+    public Boolean getScanned() {
+        return scanned;
+    }
+
+    public void setScanned(Boolean scanned) {
+        this.scanned = scanned;
     }
 }
