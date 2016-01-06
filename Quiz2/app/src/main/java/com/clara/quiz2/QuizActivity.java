@@ -12,16 +12,13 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.List;
-
-public class MainActivity extends AppCompatActivity {
+public class QuizActivity extends AppCompatActivity {
 //Gebaseerd op: https://www.developerfeed.com/simple-quiz-game-andriod/
 
     int score = 0;
@@ -42,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_quiz);
         getSupportActionBar().hide();
         txtQuestion = (TextView) findViewById(R.id.textView1);
         scoreText = (TextView) findViewById(R.id.textView);
@@ -109,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         } else {
-            Intent intent = new Intent(MainActivity.this, ResultActivity.class);
+            Intent intent = new Intent(QuizActivity.this, QuizResultActivity.class);
             Bundle b = new Bundle();
             b.putInt("score", score);
             intent.putExtras(b);

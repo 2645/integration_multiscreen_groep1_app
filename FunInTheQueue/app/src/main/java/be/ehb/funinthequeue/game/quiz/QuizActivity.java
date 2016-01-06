@@ -1,25 +1,30 @@
-package be.ehb.funinthequeue.game.quiz;
+/*package be.ehb.funinthequeue.game.quiz;
 
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.List;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
 
-import be.ehb.funinthequeue.MainActivity;
-import be.ehb.funinthequeue.R;
-import be.ehb.funinthequeue.db.DBHelper;
-import be.ehb.funinthequeue.model.Question;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;*/
+/*
+public class QuizActivity extends AppCompatActivity {
+//Gebaseerd op: https://www.developerfeed.com/simple-quiz-game-andriod/
 
-public class QuizActivity extends MainActivity {
-
-    List<Question> questionList;
     int score = 0;
-    int questionid = 0;
-    Question currentQuestion;
+    int questionid = 1;
+    int numberOfQuestions = 5;
+    Question currentQuestion = new Question("", "", "", "", "");
     TextView txtQuestion;
     TextView scoreText;
     TextView questionText;
@@ -27,22 +32,23 @@ public class QuizActivity extends MainActivity {
     Button button2;
     Button button3;
     Handler mHandler = new Handler();
+    String url = "http://10.3.50.220:8080/question/list?question_id=";
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_quiz);
-        DBHelper db = new DBHelper(this);
-        questionList = db.getAllQuestions();
-        currentQuestion = questionList.get(questionid);
+        setContentView(R.layout.activity_quiz);
+        getSupportActionBar().hide();
         txtQuestion = (TextView) findViewById(R.id.textView1);
         scoreText = (TextView) findViewById(R.id.textView);
         questionText = (TextView) findViewById(R.id.textView2);
         button = (Button) findViewById(R.id.button);
         button2 = (Button) findViewById(R.id.button2);
         button3 = (Button) findViewById(R.id.button3);
-        createQuestionValues();
+        checkAnswer(button);
+        //createQuestionValues();
         button.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -77,7 +83,7 @@ public class QuizActivity extends MainActivity {
         button3.setText(currentQuestion.getOption3());
         button3.setBackgroundDrawable(getResources().getDrawable(R.drawable.roundedbutton));
         scoreText.setText("Score: " + score);
-        questionText.setText("Vraag: " + (questionid + 1));
+        questionText.setText("Vraag: " + (questionid) + "/" + numberOfQuestions);
         questionid++;
     }
 
@@ -94,8 +100,8 @@ public class QuizActivity extends MainActivity {
             button3.setBackgroundDrawable(getResources().getDrawable(R.drawable.roundedbutton2));
         }
 
-        if (questionid < 5) {
-            currentQuestion = questionList.get(questionid);
+        if (questionid < numberOfQuestions + 1) {
+            getData();
             mHandler.postDelayed(mLaunchTask, 400);
 
 
@@ -108,12 +114,45 @@ public class QuizActivity extends MainActivity {
             finish();
         }
 
-    }
 
+    }
+    private void getData() {
+        JsonArrayRequest jsonRequest = new JsonArrayRequest
+                (Request.Method.GET, url + questionid, null, new Response.Listener<JSONArray>() {
+
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        // the response is already constructed as a JSONObject!
+                        try {
+
+                            JSONObject question = response.getJSONObject(0);
+                            currentQuestion.setQuestion(question.getString("question"));
+                            currentQuestion.setOption1(question.getString("optionA"));
+                            currentQuestion.setOption2(question.getString("optionB"));
+                            currentQuestion.setOption3(question.getString("optionC"));
+                            currentQuestion.setAnswer(question.getString("answer"));
+                            System.out.println(currentQuestion.getQuestion());
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
+                    }
+                });
+
+        Volley.newRequestQueue(this).add(jsonRequest);
+
+    }
 
     private Runnable mLaunchTask = new Runnable() {
         public void run() {
             createQuestionValues();
         }
     };
-}
+}*/
