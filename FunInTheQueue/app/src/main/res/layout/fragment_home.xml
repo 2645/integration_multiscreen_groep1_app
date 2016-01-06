@@ -310,7 +310,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/cocacoins"
-            android:id="@+id/txtCocacoins"
+            android:id="@+id/txtAantalCocaCoins"
             fontPath="fonts/GOTHAM-MEDIUM.OTF"
             android:textSize="15dp"
             android:textColor="#ffffff"

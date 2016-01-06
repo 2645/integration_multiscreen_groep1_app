@@ -33,10 +33,9 @@ public class HomeFragment extends Fragment {
         API = new RestAPI();
         c = container;
         User u = HelperFunctions.loadUserFromPreferences(this.getActivity());
-        Log.d("FUCK", u.toString());
         v = inflater.inflate(R.layout.fragment_home, container, false);
         ((TextView) v.findViewById(R.id.txtVerwelkoming)).setText("Hallo, " + u.getFname());
-       // ((TextView) v.findViewById(R.id.txtAantalCocaCoins)).setText(u.getBalance() +" cocacoins");
+        ((TextView) v.findViewById(R.id.txtAantalCocaCoins)).setText(u.getBalance() +" cocacoins");
         v.findViewById(R.id.layoutDichtste).setVisibility(View.INVISIBLE);
         v.findViewById(R.id.layoutKortste).setVisibility(View.INVISIBLE);
         return v;
