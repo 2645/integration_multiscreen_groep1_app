@@ -1,9 +1,11 @@
 package be.ehb.funinthequeue.fragments;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.location.Location;
 import android.location.LocationManager;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,29 +19,21 @@ import be.ehb.funinthequeue.R;
 import be.ehb.funinthequeue.model.Attraction;
 import be.ehb.funinthequeue.rest.RestAPI;
 import be.ehb.funinthequeue.setTextFromAPI;
+import be.ehb.funinthequeue.tasks.HomeTask;
 
 /**
  * Created by ToonLeemans on 15/12/15.
  */
 public class HomeFragment extends Fragment {
     RestAPI API;
-    TextView verwelkoming;
-    TextView cocacoins;
-    TextView wachttijdAttractie;
-    TextView wachttijd1;
-    TextView afstand1;
-    ImageView attractieimage;
-    ImageView attractieimage2;
-    ImageView avatar;
-    TextView afstandattractie;
-    TextView wachttijd2;
-    TextView afstand2;
+    ViewGroup c;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 // Inflate the layout for this fragment
         API = new RestAPI();
+        c = container;
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
@@ -50,19 +44,9 @@ public class HomeFragment extends Fragment {
     }
 
     public void setTextHome(){
-        verwelkoming = (TextView) getView().findViewById(R.id.txtVerwelkoming);
-        cocacoins = (TextView) getView().findViewById((R.id.txtAantalCocaCoins));
-        wachttijdAttractie = (TextView) getView().findViewById(R.id.txtWachttijdTitel);
-        wachttijd1 = (TextView) getView().findViewById(R.id.txtTijd1);
-        afstand1 = (TextView) getView().findViewById(R.id.txtAfstand1);
-        attractieimage = (ImageView) getView().findViewById(R.id.imgKortsteWachttijd);
-        avatar = (ImageView) getView().findViewById(R.id.imgAvatar);
-        afstandattractie = (TextView) getView().findViewById(R.id.txtAttractietitel);
-        wachttijd2 = (TextView) getView().findViewById(R.id.txtTijd2);
-        afstand2 = (TextView) getView().findViewById(R.id.txtAfstand2);
-        attractieimage2 = (ImageView) getView().findViewById(R.id.imgInDeBuurt);
-
-        new setTextFromAPI(API, verwelkoming, cocacoins, wachttijdAttractie, wachttijd1, afstand1, attractieimage, avatar, afstandattractie, wachttijd2, afstand2, attractieimage2).execute();
+        SharedPreferences sharedPref = c.getContext().getSharedPreferences("currentUser", Context.MODE_PRIVATE);
+        int uId = sharedPref.getInt("userID", 0);
+        new HomeTask(API,(Fragment) this, uId).execute();
     }
 
 
