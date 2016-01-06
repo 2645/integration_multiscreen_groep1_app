@@ -6,6 +6,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -40,6 +41,7 @@ import be.ehb.funinthequeue.fragments.VriendenFragment;
 import be.ehb.funinthequeue.game.catch_a_cube.GameActivity;
 import be.ehb.funinthequeue.game.quiz.QuizActivity;
 import be.ehb.funinthequeue.rest.RestAPI;
+import be.ehb.funinthequeue.tasks.QrTriggerTask;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -147,9 +149,14 @@ public class MainActivity extends FragmentActivity {
         if (requestCode == 0) {
             if (resultCode == RESULT_OK) {
                 //get the extras that are returned from the intent
-                String contents = intent.getStringExtra("SCAN_RESULT");
+                String content = intent.getStringExtra("SCAN_RESULT");
                 String format = intent.getStringExtra("SCAN_RESULT_FORMAT");
-                Toast toast = Toast.makeText(this, "U hebt " + contents + " coins ontvangen!", Toast.LENGTH_LONG);
+                SharedPreferences sharedPref = this.getSharedPreferences("currentUser", Context.MODE_PRIVATE);
+                Log.e("LOG", String.valueOf(sharedPref.getInt("userID", 0)));
+                int uId = sharedPref.getInt("userID",0);
+                new QrTriggerTask(this, API, content, uId).execute();
+
+                Toast toast = Toast.makeText(this, "U hebt " + content + " coins ontvangen!", Toast.LENGTH_LONG);
                 toast.show();
             }
         }

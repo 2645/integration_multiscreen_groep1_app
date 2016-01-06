@@ -74,22 +74,22 @@ public interface RestInterface {
 
 
     // BARCODES
-    @GET("barcodes/lookup/")
+    @GET("barcode/lookup/")
     Call<Barcode> barcodes_lookup(@QueryMap Map<String, String> options);
 
-    @GET("barcodes/create/")
+    @GET("barcode/create/")
     Call<String> barcodes_create(@QueryMap Map<String, String> options);
 
-    @GET("barcodes/trigger/")
+    @GET("barcode/trigger/")
     Call<Boolean> barcodes_trigger(@QueryMap Map<String, String> options);
 
-    @GET("barcodes/destroy/")
+    @GET("barcode/destroy/")
     Call barcodes_destroy(@QueryMap Map<String, String> options);
 
-    @POST("barcodes/update/")
+    @POST("barcode/update/")
     Call<Integer> barcodes_update(@Body Barcode barcode);
 
-    @GET("barcodes/list/")
+    @GET("barcode/list/")
     Call<ArrayList<Barcode>> barcodes_list();
 
 

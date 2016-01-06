@@ -9,7 +9,7 @@ public class Barcode {
     private int reward;
     private String id;
     private Boolean scanned;
-    private java.sql.Date date;
+    private Date date;
 
     public Barcode(){
     }
