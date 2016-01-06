@@ -156,7 +156,7 @@ public class MainActivity extends FragmentActivity {
                 int uId = sharedPref.getInt("userID",0);
                 new QrTriggerTask(this, API, content, uId).execute();
 
-                Toast toast = Toast.makeText(this, "U hebt " + content + " coins ontvangen!", Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(this, "Code succesvol gescanned!", Toast.LENGTH_LONG);
                 toast.show();
             }
         }
