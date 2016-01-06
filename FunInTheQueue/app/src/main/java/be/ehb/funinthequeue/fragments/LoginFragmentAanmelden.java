@@ -45,11 +45,7 @@ public class LoginFragmentAanmelden extends Fragment {
                 String pw = editWachtwoord.getText().toString();
 
                 if (isValidEmail(email)) {
-                    Log.e("LOGIN", email);
-                    Log.e("LOGIN", isValidEmail(email) ? "valid" : "not valid");
-
                     if (isValidPassword(pw)) {
-                        Log.e("LOGIN", "Starting AsyncTask...");
                         new LoginTask(getActivity(), API, email, pw).execute();
 
                     } else {

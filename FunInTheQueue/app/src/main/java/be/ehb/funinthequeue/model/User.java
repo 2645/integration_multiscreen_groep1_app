@@ -4,20 +4,38 @@ package be.ehb.funinthequeue.model;
  * Created by Dieter on 4/01/2016.
  */
 public class User {
-    private int id;
-    private String fname;
-    private String lname;
+    private int id, balance, avatarId;
+    private String fname, lname, mail, pw;
 
-    private String mail;
-    private int balance;
-    private int avatarId;
-
-    public int getId() {
-        return id;
+    public User(String fname, String lname, String mail, String pw) {
+        this.fname = fname;
+        this.lname = lname;
+        this.mail = mail;
+        this.pw = pw;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public User(String mail, String pw) {
+        this.mail = mail;
+        this.pw = pw;
+    }
+
+    public User() {
+    }
+
+    public int getAvatarId() {
+        return avatarId;
+    }
+
+    public void setAvatarId(int avatarId) {
+        this.avatarId = avatarId;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
     }
 
     public String getFname() {
@@ -26,6 +44,14 @@ public class User {
 
     public void setFname(String fname) {
         this.fname = fname;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getLname() {
@@ -44,23 +70,12 @@ public class User {
         this.mail = mail;
     }
 
-    public int getBalance() {
-        return balance;
+    public String getPw() {
+        return pw;
     }
 
-    public void setBalance(int balance) {
-        this.balance = balance;
-    }
-
-    public int getAvatarId() {
-        return avatarId;
-    }
-
-    public void setAvatarId(int avatarId) {
-        this.avatarId = avatarId;
-    }
-
-    public User() {
+    public void setPw(String pw) {
+        this.pw = pw;
     }
 
     @Override

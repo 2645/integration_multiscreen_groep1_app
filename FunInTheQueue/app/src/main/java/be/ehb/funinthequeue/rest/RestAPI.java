@@ -77,13 +77,13 @@ public class RestAPI {
         return user;
     }
 
-    public Boolean users_login(String email, String pw) {
+    public User users_login(String email, String pw) {
         HashMap queryMap = new HashMap();
         queryMap.put("email", email);
         queryMap.put("pw", pw);
 
-        Call<Boolean> call = restService.users_login(queryMap);
-        return (Boolean) executeAndTestResponse(call);
+        Call<User> call = restService.users_login(queryMap);
+        return (User) executeAndTestResponse(call);
     }
 
     public ArrayList<Question> questions_list(int question_id) {
@@ -291,23 +291,29 @@ public class RestAPI {
             e.printStackTrace();
         }
 
-        if (response.isSuccess()) {
-            if (response.body() == null) {
-                Log.e(LOG_TAG, "Result is null");
-                Log.e(LOG_TAG, response.message());
-
-            } else {
-                return response.body();
-            }
+        if(response == null) {
+            Log.e(LOG_TAG, "Response is null");
 
         } else {
-            try {
-                Log.e(LOG_TAG, response.errorBody().string());
+            if (response.isSuccess()) {
+                if (response.body() == null) {
+                    Log.e(LOG_TAG, "Result is null");
+                    Log.e(LOG_TAG, response.message());
 
-            } catch (IOException e) {
-                e.printStackTrace();
+                } else {
+                    return response.body();
+                }
+
+            } else {
+                try {
+                    Log.e(LOG_TAG, response.errorBody().string());
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
+
         return null;
     }
 }

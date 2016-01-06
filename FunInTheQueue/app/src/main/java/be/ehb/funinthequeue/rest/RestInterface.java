@@ -40,7 +40,7 @@ public interface RestInterface {
     Call<User> users_update(@Body User user);
 
     @GET("users/login/")
-    Call<Boolean> users_login(@QueryMap Map<String, String> options);
+    Call<User> users_login(@QueryMap Map<String, String> options);
 
 
     // QUESTIONS
