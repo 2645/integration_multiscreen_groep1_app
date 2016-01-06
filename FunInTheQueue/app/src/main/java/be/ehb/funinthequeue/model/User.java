@@ -91,4 +91,23 @@ public class User {
     public String toString() {
         return fname + " " + lname;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if(o instanceof User) {
+            User user = (User) o;
+            if(this.id != 0) {
+                return this.id == user.getId();
+
+            } else if(this.fname != null & this.lname != null) {
+                return this.fname.equals(user.getFname()) && this.lname.equals(user.getLname());
+
+            } else {
+                return false;
+            }
+
+        } else {
+            return false;
+        }
+    }
 }

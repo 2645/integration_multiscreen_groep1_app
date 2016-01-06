@@ -63,13 +63,13 @@ public interface RestInterface {
 
 
     // FRIENDSHIPS
-    @GET("friendship/list/")
+    @GET("friendships/list/")
     Call<ArrayList<Friendship>> friendships_list(@QueryMap Map<String, String> options);
 
-    @POST("friendship/create/")
+    @POST("friendships/create/")
     Call<Integer> friendships_create(@Body Friendship friendship);
 
-    @POST("friendship/destroy/")
+    @POST("friendships/destroy/")
     Call<Integer> friendships_destroy(@Body Friendship friendship);
 
 

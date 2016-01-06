@@ -3,7 +3,10 @@ package be.ehb.funinthequeue;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.text.TextUtils;
+import android.util.Base64;
 
 import be.ehb.funinthequeue.model.User;
 
@@ -51,5 +54,11 @@ public class HelperFunctions {
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.clear();
         editor.commit();
+    }
+
+    // Source: http://stackoverflow.com/a/4837293/2637528
+    public static Bitmap decodeBase64Image(String encodedImage) {
+        byte[] decodedString = Base64.decode(encodedImage, Base64.DEFAULT);
+        return BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
     }
 }

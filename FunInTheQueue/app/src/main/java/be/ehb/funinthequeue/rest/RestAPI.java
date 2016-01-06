@@ -2,10 +2,15 @@ package be.ehb.funinthequeue.rest;
 
 import android.util.Log;
 
+import com.anupcowkur.reservoir.Reservoir;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
+import org.w3c.dom.Attr;
 
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -64,8 +69,30 @@ public class RestAPI {
     }
 
     public ArrayList<User> users_list() {
-        Call<ArrayList<User>> call = restService.users_list();
-        ArrayList<User> users = (ArrayList<User>) executeAndTestResponse(call);
+        String key = "users";
+        ArrayList<User> users;
+
+        if(existsInCache(key)) {
+            Log.e("LOG", "Fetching " + key + " from cache!");
+            Type resultType = new TypeToken<ArrayList<User>>() {}.getType();
+            users = (ArrayList<User>) fetchListFromCache(key, resultType);
+            if(users == null) {
+                try {
+                    Reservoir.delete(key);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+        } else {
+            Log.e("LOG", "Fetching " + key + " from server!");
+            Call<ArrayList<User>> call = restService.users_list();
+            users = (ArrayList<User>) executeAndTestResponse(call);
+
+            putListInCache(key, users);
+        }
+
         return users;
     }
 
@@ -109,8 +136,32 @@ public class RestAPI {
     }
 
     public ArrayList<Game> games_list() {
-        Call<ArrayList<Game>> call = restService.games_list();
-        ArrayList<Game> games = (ArrayList<Game>) executeAndTestResponse(call);
+        String key = "games";
+        ArrayList<Game> games;
+
+        if(existsInCache(key)) {
+            Log.e("LOG", "Fetching " + key + " from cache!");
+            Type resultType = new TypeToken<ArrayList<Game>>() {}.getType();
+            games = (ArrayList<Game>) fetchListFromCache(key, resultType);
+            if(games == null) {
+                try {
+                    Reservoir.delete(key);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else {
+
+            }
+
+        } else {
+            Log.e("LOG", "Fetching " + key + " from server!");
+            Call<ArrayList<Game>> call = restService.games_list();
+            games = (ArrayList<Game>) executeAndTestResponse(call);
+
+            putListInCache(key, games);
+        }
+
         return games;
     }
 
@@ -127,11 +178,34 @@ public class RestAPI {
     }
 
     public ArrayList<User> friendships_list(int userID) {
-        HashMap queryMap = new HashMap();
-        queryMap.put("user_id", userID);
+        String key = "friends_" + userID;
+        ArrayList<User> friends;
 
-        Call<ArrayList<User>> call = restService.friendships_list(queryMap);
-        ArrayList<User> friends = (ArrayList<User>) executeAndTestResponse(call);
+        if(existsInCache(key)) {
+            Log.e("LOG", "Fetching " + key + " from cache!");
+            Type resultType = new TypeToken<ArrayList<User>>() {}.getType();
+            friends = (ArrayList<User>) fetchListFromCache(key, resultType);
+            if(friends == null) {
+                try {
+                    Reservoir.delete(key);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+        } else {
+            Log.e("LOG", "Fetching " + key + " from server!");
+
+            HashMap queryMap = new HashMap();
+            queryMap.put("user_id", userID);
+
+            Call<ArrayList<User>> call = restService.friendships_list(queryMap);
+            friends = (ArrayList<User>) executeAndTestResponse(call);
+
+            putListInCache(key, friends);
+        }
+
         return friends;
     }
 
@@ -157,8 +231,30 @@ public class RestAPI {
     }
 
     public ArrayList<Barcode> barcodes_list() {
-        Call<ArrayList<Barcode>> call = restService.barcodes_list();
-        ArrayList<Barcode> barcodes = (ArrayList<Barcode>) executeAndTestResponse(call);
+        String key = "barcodes";
+        ArrayList<Barcode> barcodes;
+
+        if(existsInCache(key)) {
+            Log.e("LOG", "Fetching " + key + " from cache!");
+            Type resultType = new TypeToken<ArrayList<Barcode>>() {}.getType();
+            barcodes = (ArrayList<Barcode>) fetchListFromCache(key, resultType);
+            if(barcodes == null) {
+                try {
+                    Reservoir.delete(key);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+        } else {
+            Log.e("LOG", "Fetching " + key + " from server!");
+            Call<ArrayList<Barcode>> call = restService.barcodes_list();
+            barcodes = (ArrayList<Barcode>) executeAndTestResponse(call);
+
+            putListInCache(key, barcodes);
+        }
+
         return barcodes;
     }
 
@@ -204,8 +300,30 @@ public class RestAPI {
     }
 
     public ArrayList<Avatar> avatars_list() {
-        Call<ArrayList<Avatar>> call = restService.avatars_list();
-        ArrayList<Avatar> avatars = (ArrayList<Avatar>) executeAndTestResponse(call);
+        String key = "avatars";
+        ArrayList<Avatar> avatars;
+
+        if(existsInCache(key)) {
+            Log.e("LOG", "Fetching " + key + " from cache!");
+            Type resultType = new TypeToken<ArrayList<Avatar>>() {}.getType();
+            avatars = (ArrayList<Avatar>) fetchListFromCache(key, resultType);
+            if(avatars == null) {
+                try {
+                    Reservoir.delete(key);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+        } else {
+            Log.e("LOG", "Fetching " + key + " from server!");
+            Call<ArrayList<Avatar>> call = restService.avatars_list();
+            avatars = (ArrayList<Avatar>) executeAndTestResponse(call);
+
+            putListInCache(key, avatars);
+        }
+
         return avatars;
     }
 
@@ -231,8 +349,32 @@ public class RestAPI {
     }
 
     public ArrayList<Attraction> attractions_list() {
-        Call<ArrayList<Attraction>> call = restService.attractions_list();
-        ArrayList<Attraction> attractions = (ArrayList<Attraction>) executeAndTestResponse(call);
+        String key = "attractions";
+        ArrayList<Attraction> attractions;
+
+        if(existsInCache(key)) {
+            Log.e("LOG", "Fetching " + key + " from cache!");
+            Type resultType = new TypeToken<ArrayList<Attraction>>() {}.getType();
+            attractions = (ArrayList<Attraction>) fetchListFromCache(key, resultType);
+            if(attractions == null) {
+                try {
+                    Reservoir.delete(key);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else {
+
+            }
+
+        } else {
+            Log.e("LOG", "Fetching " + key + " from server!");
+            Call<ArrayList<Attraction>> call = restService.attractions_list();
+            attractions = (ArrayList<Attraction>) executeAndTestResponse(call);
+
+            putListInCache(key, attractions);
+        }
+
         return attractions;
     }
 
@@ -264,8 +406,32 @@ public class RestAPI {
     }
 
     public ArrayList<Achievement> achievements_list() {
-        Call<ArrayList<Achievement>> call = restService.achievements_list();
-        ArrayList<Achievement> achievements = (ArrayList<Achievement>) executeAndTestResponse(call);
+        String key = "achievements";
+        ArrayList<Achievement> achievements;
+
+        if(existsInCache(key)) {
+            Log.e("LOG", "Fetching " + key + " from cache!");
+            Type resultType = new TypeToken<ArrayList<Achievement>>() {}.getType();
+            achievements = (ArrayList<Achievement>) fetchListFromCache(key, resultType);
+            if(achievements == null) {
+                try {
+                    Reservoir.delete(key);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else {
+
+            }
+
+        } else {
+            Log.e("LOG", "Fetching " + key + " from server!");
+            Call<ArrayList<Achievement>> call = restService.achievements_list();
+            achievements = (ArrayList<Achievement>) executeAndTestResponse(call);
+
+            putListInCache(key, achievements);
+        }
+
         return achievements;
     }
 
@@ -319,5 +485,43 @@ public class RestAPI {
         }
 
         return null;
+    }
+
+    private boolean existsInCache(String key) {
+        try {
+            return Reservoir.contains(key);
+
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    private Object fetchObjectFromCache(String key, Class<?> objectClass) {
+        try {
+            return Reservoir.get(key, objectClass);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public Object fetchListFromCache(String key, Type resultType) {
+        try {
+            return Reservoir.get(key, resultType);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    private void putListInCache(String key, Object list) {
+        try {
+            Reservoir.put(key, list);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
