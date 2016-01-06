@@ -218,6 +218,9 @@ public class MainActivity extends FragmentActivity {
             case 6:
                 fragment = vrienden;
                 break;
+            case 7:
+                fragment = profile;
+                break;
         }
 
         fragmentManager.beginTransaction()
@@ -230,10 +233,14 @@ public class MainActivity extends FragmentActivity {
         changePage(1);
     }
 
-    /*
     public void backButtonAttractie(View view) {
-        changePage();
-    }*/
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager.setCurrentItem(3);
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .remove(fragment)
+                .commit();
+    }
 
     public void startCubeGame(View view) {
         Intent myIntent = new Intent(MainActivity.this, GameActivity.class);
@@ -249,15 +256,28 @@ public class MainActivity extends FragmentActivity {
         changePage(2);
     }
     public void goToProfile(View v){
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager.setCurrentItem(2);
+
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
                 .remove(fragment)
                 .commit();
-
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
-        setupViewPager(viewPager);
-
     }
+
+    public void goToQuiz(View v){
+        changePage(0);
+    }
+    public void goToGame(View v){
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager.setCurrentItem(1);
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .remove(fragment)
+                .commit();
+    }
+
 
     public void goToHighscore(View view) {
         changePage(3);
