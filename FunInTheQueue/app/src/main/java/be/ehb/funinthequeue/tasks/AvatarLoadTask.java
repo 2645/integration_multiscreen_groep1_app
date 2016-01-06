@@ -1,4 +1,4 @@
-package be.ehb.funinthequeue;
+package be.ehb.funinthequeue.tasks;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -19,7 +19,7 @@ import be.ehb.funinthequeue.rest.RestAPI;
 /**
  * Created by ToonLeemans on 04/01/16.
  */
-public class avatarAPI extends AsyncTask<Void, Void, Void> {
+public class AvatarLoadTask extends AsyncTask<Void, Void, Void> {
 
     RestAPI API;
     ImageView avatarimage;
@@ -28,7 +28,7 @@ public class avatarAPI extends AsyncTask<Void, Void, Void> {
     User user;
     Avatar avatar;
 
-    public avatarAPI(RestAPI API, TextView avatarnaam, ImageView avatarimage) {
+    public AvatarLoadTask(RestAPI API, TextView avatarnaam, ImageView avatarimage) {
         this.API = API;
         this.avatarimage = avatarimage;
         this.avatarnaam = avatarnaam;

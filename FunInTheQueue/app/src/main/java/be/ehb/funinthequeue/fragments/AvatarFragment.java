@@ -9,8 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import be.ehb.funinthequeue.R;
-import be.ehb.funinthequeue.avatarAPI;
-import be.ehb.funinthequeue.profielAPI;
+import be.ehb.funinthequeue.tasks.AvatarLoadTask;
 import be.ehb.funinthequeue.rest.RestAPI;
 
 /**
@@ -20,25 +19,21 @@ public class AvatarFragment extends Fragment {
     RestAPI API;
     TextView avatarnaam;
     ImageView avatar;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-// Inflate the layout for this fragment
-        API = new RestAPI();
         return inflater.inflate(R.layout.fragment_avatars, container, false);
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        setTextAvatars();
+        API = new RestAPI();
 
-    }
-
-    public void setTextAvatars(){
         avatarnaam = (TextView) getView().findViewById(R.id.txtAvatar2);
         avatar = (ImageView) getView().findViewById(R.id.imgAvatar2);
+        new AvatarLoadTask(API, avatarnaam, avatar).execute();
 
-        new avatarAPI(API, avatarnaam, avatar).execute();
+        super.onViewCreated(view, savedInstanceState);
     }
 }
