@@ -21,6 +21,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.anupcowkur.reservoir.Reservoir;
+
 import be.ehb.funinthequeue.fragments.AchievementsFragment;
 import be.ehb.funinthequeue.fragments.AttractieDetailFragment;
 import be.ehb.funinthequeue.fragments.AvatarFragment;
@@ -38,6 +40,7 @@ import be.ehb.funinthequeue.game.catch_a_cube.GameActivity;
 /*import be.ehb.funinthequeue.game.quiz.QuizActivity;*/
 import be.ehb.funinthequeue.model.User;
 import be.ehb.funinthequeue.rest.RestAPI;
+import be.ehb.funinthequeue.tasks.DataLoadTask;
 import be.ehb.funinthequeue.tasks.QrTriggerTask;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -105,9 +108,8 @@ public class MainActivity extends AppCompatActivity {
             //failure
         }
 
-        new DataLoadTask(API, HelperFunctions.loadUserFromPreferences(MainActivity.this)).execute();
-
         API = new RestAPI();
+        new DataLoadTask(API, HelperFunctions.loadUserFromPreferences(MainActivity.this)).execute();
     }
 
     //product qr code mode
