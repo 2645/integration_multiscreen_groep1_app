@@ -20,6 +20,7 @@
         android:id="@+id/avatar_item_name"
         android:textSize="15dp"
         android:layout_marginTop="5dp"
+        android:layout_marginBottom="15dp"
         android:layout_gravity="center"
         android:textColor="#ffffff"
         android:textAlignment="center" />

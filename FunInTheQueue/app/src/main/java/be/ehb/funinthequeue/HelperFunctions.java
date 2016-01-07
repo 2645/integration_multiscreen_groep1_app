@@ -33,6 +33,7 @@ public class HelperFunctions {
         editor.putString("first_name", user.getFname());
         editor.putString("last_name", user.getLname());
         editor.putString("email", user.getMail());
+        editor.putString("img", user.getImg());
 
         editor.commit();
     }
@@ -45,7 +46,8 @@ public class HelperFunctions {
                 sharedPref.getInt("balance", 0),
                 sharedPref.getString("first_name", ""),
                 sharedPref.getString("last_name", ""),
-                sharedPref.getString("email", "")
+                sharedPref.getString("email", ""),
+                sharedPref.getString("img", "")
         );
     }
 

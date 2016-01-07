@@ -5,15 +5,16 @@ package be.ehb.funinthequeue.model;
  */
 public class User {
     private int id, balance, avatarId;
-    private String fname, lname, mail, pw;
+    private String fname, lname, mail, pw, img;
 
-    public User(int id, int avatarId, int balance, String fname, String lname, String mail) {
+    public User(int id, int avatarId, int balance, String fname, String lname, String mail, String img) {
         this.avatarId = avatarId;
         this.balance = balance;
         this.fname = fname;
         this.id = id;
         this.lname = lname;
         this.mail = mail;
+        this.img = img;
     }
 
     public User(String fname, String lname, String mail, String pw) {
@@ -85,6 +86,14 @@ public class User {
 
     public void setPw(String pw) {
         this.pw = pw;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 
     @Override

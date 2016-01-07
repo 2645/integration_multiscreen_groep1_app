@@ -99,17 +99,12 @@ public class MainActivity extends AppCompatActivity {
         avatars = new AvatarFragment();
         vrienden = new VriendenFragment();
 
+
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
 
-        try {
-            Reservoir.init(this, 20000000); //in bytes
-        } catch (Exception e) {
-            //failure
-        }
-
         API = new RestAPI();
-        new DataLoadTask(API, HelperFunctions.loadUserFromPreferences(MainActivity.this)).execute();
+        // new DataLoadTask(API, HelperFunctions.loadUserFromPreferences(MainActivity.this)).execute();
     }
 
     //product qr code mode

@@ -90,7 +90,7 @@ public class RestAPI {
             Call<ArrayList<User>> call = restService.users_list();
             users = (ArrayList<User>) executeAndTestResponse(call);
 
-            putListInCache(key, users);
+            putInCache(key, users);
         }
 
         return users;
@@ -159,7 +159,7 @@ public class RestAPI {
             Call<ArrayList<Game>> call = restService.games_list();
             games = (ArrayList<Game>) executeAndTestResponse(call);
 
-            putListInCache(key, games);
+            putInCache(key, games);
         }
 
         return games;
@@ -203,7 +203,7 @@ public class RestAPI {
             Call<ArrayList<User>> call = restService.friendships_list(queryMap);
             friends = (ArrayList<User>) executeAndTestResponse(call);
 
-            putListInCache(key, friends);
+            putInCache(key, friends);
         }
 
         return friends;
@@ -252,7 +252,7 @@ public class RestAPI {
             Call<ArrayList<Barcode>> call = restService.barcodes_list();
             barcodes = (ArrayList<Barcode>) executeAndTestResponse(call);
 
-            putListInCache(key, barcodes);
+            putInCache(key, barcodes);
         }
 
         return barcodes;
@@ -291,11 +291,32 @@ public class RestAPI {
     }
 
     public Avatar avatars_lookup(int avatarID) {
-        HashMap queryMap = new HashMap();
-        queryMap.put("avatar_id", avatarID);
+        String key = "avatar_" + avatarID;
+        Avatar avatar;
 
-        Call<Avatar> call = restService.avatars_lookup(queryMap);
-        Avatar avatar = (Avatar) executeAndTestResponse(call);
+        if(existsInCache(key)) {
+            Log.e("LOG", "Fetching " + key + " from cache!");
+            avatar = (Avatar) fetchObjectFromCache(key, Avatar.class);
+            if(avatar == null) {
+                try {
+                    Reservoir.delete(key);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+        } else {
+            Log.e("LOG", "Fetching " + key + " from server!");
+
+            HashMap queryMap = new HashMap();
+            queryMap.put("avatar_id", avatarID);
+            Call<Avatar> call = restService.avatars_lookup(queryMap);
+            avatar = (Avatar) executeAndTestResponse(call);
+
+            putInCache(key, avatar);
+        }
+
         return avatar;
     }
 
@@ -321,7 +342,7 @@ public class RestAPI {
             Call<ArrayList<Avatar>> call = restService.avatars_list();
             avatars = (ArrayList<Avatar>) executeAndTestResponse(call);
 
-            putListInCache(key, avatars);
+            putInCache(key, avatars);
         }
 
         return avatars;
@@ -372,7 +393,7 @@ public class RestAPI {
             Call<ArrayList<Attraction>> call = restService.attractions_list();
             attractions = (ArrayList<Attraction>) executeAndTestResponse(call);
 
-            putListInCache(key, attractions);
+            putInCache(key, attractions);
         }
 
         return attractions;
@@ -394,6 +415,22 @@ public class RestAPI {
         Call<Integer> call = restService.attractions_update(attraction);
         int attractionID = (int) executeAndTestResponse(call);
         return attractionID;
+    }
+
+    public Attraction attractions_shortest_queue_time() {
+        ArrayList<Attraction> attractions = attractions_list();
+        Attraction shortest = attractions.get(0);
+        for(Attraction a: attractions){
+            if(a.getQueuetime() < shortest.getQueuetime()){
+                shortest = a;
+            }
+        }
+        return shortest;
+    }
+
+    public Attraction attractions_closest() {
+        ArrayList<Attraction> attractions = attractions_list();
+        return attractions.get(0);
     }
 
     public Achievement achievements_lookup(int achievementID) {
@@ -429,7 +466,7 @@ public class RestAPI {
             Call<ArrayList<Achievement>> call = restService.achievements_list();
             achievements = (ArrayList<Achievement>) executeAndTestResponse(call);
 
-            putListInCache(key, achievements);
+            putInCache(key, achievements);
         }
 
         return achievements;
@@ -487,7 +524,7 @@ public class RestAPI {
         return null;
     }
 
-    private boolean existsInCache(String key) {
+    public boolean existsInCache(String key) {
         try {
             return Reservoir.contains(key);
 
@@ -516,9 +553,12 @@ public class RestAPI {
         }
     }
 
-    private void putListInCache(String key, Object list) {
+    private void putInCache(String key, Object list) {
         try {
-            Reservoir.put(key, list);
+            if(!existsInCache(key)) {
+                Reservoir.delete(key);
+                Reservoir.put(key, list);
+            }
 
         } catch (Exception e) {
             e.printStackTrace();

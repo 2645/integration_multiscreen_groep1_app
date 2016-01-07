@@ -7,9 +7,13 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import be.ehb.funinthequeue.HelperFunctions;
 import be.ehb.funinthequeue.MainActivity;
 import be.ehb.funinthequeue.R;
+import be.ehb.funinthequeue.SplashScreen;
+import be.ehb.funinthequeue.model.Avatar;
 import be.ehb.funinthequeue.model.User;
 import be.ehb.funinthequeue.rest.RestAPI;
 
@@ -22,6 +26,8 @@ public class RegisterTask extends AsyncTask<Void, Void, Void> {
     Activity context;
     RestAPI API;
     User user;
+    ArrayList<Avatar> avatars;
+    Avatar avatar;
 
     public RegisterTask(Context context, RestAPI API, String vnaam, String anaam, String email, String pw) {
         this.context = (Activity) context;
@@ -32,6 +38,16 @@ public class RegisterTask extends AsyncTask<Void, Void, Void> {
     @Override
     protected Void doInBackground(Void... params) {
         user.setId(API.users_create(user));
+
+        if(API.existsInCache("avatars")) {
+            avatars = API.avatars_list();
+            avatar = avatars.get(avatars.indexOf(avatar));
+
+        } else {
+            avatar = API.avatars_lookup(avatar.getId());
+        }
+
+        user.setImg(avatar.getImg());
         return null;
     }
 
@@ -39,7 +55,7 @@ public class RegisterTask extends AsyncTask<Void, Void, Void> {
     protected void onPostExecute(Void aVoid) {
         if(user.getId() != 0) {
             HelperFunctions.storeUserInPreferences(context, user);
-            Intent myIntent = new Intent(context, MainActivity.class);
+            Intent myIntent = new Intent(context, SplashScreen.class);
             context.startActivity(myIntent);
 
         } else {

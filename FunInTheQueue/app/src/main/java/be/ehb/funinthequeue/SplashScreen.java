@@ -1,84 +1,97 @@
 package be.ehb.funinthequeue;
 
+    import android.content.Context;
     import android.media.MediaPlayer;
     import android.media.MediaPlayer.OnCompletionListener;
     import android.net.Uri;
+    import android.os.AsyncTask;
     import android.os.Bundle;
     import android.app.Activity;
     import android.content.Intent;
+    import android.view.View;
+    import android.widget.ImageView;
     import android.widget.VideoView;
 
-    public class SplashScreen extends LoginActivity
-    {
-        VideoView vidHolder;
+    import com.anupcowkur.reservoir.Reservoir;
+
+    import java.util.ArrayList;
+
+    import be.ehb.funinthequeue.model.Attraction;
+    import be.ehb.funinthequeue.model.Avatar;
+    import be.ehb.funinthequeue.model.User;
+    import be.ehb.funinthequeue.rest.RestAPI;
+    import be.ehb.funinthequeue.tasks.DataLoadTask;
+
+public class SplashScreen extends Activity {
+    RestAPI API;
+    VideoView vidHolder;
+    Attraction fastest;
+    Attraction closest;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        API = new RestAPI();
+
+        new SplashDataLoadTask(API, this, HelperFunctions.loadUserFromPreferences(SplashScreen.this)).execute();
+        super.onCreate(savedInstanceState);
+
+    }
+
+    public class SplashDataLoadTask extends AsyncTask<Void, Void, Void> {
+
+        RestAPI API;
+        ArrayList<Avatar> avatars;
+        ArrayList<Attraction> attractions;
+        ArrayList<User> friends;
+        User user;
+        Context context;
+
+        public SplashDataLoadTask(RestAPI API, Context context, User user) {
+            this.API = API;
+            this.user = user;
+            this.context = context;
+        }
+
         @Override
-        public void onCreate(Bundle savedInstanceState)
-        {
-            super.onCreate(savedInstanceState);
-            try
-            {
-                vidHolder = new VideoView(this);
+        protected void onPreExecute() {
+            try {
+                vidHolder = new VideoView(context);
                 setContentView(vidHolder);
                 Uri video = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.splashvideo);
                 vidHolder.setVideoURI(video);
                 vidHolder.setZOrderOnTop(true);
-                vidHolder.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
-                {
+                vidHolder.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                     public void onCompletion(MediaPlayer mp) {
-                        jump();
-                    }});
+                        //jump();
+                    }
+                });
+                vidHolder.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                    @Override
+                    public void onPrepared(MediaPlayer mp) {
+                        mp.setLooping(true);
+                    }
+                });
                 vidHolder.start();
 
-            } catch(Exception ex) {
-                jump();
-            }
-        }
-
-        private void jump()
-        {
-            if(isFinishing())
-                return;
-            startActivity(new Intent(this, LoginActivity.class));
-            finish();
-        }
-    }
-/*
-        RestAPI API = new RestAPI();
-        new DataLoadThread(API).execute();
-    }
-
-    class DataLoadThread extends AsyncTask<Void, Void, Void> {
-        RestAPI API;
-
-        public DataLoadThread(RestAPI API) {
-            this.API = API;
+            } catch(Exception ex) {}
         }
 
         @Override
         protected Void doInBackground(Void... params) {
-            Log.d("API", API.getUserByID(5).toString());
+            synchronized (this) {
+                avatars = API.avatars_list();
+                attractions = API.attractions_list();
+                friends = API.friendships_list(user.getId());
+                fastest = API.attractions_shortest_queue_time();
+                closest = API.attractions_closest();
+            }
             return null;
         }
 
         @Override
         protected void onPostExecute(Void aVoid) {
-            startActivity(new Intent(SplashScreen.this, MainActivity.class));
+            startActivity(new Intent(context, MainActivity.class));
             finish();
         }
-            try {
-                synchronized (syncObject) {
-                    while (!animationDone) {
-                        syncObject.wait();
-                        }
-                    Log.d("API", "OK");
-                     startActivity(new Intent(SplashScreen.this, MainActivity.class));
-                     finish();
-                    }
-
-                } catch(InterruptedException e){
-                    e.printStackTrace();
-                }
-            }
-        }
     }
-*/
+}

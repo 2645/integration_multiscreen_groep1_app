@@ -13,6 +13,10 @@ public class Avatar {
     private String name, img;
     private Bitmap bitmap;
 
+    public Avatar(int id) {
+        this.id = id;
+    }
+
     public Avatar(){
     }
 
