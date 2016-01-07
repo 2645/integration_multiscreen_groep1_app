@@ -1,15 +1,7 @@
 package be.ehb.funinthequeue.fragments;
 
-import android.app.Activity;
-import android.app.ListFragment;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.AsyncTask;
-import android.os.Build;
-import android.preference.PreferenceManager;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,10 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-
 import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.CountDownLatch;
 
 import be.ehb.funinthequeue.MainActivity;
 import be.ehb.funinthequeue.NameViewAdapter;
@@ -70,7 +59,7 @@ public class QueueFragment extends Fragment {
                                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                                     AttractionCache.setSelectedId(position);
                                     if (getActivity() instanceof MainActivity) {
-                                        ((MainActivity) getActivity()).changePage(5);
+                                        ((MainActivity) getActivity()).changePage(1);
                                     }
                                 }
                             });

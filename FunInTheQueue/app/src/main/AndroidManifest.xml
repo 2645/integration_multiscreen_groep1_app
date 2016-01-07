@@ -14,7 +14,8 @@
         android:icon="@mipmap/ic_launcher"
         android:label="Fun In The Queue"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:largeHeap="true">
 
         <activity
             android:name=".SplashScreen"
@@ -33,22 +34,12 @@
             android:multiprocess="true"
             android:screenOrientation="portrait"
             android:noHistory="true">
-            <intent-filter>
-            <action android:name="be.ehb.funinthequeue.MAIN" />
-
-            <category android:name="android.intent.category.DEFAULT" />
-        </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation"
             android:multiprocess="true"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
         </activity>
         <activity android:name=".game.catch_a_cube.GameActivity" />
         <activity android:name=".game.quiz.QuizActivity" />

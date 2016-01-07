@@ -2,19 +2,15 @@ package be.ehb.funinthequeue.fragments;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import be.ehb.funinthequeue.HelperFunctions;
 import be.ehb.funinthequeue.R;
 import be.ehb.funinthequeue.model.User;
-import be.ehb.funinthequeue.profielAPI;
 import be.ehb.funinthequeue.rest.RestAPI;
-import be.ehb.funinthequeue.setTextFromAPI;
 import be.ehb.funinthequeue.tasks.ProfileTask;
 
 /**

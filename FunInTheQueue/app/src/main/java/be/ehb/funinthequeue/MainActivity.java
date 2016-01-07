@@ -5,20 +5,14 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.anupcowkur.reservoir.Reservoir;
@@ -29,9 +23,9 @@ import be.ehb.funinthequeue.fragments.AvatarFragment;
 import be.ehb.funinthequeue.fragments.BackgroundFragment;
 import be.ehb.funinthequeue.fragments.GameFragment;
 import be.ehb.funinthequeue.fragments.GameFragment2;
-import be.ehb.funinthequeue.fragments.ProfielAanpassenFragment;
 import be.ehb.funinthequeue.fragments.HighscoresFragment;
 import be.ehb.funinthequeue.fragments.HomeFragment;
+import be.ehb.funinthequeue.fragments.ProfielAanpassenFragment;
 import be.ehb.funinthequeue.fragments.ProfielFragment;
 import be.ehb.funinthequeue.fragments.QueueFragment;
 import be.ehb.funinthequeue.fragments.SwipeButtonsFragment;
@@ -107,9 +101,14 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             //failure
         }
-
         API = new RestAPI();
         new DataLoadTask(API, HelperFunctions.loadUserFromPreferences(MainActivity.this)).execute();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        onTrimMemory(TRIM_MEMORY_COMPLETE);
     }
 
     //product qr code mode
