@@ -18,18 +18,14 @@ import be.ehb.funinthequeue.model.Avatar;
  */
 
 public class AvatarRecyclerAdapter extends RecyclerView.Adapter<AvatarRecyclerAdapter.AvatarViewHolder> {
-
     private List<Avatar> avatars;
-
     public AvatarRecyclerAdapter(List<Avatar> avatars) {
         this.avatars = avatars;
     }
-
     @Override
     public int getItemCount() {
         return avatars.size();
     }
-
     @Override
     public void onBindViewHolder(AvatarViewHolder avatarViewHolder, int i) {
         Avatar a = avatars.get(i);
@@ -40,9 +36,8 @@ public class AvatarRecyclerAdapter extends RecyclerView.Adapter<AvatarRecyclerAd
     @Override
     public AvatarViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View itemView = LayoutInflater.
-                from(viewGroup.getContext()).
-                inflate(R.layout.item_avatar, viewGroup, false);
-
+        from(viewGroup.getContext()).
+        inflate(R.layout.item_avatar, viewGroup, false);
         return new AvatarViewHolder(itemView);
     }
 
@@ -55,13 +50,10 @@ public class AvatarRecyclerAdapter extends RecyclerView.Adapter<AvatarRecyclerAd
     public static class AvatarViewHolder extends RecyclerView.ViewHolder {
         protected TextView name;
         protected ImageView image;
-
         public AvatarViewHolder(View v) {
             super(v);
             name =  (TextView) v.findViewById(R.id.avatar_item_name);
             image = (ImageView)  v.findViewById(R.id.avatar_item_img);
         }
     }
-
-
 }

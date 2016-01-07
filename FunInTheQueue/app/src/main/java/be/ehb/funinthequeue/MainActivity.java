@@ -20,7 +20,6 @@ import com.anupcowkur.reservoir.Reservoir;
 import be.ehb.funinthequeue.fragments.AchievementsFragment;
 import be.ehb.funinthequeue.fragments.AttractieDetailFragment;
 import be.ehb.funinthequeue.fragments.AvatarFragment;
-import be.ehb.funinthequeue.fragments.BackgroundFragment;
 import be.ehb.funinthequeue.fragments.GameFragment;
 import be.ehb.funinthequeue.fragments.GameFragment2;
 import be.ehb.funinthequeue.fragments.HighscoresFragment;
@@ -28,7 +27,6 @@ import be.ehb.funinthequeue.fragments.HomeFragment;
 import be.ehb.funinthequeue.fragments.ProfielAanpassenFragment;
 import be.ehb.funinthequeue.fragments.ProfielFragment;
 import be.ehb.funinthequeue.fragments.QueueFragment;
-import be.ehb.funinthequeue.fragments.SwipeButtonsFragment;
 import be.ehb.funinthequeue.fragments.VriendenFragment;
 import be.ehb.funinthequeue.game.catch_a_cube.GameActivity;
 import be.ehb.funinthequeue.game.quiz.QuizActivity;
@@ -53,14 +51,10 @@ public class MainActivity extends AppCompatActivity {
     Fragment achievements;
     Fragment avatars;
     Fragment vrienden;
-    Fragment swipe;
-    Fragment backgroundGames;
-
-    ViewPager viewpager;
 
     RestAPI API;
 
-    private ViewPager viewPager;
+    ViewPager viewPager;
 
     static final String ACTION_SCAN = "com.google.zxing.client.android.SCAN";
 
@@ -78,9 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
 
-        backgroundGames = new BackgroundFragment();
         fragment = new HomeFragment();
-        swipe = new SwipeButtonsFragment();
         profile = new ProfielFragment();
         home = new HomeFragment();
         game1 = new GameFragment();
@@ -102,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
             //failure
         }
         API = new RestAPI();
+
         new DataLoadTask(API, HelperFunctions.loadUserFromPreferences(MainActivity.this)).execute();
     }
 
@@ -208,10 +201,6 @@ public class MainActivity extends AppCompatActivity {
                 .replace(R.id.container, fragment)
                 .addToBackStack(null)
                 .commit();
-    }
-
-    public void goToQueueDetail(View view) {
-        changePage(1);
     }
 
     public void goToHome(View view){
