@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.anupcowkur.reservoir.Reservoir;
 
+import be.ehb.funinthequeue.adapters.ViewPagerAdapter;
 import be.ehb.funinthequeue.fragments.AchievementsFragment;
 import be.ehb.funinthequeue.fragments.AttractieDetailFragment;
 import be.ehb.funinthequeue.fragments.AvatarFragment;

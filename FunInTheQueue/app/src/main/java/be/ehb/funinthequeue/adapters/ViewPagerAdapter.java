@@ -1,4 +1,4 @@
-package be.ehb.funinthequeue;
+package be.ehb.funinthequeue.adapters;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
