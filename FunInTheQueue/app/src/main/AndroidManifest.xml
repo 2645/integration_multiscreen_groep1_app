@@ -26,11 +26,14 @@
         <activity android:name=".LoginActivity"
             android:configChanges="orientation"
             android:multiprocess="true"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:noHistory="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
 
         <activity
@@ -40,6 +43,8 @@
             android:screenOrientation="portrait">
         </activity>
         <activity android:name=".game.catch_a_cube.GameActivity" />
+        <activity android:name=".game.quiz.QuizActivity" />
+        <activity android:name=".game.quiz.QuizResultActivity" />
     </application>
 
 </manifest>

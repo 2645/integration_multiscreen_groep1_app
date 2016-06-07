@@ -19,7 +19,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Anubis The Ride"
+            android:text=""
             android:id="@+id/txtAttractieNaam"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
@@ -29,16 +29,18 @@
             android:textStyle="bold"
             android:layout_marginLeft="10dp" />
 
-        <ImageView
+
+        <be.ehb.funinthequeue.ImageClipBig
+            android:layout_marginTop="58dp"
             android:layout_width="160dp"
             android:layout_height="160dp"
             android:id="@+id/imageView16"
-            android:layout_below="@+id/txtAttractieNaam"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
-            android:src="@drawable/attractiefoto"
             android:background="@drawable/attractiedetailfoto"
-            android:padding="10dp" />
+            android:scaleType="centerCrop"
+            android:layout_gravity="center"
+
+            android:layout_below="@+id/imageView19"
+            android:layout_centerHorizontal="true" />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -59,7 +61,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10 min"
+                android:text=""
                 android:id="@+id/textView"
                 android:textColor="#ffffff"
                 android:textSize="21dp" />
@@ -69,7 +71,8 @@
                 android:layout_height="fill_parent"
                 android:id="@+id/imageView18"
                 android:padding="10dp"
-                android:src="@drawable/placemarkerwit" />
+                android:src="@drawable/placemarkerwit"
+                android:layout_alignParentLeft="true"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -84,14 +87,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Betreed het mysterieuze Huis van Anubis, neem plaats, maak je vast en haal nog één keer adem voor je in 2 seconden tijd een snelheid van 90 km/uur en een hoogte van 34 meter bereikt! Net als de bekende TV serie ‘Het Huis Anubis’ is deze coaster één en al mysterie voor elke bezoeker!"
+            android:text=""
             android:id="@+id/textView8"
             android:layout_below="@+id/linearLayout3"
             android:layout_centerHorizontal="true"
             android:textColor="#ffffff"
             android:textSize="15dp"
             android:layout_marginRight="55dp"
-            android:layout_marginLeft="55dp" />
+            android:layout_marginLeft="55dp"
+            android:textAlignment="center" />
 
         <ImageView
             android:layout_width="50dp"

@@ -45,7 +45,7 @@ public class LoginActivity extends FragmentActivity {
         setContentView(R.layout.activity_login);
 
         try {
-            Reservoir.init(this, 20000000); //in bytes
+            Reservoir.init(this, 30000000); //in bytes
         } catch (Exception e) {}
 
         int userid = HelperFunctions.loadUserFromPreferences(LoginActivity.this).getId();

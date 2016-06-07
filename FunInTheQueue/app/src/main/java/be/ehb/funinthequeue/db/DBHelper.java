@@ -68,9 +68,9 @@ public class DBHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(DBContract.QuizEntry.COLUMN_QUESTION, quest.getQuestion());
         values.put(DBContract.QuizEntry.COLUMN_ANSWER, quest.getAnswer());
-        values.put(DBContract.QuizEntry.COLUMN_OPTION1, quest.getOption1());
-        values.put(DBContract.QuizEntry.COLUMN_OPTION2, quest.getOption2());
-        values.put(DBContract.QuizEntry.COLUMN_OPTION3, quest.getOption3());
+        values.put(DBContract.QuizEntry.COLUMN_OPTION1, quest.getOptionA());
+        values.put(DBContract.QuizEntry.COLUMN_OPTION2, quest.getOptionB());
+        values.put(DBContract.QuizEntry.COLUMN_OPTION3, quest.getOptionC());
         dbase.insert(DBContract.QuizEntry.TABLE_NAME, null, values);
     }
 

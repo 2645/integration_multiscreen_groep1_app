@@ -384,15 +384,12 @@ public class RestAPI {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            } else {
-
             }
 
         } else {
             Log.e("LOG", "Fetching " + key + " from server!");
             Call<ArrayList<Attraction>> call = restService.attractions_list();
             attractions = (ArrayList<Attraction>) executeAndTestResponse(call);
-
             putInCache(key, attractions);
         }
 

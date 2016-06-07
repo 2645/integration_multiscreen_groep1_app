@@ -107,6 +107,12 @@ public class MainActivity extends AppCompatActivity {
         // new DataLoadTask(API, HelperFunctions.loadUserFromPreferences(MainActivity.this)).execute();
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        onTrimMemory(TRIM_MEMORY_COMPLETE);
+    }
+
     //product qr code mode
     public void goToQR(View v) {
         try {
